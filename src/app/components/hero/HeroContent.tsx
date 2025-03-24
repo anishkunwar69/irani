@@ -1278,10 +1278,7 @@ function HeroContent() {
                       {selectedBranch.hasGoogleMaps ? (
                         <>
                           <div className="mb-4 flex items-start">
-                            <div className="w-10 h-10 bg-[#C7962D]/10 rounded-full flex items-center justify-center mt-1">
-                              <FaMapMarkerAlt className="w-4 h-4 text-[#C7962D]" />
-                            </div>
-                            <p className="text-white/80 font-quicksand ml-4">
+                            <p className="text-white/80 font-quicksand">
                               Get directions to visit our{" "}
                               {selectedBranch.name.split(" - ")[1]} branch and
                               enjoy our premium tea experience.

@@ -53,10 +53,15 @@ function Footer() {
                 honors our rich heritage while embracing modern comforts.
               </p>
               <div className="flex space-x-3 sm:space-x-4">
-                {[FaInstagram].map((Icon, index) => (
+                {[FaInstagram, FaTiktok].map((Icon, index) => (
                   <a
                     key={index}
-                    href="https://www.instagram.com/iranichiyaa/"
+                    href={index === 0 
+                      ? "https://www.instagram.com/iranichiyaa/" 
+                      : "https://www.tiktok.com/@iranichiya?_t=ZS-8uwYz8LEckh&_r=1"
+                    }
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-all hover:scale-110 duration-300"
                     aria-label={`Social media link ${index + 1}`}
                   >

@@ -1,13 +1,20 @@
 "use client";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
-import L from "leaflet";
-import "leaflet/dist/leaflet.css";
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { FaClock, FaLeaf, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
 import { GiTeapot } from "react-icons/gi";
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import Container from "../components/Container";
+import dynamic from "next/dynamic";
+
+// Dynamically import Leaflet components with no SSR
+const MapComponent = dynamic(
+  () => import("../components/MapComponent"), 
+  { 
+    loading: () => <div className="w-full h-full min-h-[400px] bg-white/5 rounded-lg flex items-center justify-center">Loading map...</div>,
+    ssr: false 
+  }
+);
 
 function JointVentureContent() {
   const heroRef = useRef(null);
@@ -43,16 +50,6 @@ function JointVentureContent() {
       transition: { duration: 0.6 },
     },
   };
-
-  const icon = L.divIcon({
-    className: "custom-marker",
-    html: `<div class="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center shadow-lg transform -translate-x-1/2 -translate-y-1/2">
-             <div class="w-3 h-3 bg-white rounded-full"></div>
-           </div>`,
-    iconSize: [24, 24],
-    iconAnchor: [12, 12],
-    popupAnchor: [0, -12],
-  });
 
   const baddaChiyaLocation = {
     name: "Badda's Chiya",
@@ -522,126 +519,21 @@ function JointVentureContent() {
               </div>
             </motion.div>
 
-            <div className="grid grid-cols-1 min-[1171px]:grid-cols-5 gap-10">
-              <motion.div
-                variants={itemVariants}
-                className="min-[1171px]:col-span-3 order-1 min-[1171px]:order-1 relative h-full min-[1171px]:min-h-[600px]"
-              >
-                <div className="absolute -inset-0.5 bg-gradient-to-br from-[#C7962D] to-[#1B4D2E] rounded-[24px] opacity-20 blur"></div>
-                <div className="relative h-[500px] min-[1171px]:h-full rounded-[24px] overflow-hidden border border-white/10">
-                  <div className="relative z-[10] h-full">
-                    <MapContainer
-                      center={[
-                        baddaChiyaLocation.coordinates.lat,
-                        baddaChiyaLocation.coordinates.lng,
-                      ]}
-                      zoom={16}
-                      style={mapContainerStyle}
-                      scrollWheelZoom={false}
-                      className="h-full w-full rounded-[24px]"
-                    >
-                      <TileLayer
-                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                      />
-                      <Marker
-                        position={[
-                          baddaChiyaLocation.coordinates.lat,
-                          baddaChiyaLocation.coordinates.lng,
-                        ]}
-                        icon={icon}
-                      >
-                        <Popup>
-                          <div className="font-quicksand p-2 sm:p-3">
-                            <p className="font-semibold text-sm sm:text-base">
-                              {baddaChiyaLocation.name}
-                            </p>
-                            <p className="text-gray-600 text-xs sm:text-sm mt-0.5 sm:mt-1">
-                              {baddaChiyaLocation.address}
-                            </p>
-                            <p className="text-gray-600 text-xs sm:text-sm mt-0.5 sm:mt-1">
-                              {baddaChiyaLocation.phone}
-                            </p>
-                          </div>
-                        </Popup>
-                      </Marker>
-                    </MapContainer>
-                  </div>
+            <div className="grid grid-cols-1 min-[1171px]:grid-cols-2 gap-6 sm:gap-8 md:gap-10 lg:gap-12">
+              <div className="relative h-[500px] min-[1171px]:h-full rounded-[24px] overflow-hidden border border-white/10">
+                <div className="relative z-[10] h-full">
+                  <MapComponent
+                    center={[
+                      baddaChiyaLocation.coordinates.lat,
+                      baddaChiyaLocation.coordinates.lng,
+                    ]}
+                    zoom={15}
+                    style={mapContainerStyle}
+                    scrollWheelZoom={false}
+                    className="h-full w-full rounded-[24px]"
+                  />
                 </div>
-              </motion.div>
-
-              <motion.div
-                variants={itemVariants}
-                className="min-[1171px]:col-span-2 order-2 min-[1171px]:order-2 relative group"
-              >
-                <div className="absolute -inset-0.5 bg-gradient-to-br from-[#C7962D] to-[#1B4D2E] rounded-[24px] opacity-20 blur group-hover:opacity-30 transition-opacity"></div>
-                <div className="relative bg-white/5 backdrop-blur-md rounded-[24px] p-8 border border-white/10 h-full">
-                  <div className="space-y-8">
-                    <div className="flex items-start gap-5">
-                      <div className="w-12 h-12 rounded-full bg-[#C7962D]/10 flex items-center justify-center mt-1 flex-shrink-0">
-                        <FaMapMarkerAlt className="text-[#C7962D]" />
-                      </div>
-                      <div>
-                        <h5 className="text-xl font-lora text-white mb-2">
-                          Location
-                        </h5>
-                        <p className="text-white/70 font-quicksand">
-                          Ghattekulo Marga, Kathmandu 44600, Nepal
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-5">
-                      <div className="w-12 h-12 rounded-full bg-[#C7962D]/10 flex items-center justify-center mt-1 flex-shrink-0">
-                        <FaPhoneAlt className="text-[#C7962D] transform rotate-0" />
-                      </div>
-                      <div>
-                        <h5 className="text-xl font-lora text-white mb-2">
-                          Contact
-                        </h5>
-                        <p className="text-white/70 font-quicksand">
-                          Phone: +977-9764582552
-                        </p>
-                        <p className="text-white/70 font-quicksand">
-                          Email: contact@baddaschiya.com
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-5">
-                      <div className="w-12 h-12 rounded-full bg-[#C7962D]/10 flex items-center justify-center mt-1 flex-shrink-0">
-                        <FaClock className="text-[#C7962D]" />
-                      </div>
-                      <div>
-                        <h5 className="text-xl font-lora text-white mb-2">
-                          Hours
-                        </h5>
-                        <p className="text-white/70 font-quicksand">
-                          6:00 AM - 9:00 PM
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="mt-8 pt-8 border-t border-white/10 space-y-4">
-                    <a
-                      href="https://www.google.com/maps/dir//P83J%2BM7P,+Ghattekulo+Marga,+Kathmandu+44600/@27.7041895,85.2482894,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x39eb19000caa4143:0x53d3294b9b74551!2m2!1d85.3307079!2d27.7042088?entry=ttu&g_ep=EgoyMDI1MDMwOC4wIKXMDSoASAFQAw%3D%3D"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 bg-[#C7962D] hover:bg-[#C7962D]/90 text-white py-3 px-6 rounded-xl w-full font-medium transition-colors shadow-lg shadow-[#C7962D]/20"
-                    >
-                      <FaMapMarkerAlt /> Get Directions
-                    </a>
-
-                    <a
-                      href="tel:+977-01-4567890"
-                      className="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/15 text-white py-3 px-6 rounded-xl w-full font-medium transition-colors border border-white/10"
-                    >
-                      <FaPhoneAlt /> Call Now
-                    </a>
-                  </div>
-                </div>
-              </motion.div>
+              </div>
             </div>
           </motion.div>
         </Container>

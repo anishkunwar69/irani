@@ -1,13 +1,22 @@
 "use client";
 import { motion } from "framer-motion";
 import type { LatLngExpression } from "leaflet";
-import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { useCallback, useState } from "react";
+import { useCallback, useState, useEffect } from "react";
 import { FaClock, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
 import { GiTeapot } from "react-icons/gi";
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import dynamic from 'next/dynamic';
 import Container from "../Container";
+
+// Import the client-only map with no SSR
+const ClientOnlyMap = dynamic(() => import('../ClientOnlyMap'), { 
+  ssr: false,
+  loading: () => (
+    <div className="h-full w-full bg-white/5 flex items-center justify-center">
+      <div className="w-10 h-10 border-3 border-[#C7962D]/20 border-t-[#C7962D] rounded-full animate-spin"></div>
+    </div>
+  ) 
+});
 
 const branches = [
   {
@@ -102,32 +111,8 @@ const branches = [
   },
 ];
 
-const icon = L.divIcon({
-  className: "custom-marker",
-  html: `<div class="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 bg-red-600 rounded-full flex items-center justify-center shadow-lg transform -translate-x-1/2 -translate-y-1/2">
-           <div class="w-2 h-2 xs:w-2.5 xs:h-2.5 sm:w-3 sm:h-3 bg-white rounded-full"></div>
-         </div>`,
-  iconSize: [20, 20],
-  iconAnchor: [10, 10],
-  popupAnchor: [0, -10],
-});
-
-`
-.custom-marker {
-  background: none;
-  border: none;
-}
-`;
-
 function FindUsContent() {
   const [selectedBranch, setSelectedBranch] = useState(branches[0]);
-
-  const mapContainerStyle = {
-    width: "100%",
-    height: "100%",
-    minHeight: "100%",
-    borderRadius: "inherit",
-  };
 
   const center: LatLngExpression = [27.6873411, 85.3259783];
 
@@ -175,49 +160,15 @@ function FindUsContent() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="grid grid-cols-1 min-[1171px]:grid-cols-2 gap-4 xs:gap-5 sm:gap-6 md:gap-8 lg:gap-10 items-stretch"
           >
-            <div className="relative h-[250px] xs:h-[300px] sm:h-[400px] md:h-[450px] lg:h-[500px] xl:h-[600px] rounded-lg xs:rounded-xl sm:rounded-2xl overflow-hidden shadow-lg xs:shadow-xl sm:shadow-2xl border border-white/10">
-              <div className="relative z-[10] h-full">
-                <MapContainer
-                  center={center}
-                  zoom={13}
-                  style={mapContainerStyle}
-                  scrollWheelZoom={false}
-                  className="h-full w-full"
-                  zoomControl={false} 
-                >
-                  <div className="leaflet-control-zoom leaflet-bar leaflet-control absolute top-2 right-2 z-[400]">
-                  </div>
-
-                  <TileLayer
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                  />
-                  {branches.map((branch, index) => (
-                    <Marker
-                      key={index}
-                      position={[
-                        branch.coordinates.lat,
-                        branch.coordinates.lng,
-                      ]}
-                      icon={icon}
-                      eventHandlers={{
-                        click: () => onMarkerClick(branch),
-                      }}
-                    >
-                      <Popup>
-                        <div className="font-quicksand p-1 xs:p-1.5 sm:p-2 md:p-3">
-                          <p className="font-semibold text-[10px] xs:text-xs sm:text-sm md:text-base">
-                            {branch.name}
-                          </p>
-                          <p className="text-gray-600 text-[8px] xs:text-[10px] sm:text-xs md:text-sm mt-0.5 sm:mt-1">
-                            {branch.address}
-                          </p>
-                        </div>
-                      </Popup>
-                    </Marker>
-                  ))}
-                </MapContainer>
-              </div>
+            <div 
+              className="relative h-[250px] xs:h-[300px] sm:h-[400px] md:h-[450px] lg:h-[500px] xl:h-[600px] rounded-lg xs:rounded-xl sm:rounded-2xl overflow-hidden shadow-lg xs:shadow-xl sm:shadow-2xl border border-white/10"
+              suppressHydrationWarning
+            >
+              <ClientOnlyMap 
+                branches={branches} 
+                center={center as [number, number]} 
+                onMarkerClick={onMarkerClick} 
+              />
             </div>
 
             <motion.div
@@ -236,17 +187,17 @@ function FindUsContent() {
                   <div className="space-y-2 xs:space-y-2.5 sm:space-y-3 md:space-y-4 text-white/80 font-quicksand">
                     <p className="flex items-start gap-1.5 xs:gap-2 sm:gap-3 md:gap-4 text-xs xs:text-sm sm:text-base md:text-lg">
                       <FaMapMarkerAlt className="text-[#C7962D] text-sm xs:text-base sm:text-lg md:text-xl flex-shrink-0 mt-0.5 xs:mt-1" />
-                      <span className="line-clamp-2">
+                      <span className="line-clamp-2" suppressHydrationWarning>
                         {selectedBranch.address}
                       </span>
                     </p>
                     <p className="flex items-center gap-1.5 xs:gap-2 sm:gap-3 md:gap-4 text-xs xs:text-sm sm:text-base md:text-lg">
                       <FaPhoneAlt className="text-[#C7962D] text-sm xs:text-base sm:text-lg md:text-xl flex-shrink-0" />
-                      {selectedBranch.phone}
+                      <span suppressHydrationWarning>{selectedBranch.phone}</span>
                     </p>
                     <p className="flex items-center gap-1.5 xs:gap-2 sm:gap-3 md:gap-4 text-xs xs:text-sm sm:text-base md:text-lg">
                       <FaClock className="text-[#C7962D] text-sm xs:text-base sm:text-lg md:text-xl flex-shrink-0" />
-                      {selectedBranch.hours}
+                      <span suppressHydrationWarning>{selectedBranch.hours}</span>
                     </p>
                   </div>
                   <a

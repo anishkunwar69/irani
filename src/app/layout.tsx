@@ -33,6 +33,12 @@ const lora = Lora({
   subsets: ["latin"],
 });
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://iranichiya.com"),
   title: {
@@ -58,6 +64,7 @@ export const metadata: Metadata = {
     email: false,
     telephone: false,
     address: false,
+    date: false,
   },
   icons: {
     icon: "/logo.ico",
@@ -88,11 +95,6 @@ export const metadata: Metadata = {
       "Experience authentic Irani tea traditions with a modern twist in the heart of Kathmandu.",
     images: ["/twitter-image.jpg"],
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-  },
   robots: {
     index: true,
     follow: true,
@@ -112,6 +114,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta
+          name="format-detection"
+          content="telephone=no, date=no, email=no, address=no"
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${playfairDisplay.variable} ${quicksand.variable} ${lora.variable} antialiased bg-[#1B4D2E] overflow-x-hidden`}
       >

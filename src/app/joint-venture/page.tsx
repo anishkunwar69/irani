@@ -3,6 +3,13 @@ import Footer from "../components/Footer";
 import NavbarSimple from "../components/NavbarSimple";
 import JointVentureContent from "./JointVentureContent";
 
+// Add viewport export
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export const metadata: Metadata = {
   title: "Badda's Chiya | Authentic Nepali & Irani Tea Joint Venture",
   description:

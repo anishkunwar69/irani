@@ -162,6 +162,7 @@ function HeroContent() {
     null
   );
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [particleStyles, setParticleStyles] = useState<Array<{top: string, left: string}>>([]);
 
   const heroRef = useRef<HTMLDivElement>(null);
   const swiperRef = useRef<any>(null);
@@ -170,6 +171,14 @@ function HeroContent() {
 
   useEffect(() => {
     setIsLoaded(true);
+
+    // Generate random positions for particles only on client side
+    setParticleStyles(
+      particles.map(() => ({
+        top: `${Math.random() * 100}%`,
+        left: `${Math.random() * 100}%`,
+      }))
+    );
 
     const preloadImages = () => {
       const imageUrls = [
@@ -241,9 +250,10 @@ function HeroContent() {
           key={i}
           initial={{ opacity: 0 }}
           animate={{
-            opacity: [0.1, 0.3, 0.1],
-            x: [0, Math.random() * 10 - 5],
-            y: [0, Math.random() * 10 - 5],
+            opacity: isLoaded ? [0.1, 0.3, 0.1] : 0,
+            // Only apply animation transforms after component is mounted
+            x: isLoaded ? [0, Math.random() * 10 - 5] : 0,
+            y: isLoaded ? [0, Math.random() * 10 - 5] : 0,
           }}
           transition={{
             duration: 3 + Math.random() * 4,
@@ -252,10 +262,12 @@ function HeroContent() {
             repeatType: "reverse",
           }}
           className="absolute w-[4px] h-[4px] sm:w-[5px] sm:h-[5px] md:w-[6px] md:h-[6px] rounded-full bg-[#C7962D]/30"
-          style={{
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-          }}
+          style={
+            // Use static position for SSR and initial render, then apply dynamic styles after hydration
+            isLoaded && particleStyles[i] 
+              ? particleStyles[i] 
+              : { top: "0%", left: "0%", opacity: 0 }
+          }
         />
       ))}
 

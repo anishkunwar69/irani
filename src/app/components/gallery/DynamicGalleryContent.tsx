@@ -333,6 +333,7 @@ export default function DynamicGalleryContent({ moments }: DynamicGalleryContent
                       : "scale-105"
                   }`}
                   src={`https://res.cloudinary.com/dmq5tx0bd/video/upload/f_auto:video,q_auto/v1/irani/${moment.cloudinaryId}`}
+                  poster={`https://res.cloudinary.com/dmq5tx0bd/video/upload/so_0,w_600,h_1080,c_fill,q_auto,f_jpg/v1/irani/${moment.cloudinaryId}`}
                   playsInline
                   loop
                   muted={currentIndex !== index || isMuted}

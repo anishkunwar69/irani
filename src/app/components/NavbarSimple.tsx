@@ -27,10 +27,8 @@ function NavbarSimple({ activeItem = 'Home' }: NavbarSimpleProps) {
   };
 
   const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'Our Story', path: '/#our-story' },
-    { name: 'Badda\'s Chiya', path: '/joint-venture' },
-    { name: 'Contact', path: '/#find-us' },
+    { name: 'About Badda\'s Chiya', path: '/joint-venture/#about' },
+    { name: 'Find Badda\'s Chiya', path: '/joint-venture/#visit' },
   ];
 
   return (
@@ -78,10 +76,10 @@ function NavbarSimple({ activeItem = 'Home' }: NavbarSimpleProps) {
             ))}
             
             <Link 
-              href="/#find-us" 
+              href="/" 
               className="ml-3 px-5 py-2 bg-[#C7962D]/10 hover:bg-[#C7962D]/20 text-[#C7962D] border border-[#C7962D]/30 rounded-lg font-medium transition-all duration-300 hover:shadow-glow-sm"
             >
-              Visit Us
+              Back
             </Link>
           </nav>
 

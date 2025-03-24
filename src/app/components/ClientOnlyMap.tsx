@@ -28,23 +28,51 @@ function fixLeafletIconUrls() {
   });
 }
 
+// Define a custom component to ensure marker clicks work on iOS
+function MarkerComponent({ branch, icon, onMarkerClick }: { 
+  branch: Branch, 
+  icon: L.Icon | L.Icon.Default, 
+  onMarkerClick: (branch: Branch) => void 
+}) {
+  return (
+    <Marker
+      position={[branch.coordinates.lat, branch.coordinates.lng]}
+      icon={icon}
+      eventHandlers={{
+        click: () => onMarkerClick(branch),
+        mousedown: () => onMarkerClick(branch), // Add mousedown for iOS
+      }}
+    >
+      <Popup>
+        <div className="font-quicksand p-1 xs:p-1.5 sm:p-2 md:p-3">
+          <p className="font-semibold text-[10px] xs:text-xs sm:text-sm md:text-base">
+            {branch.name}
+          </p>
+          <p className="text-gray-600 text-[8px] xs:text-[10px] sm:text-xs md:text-sm mt-0.5 sm:mt-1">
+            {branch.address}
+          </p>
+        </div>
+      </Popup>
+    </Marker>
+  );
+}
+
 function ClientOnlyMap({ branches, center, onMarkerClick }: ClientOnlyMapProps) {
   const [isMounted, setIsMounted] = useState(false);
-  const [icon, setIcon] = useState<L.DivIcon | null>(null);
+  const [icon, setIcon] = useState<L.Icon | null>(null);
   
   useEffect(() => {
     setIsMounted(true);
     fixLeafletIconUrls();
     
-    // Create custom marker icon
-    const customIcon = L.divIcon({
-      className: "custom-marker",
-      html: `<div class="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 bg-red-600 rounded-full flex items-center justify-center shadow-lg transform -translate-x-1/2 -translate-y-1/2">
-             <div class="w-2 h-2 xs:w-2.5 xs:h-2.5 sm:w-3 sm:h-3 bg-white rounded-full"></div>
-           </div>`,
-      iconSize: [20, 20],
-      iconAnchor: [10, 10],
-      popupAnchor: [0, -10],
+    // Create a custom icon that's balanced but still works on iOS
+    const customIcon = new L.Icon({
+      iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
+      shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+      iconSize: [18, 30],     // smaller size for better appearance
+      iconAnchor: [9, 30],    // point of the icon which will correspond to marker's location
+      popupAnchor: [0, -30],  // point from which the popup should open relative to the iconAnchor
+      shadowSize: [30, 30]
     });
     
     setIcon(customIcon);
@@ -73,25 +101,12 @@ function ClientOnlyMap({ branches, center, onMarkerClick }: ClientOnlyMapProps) 
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
         {branches.map((branch, index) => (
-          <Marker
+          <MarkerComponent
             key={index}
-            position={[branch.coordinates.lat, branch.coordinates.lng]}
+            branch={branch}
             icon={icon || new L.Icon.Default()}
-            eventHandlers={{
-              click: () => onMarkerClick(branch),
-            }}
-          >
-            <Popup>
-              <div className="font-quicksand p-1 xs:p-1.5 sm:p-2 md:p-3">
-                <p className="font-semibold text-[10px] xs:text-xs sm:text-sm md:text-base">
-                  {branch.name}
-                </p>
-                <p className="text-gray-600 text-[8px] xs:text-[10px] sm:text-xs md:text-sm mt-0.5 sm:mt-1">
-                  {branch.address}
-                </p>
-              </div>
-            </Popup>
-          </Marker>
+            onMarkerClick={onMarkerClick}
+          />
         ))}
       </MapContainer>
     </div>

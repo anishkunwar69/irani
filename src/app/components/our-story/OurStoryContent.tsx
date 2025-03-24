@@ -99,20 +99,22 @@ function OurStoryContent() {
                 transition={{ duration: 0.8 }}
                 className="space-y-8 order-2 3xl:order-1"
               >
-                <div className="relative backdrop-blur-xl bg-[#5A7A5C] rounded-2xl p-5 xs:p-6 sm:p-8 border border-white/10">
-                  <div className="absolute -inset-0.5 bg-gradient-to-br from-[#FFD700] to-[#1B4D2E] rounded-2xl opacity-15 group-hover:opacity-20 blur"></div>
-                  <p className="text-base xs:text-base sm:text-base md:text-lg lg:text-xl leading-relaxed text-white/80 font-quicksand">
-                    <span className="text-[#FFD700] font-semibold">
-                      Irani Chiya
-                    </span>{" "}
-                    began its remarkable journey in{" "}
-                    <span className="text-[#FFD700] font-semibold">2022</span>,
-                    driven by an unwavering vision to revolutionize Nepal's tea
-                    culture. Our story is one of passion, innovation, and an
-                    undying commitment to excellence. Each cup we serve is a
-                    testament to our dedication to creating extraordinary tea
-                    experiences that transcend the ordinary.
-                  </p>
+                <div className="relative group">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#FFD700]/20 via-[#1B4D2E]/10 to-transparent rounded-2xl blur-lg"></div>
+                  <div className="relative space-y-1 xs:space-y-2 bg-white/5 backdrop-blur-xl p-5 xs:p-6 sm:p-8 rounded-2xl border border-white/10">
+                    <p className="text-base xs:text-base sm:text-base md:text-lg lg:text-xl leading-relaxed text-white/80 font-quicksand">
+                      <span className="text-[#FFD700] font-semibold">
+                        Irani Chiya
+                      </span>{" "}
+                      began its remarkable journey in{" "}
+                      <span className="text-[#FFD700] font-semibold">2022</span>,
+                      driven by an unwavering vision to revolutionize Nepal's tea
+                      culture. Our story is one of passion, innovation, and an
+                      undying commitment to excellence. Each cup we serve is a
+                      testament to our dedication to creating extraordinary tea
+                      experiences that transcend the ordinary.
+                    </p>
+                  </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-3 xs:gap-4 sm:gap-6">

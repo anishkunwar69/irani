@@ -1,0 +1,9 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://iranichiya.com/sitemap.xml
+
+# Block specific paths if needed in the future
+# Disallow: /private/ 

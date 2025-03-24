@@ -1,7 +1,6 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
-import { BsFullscreen } from "react-icons/bs";
 import {
   FaChevronLeft,
   FaChevronRight,
@@ -29,6 +28,7 @@ export default function DynamicGalleryContent({ moments }: DynamicGalleryContent
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
   const [windowWidth, setWindowWidth] = useState(0);
+  const [isInView, setIsInView] = useState(true);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -146,18 +146,6 @@ export default function DynamicGalleryContent({ moments }: DynamicGalleryContent
     }
   };
 
-  const handleFullscreen = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    const video = videoRefs.current[currentIndex];
-    if (video) {
-      if (document.fullscreenElement) {
-        document.exitFullscreen().catch((err) => console.error(err));
-      } else {
-        video.requestFullscreen().catch((err) => console.error(err));
-      }
-    }
-  };
-
   const handleVideoEnd = () => {
     setIsPlaying(false);
   };
@@ -190,20 +178,57 @@ export default function DynamicGalleryContent({ moments }: DynamicGalleryContent
     return () => clearTimeout(forceLoadTimeout);
   }, [moments.length]);
 
+  // Set up intersection observer to detect when gallery is out of view
+  useEffect(() => {
+    const options = {
+      root: null, // viewport
+      rootMargin: "0px",
+      threshold: 0.1, // 10% visibility is considered "in view"
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      const [entry] = entries;
+      setIsInView(entry.isIntersecting);
+      
+      // Pause videos when gallery section is out of view
+      if (!entry.isIntersecting && isPlaying) {
+        videoRefs.current.forEach((video) => {
+          if (video && !video.paused) {
+            video.pause();
+          }
+        });
+        setIsPlaying(false);
+      }
+    }, options);
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, [isPlaying]);
+
+  // Modify the effect that handles video playback to respect isInView state
   useEffect(() => {
     videoRefs.current.forEach((video, index) => {
       if (video) {
         video.muted = index !== currentIndex || isMuted;
 
-        if (index === currentIndex && isPlaying) {
+        if (index === currentIndex && isPlaying && isInView) {
           video
             .play()
             .catch((err) => console.error("Error playing video:", err));
+        } else if (!isInView || !isPlaying) {
+          video.pause();
         }
       }
     });
-  }, [currentIndex, isPlaying, isMuted]);
-
+  }, [currentIndex, isPlaying, isMuted, isInView]);
+  
   useEffect(() => {
     const currentVideo = videoRefs.current[currentIndex];
     if (currentVideo) {
@@ -420,18 +445,6 @@ export default function DynamicGalleryContent({ moments }: DynamicGalleryContent
                         ) : (
                           <FaVolumeUp className="text-xs sm:text-[8px] md:text-[10px] lg:text-xs xl:text-sm" />
                         )}
-                      </motion.button>
-
-                      <motion.button
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1 }}
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        onClick={handleFullscreen}
-                        className="w-[calc(10%+12px)] h-[calc(10%+12px)] sm:w-[calc(5%+12px)] sm:h-[calc(5%+12px)] md:w-[calc(6%+14px)] md:h-[calc(6%+14px)] lg:w-[calc(7%+14px)] lg:h-[calc(7%+14px)] rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/20 transition-all border border-white/20 p-[calc(1.2%+1px)] sm:p-[calc(1.5%+2px)] md:p-[calc(1.8%+2px)]"
-                        aria-label="Fullscreen"
-                      >
-                        <BsFullscreen className="text-xs sm:text-[8px] md:text-[10px] lg:text-xs xl:text-sm" />
                       </motion.button>
                     </div>
                   )}

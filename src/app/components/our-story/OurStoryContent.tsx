@@ -99,7 +99,7 @@ function OurStoryContent() {
                 transition={{ duration: 0.8 }}
                 className="space-y-8 order-2 3xl:order-1"
               >
-                <div className="relative backdrop-blur-xl bg-white/5 rounded-2xl p-5 xs:p-6 sm:p-8 border border-white/10">
+                <div className="relative backdrop-blur-xl bg-[#5A7A5C] rounded-2xl p-5 xs:p-6 sm:p-8 border border-white/10">
                   <div className="absolute -inset-0.5 bg-gradient-to-br from-[#FFD700] to-[#1B4D2E] rounded-2xl opacity-15 group-hover:opacity-20 blur"></div>
                   <p className="text-base xs:text-base sm:text-base md:text-lg lg:text-xl leading-relaxed text-white/80 font-quicksand">
                     <span className="text-[#FFD700] font-semibold">

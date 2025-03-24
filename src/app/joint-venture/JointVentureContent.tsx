@@ -277,7 +277,7 @@ function JointVentureContent() {
 
               <div className="relative w-full">
                 <div className="absolute -inset-0.5 bg-gradient-to-br from-[#C7962D] to-[#1B4D2E] rounded-[28px] opacity-30 blur-sm"></div>
-                <div className="relative backdrop-blur-sm bg-white/5 rounded-[28px] border border-white/10 p-2 sm:p-3">
+                <div className="relative backdrop-blur-sm bg-[#5A7A5C] rounded-[28px] border border-white/10 p-2 sm:p-3">
                   <div className="relative rounded-2xl overflow-hidden">
                     <div className="aspect-[16/9] sm:aspect-[21/9]">
                       <Image
@@ -309,7 +309,7 @@ function JointVentureContent() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 sm:p-6">
                     <div className="space-y-4 sm:space-y-6">
-                      <div className="bg-[#1B4D2E]/50 backdrop-blur-sm p-5 sm:p-6 rounded-2xl border border-white/10 h-full">
+                      <div className="bg-[#5A7A5C] backdrop-blur-sm p-5 sm:p-6 rounded-2xl border border-white/10 h-full">
                         <div className="flex items-center gap-3 mb-3">
                           <div className="h-10 w-1 bg-gradient-to-b from-[#C7962D] to-transparent rounded-full"></div>
                           <h5 className="text-xl sm:text-2xl font-lora text-white/90">
@@ -330,7 +330,7 @@ function JointVentureContent() {
                     </div>
 
                     <div className="space-y-4 sm:space-y-6">
-                      <div className="bg-[#1B4D2E]/50 backdrop-blur-sm p-5 sm:p-6 rounded-2xl border border-white/10 h-full">
+                      <div className="bg-[#5A7A5C] backdrop-blur-sm p-5 sm:p-6 rounded-2xl border border-white/10 h-full">
                         <div className="flex items-center gap-3 mb-3">
                           <div className="h-10 w-1 bg-gradient-to-b from-[#C7962D] to-transparent rounded-full"></div>
                           <h5 className="text-xl sm:text-2xl font-lora text-white/90">
@@ -547,7 +547,7 @@ function JointVentureContent() {
 
               <motion.div
                 variants={itemVariants}
-                className="bg-white/5 backdrop-blur-md rounded-[24px] border border-white/15 overflow-hidden h-full flex flex-col"
+                className="bg-[#5A7A5C] backdrop-blur-md rounded-[24px] border border-white/15 overflow-hidden h-full flex flex-col"
               >
                 <div className="bg-gradient-to-r from-[#C7962D]/20 to-transparent p-6 sm:p-8 border-b border-white/10">
                   <h4 className="text-2xl sm:text-3xl md:text-4xl font-bold font-lora text-white/90 flex items-center gap-3">
@@ -557,7 +557,7 @@ function JointVentureContent() {
                 </div>
 
                 <div className="p-6 sm:p-8 flex-1 space-y-6 sm:space-y-8">
-                  <div className="bg-[#1B4D2E]/50 backdrop-blur-sm p-5 sm:p-6 rounded-2xl border border-white/10 h-full">
+                  <div className="bg-[#5A7A5C] backdrop-blur-sm p-5 sm:p-6 rounded-2xl border border-white/10 h-full">
                     <div className="flex items-start gap-4">
                       <div className="bg-[#C7962D]/10 p-3 rounded-full mt-0.5">
                         <FaMapMarkerAlt className="text-[#C7962D] text-xl" />
@@ -573,7 +573,7 @@ function JointVentureContent() {
                     </div>
                   </div>
 
-                  <div className="bg-[#1B4D2E]/50 backdrop-blur-sm p-5 sm:p-6 rounded-2xl border border-white/10 h-full">
+                  <div className="bg-[#5A7A5C] backdrop-blur-sm p-5 sm:p-6 rounded-2xl border border-white/10 h-full">
                     <div className="flex items-start gap-4">
                       <div className="bg-[#C7962D]/10 p-3 rounded-full mt-0.5">
                         <FaPhoneAlt className="text-[#C7962D] text-xl" />
@@ -589,7 +589,7 @@ function JointVentureContent() {
                     </div>
                   </div>
 
-                  <div className="bg-[#1B4D2E]/50 backdrop-blur-sm p-5 sm:p-6 rounded-2xl border border-white/10 h-full">
+                  <div className="bg-[#5A7A5C] backdrop-blur-sm p-5 sm:p-6 rounded-2xl border border-white/10 h-full">
                     <div className="flex items-start gap-4">
                       <div className="bg-[#C7962D]/10 p-3 rounded-full mt-0.5">
                         <FaClock className="text-[#C7962D] text-xl" />

@@ -1,20 +1,20 @@
 "use client";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import dynamic from "next/dynamic";
 import Image from "next/image";
-import { useRef, useState, useEffect } from "react";
+import { useRef } from "react";
 import { FaClock, FaLeaf, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
 import { GiTeapot } from "react-icons/gi";
 import Container from "../components/Container";
-import dynamic from "next/dynamic";
 
-// Dynamically import Leaflet components with no SSR
-const MapComponent = dynamic(
-  () => import("../components/MapComponent"), 
-  { 
-    loading: () => <div className="w-full h-full min-h-[400px] bg-white/5 rounded-lg flex items-center justify-center">Loading map...</div>,
-    ssr: false 
-  }
-);
+const MapComponent = dynamic(() => import("../components/MapComponent"), {
+  loading: () => (
+    <div className="w-full h-full min-h-[400px] bg-white/5 rounded-lg flex items-center justify-center">
+      Loading map...
+    </div>
+  ),
+  ssr: false,
+});
 
 function JointVentureContent() {
   const heroRef = useRef(null);
@@ -54,9 +54,9 @@ function JointVentureContent() {
   const baddaChiyaLocation = {
     name: "Badda's Chiya",
     address: "Ghattekulo Marga, Kathmandu 44600, Nepal",
-    phone: "+977-01-4567890",
+    phone: "+977-9764582552",
     hours:
-      "Monday - Friday: 7:00 AM - 9:00 PM\nSaturday - Sunday: 8:00 AM - 10:00 PM",
+     "6:00 AM - 9:00 PM",
     coordinates: { lat: 27.7042088, lng: 85.3307079 },
   };
 
@@ -364,17 +364,20 @@ function JointVentureContent() {
 
             <div className="hidden xxl:flex xxl:flex-row xxl:gap-20 2xl:gap-24 items-center w-full max-w-[1800px] mx-auto">
               <div className="xxl:w-1/2 text-center xxl:text-left xxl:pr-6 2xl:pr-10">
-                <motion.div variants={itemVariants} className="mb-10 xs:mb-12 sm:mb-16">
+                <motion.div
+                  variants={itemVariants}
+                  className="mb-10 xs:mb-12 sm:mb-16"
+                >
                   <div className="relative mx-auto xxl:mx-0 px-4 sm:px-6 xxl:px-0">
                     <div className="absolute top-1/2 left-1/2 xxl:left-0 -translate-x-1/2 xxl:-translate-x-1/4 -translate-y-1/2 w-[min(400px,90vw)] h-[min(400px,90vw)] sm:w-[400px] sm:h-[400px] xxl:w-[450px] xxl:h-[450px] 2xl:w-[500px] 2xl:h-[500px] bg-[#C7962D] rounded-full blur-[120px] sm:blur-[180px] xxl:blur-[200px] opacity-15 sm:opacity-20 xxl:opacity-25"></div>
-                    
+
                     <div className="relative z-10">
                       <h2 className="relative text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl xxl:text-2xl uppercase tracking-[0.2em] xs:tracking-[0.22em] sm:tracking-[0.25em] md:tracking-[0.3em] text-[#C7962D] font-quicksand mb-2 xs:mb-2.5 sm:mb-3 md:mb-4 inline-flex items-center gap-1.5 xs:gap-2 sm:gap-3">
                         <GiTeapot className="text-lg xs:text-xl sm:text-2xl md:text-3xl xxl:text-4xl animate-bounce" />
                         Our Joint Venture
                         <GiTeapot className="text-lg xs:text-xl sm:text-2xl md:text-3xl xxl:text-4xl animate-bounce" />
                       </h2>
-                      
+
                       <div className="relative">
                         <h3 className="relative text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xxl:text-7xl font-bold font-lora text-white/90 leading-tight xs:leading-[1.15] sm:leading-[1.2]">
                           <span className="text-[#C7962D] italic">
@@ -382,11 +385,13 @@ function JointVentureContent() {
                           </span>{" "}
                           - The Perfect{" "}
                           <span className="relative inline-block">
-                            <span className="text-[#C7962D] italic">Fusion</span>
+                            <span className="text-[#C7962D] italic">
+                              Fusion
+                            </span>
                             <span className="absolute -bottom-2 xxl:-bottom-3 left-0 w-full h-[3px] bg-gradient-to-r from-[#C7962D] to-transparent"></span>
                           </span>
                         </h3>
-                        
+
                         <div className="absolute -top-8 -right-4 xxl:-right-12 rotate-12 opacity-30">
                           <FaLeaf className="text-[#C7962D] text-3xl xxl:text-4xl" />
                         </div>
@@ -416,14 +421,16 @@ function JointVentureContent() {
                     dish is prepared with the same attention to detail and
                     quality ingredients that define our brand.
                   </p>
-                  
+
                   <div className="pt-4 xxl:pt-6">
                     <a
                       href="#visit"
                       className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#C7962D] to-[#C7962D]/90 text-white font-medium rounded-full transition-all transform hover:scale-105 hover:shadow-glow-md hover:brightness-110"
                     >
                       <FaMapMarkerAlt className="text-base xxl:text-lg" />
-                      <span className="text-base xxl:text-lg">Visit Badda's Chiya</span>
+                      <span className="text-base xxl:text-lg">
+                        Visit Badda's Chiya
+                      </span>
                     </a>
                   </div>
                 </motion.div>
@@ -435,7 +442,7 @@ function JointVentureContent() {
               >
                 <div className="absolute -right-8 top-12 w-[150px] h-[150px] xxl:w-[200px] xxl:h-[200px] border-4 border-[#C7962D]/10 rounded-full"></div>
                 <div className="absolute -left-12 bottom-24 w-[80px] h-[80px] xxl:w-[120px] xxl:h-[120px] border-2 border-[#C7962D]/15 rounded-full"></div>
-                
+
                 <div className="relative rounded-[32px] overflow-hidden shadow-2xl xxl:-mt-8">
                   <div className="absolute -inset-0.5 bg-gradient-to-br from-[#C7962D] to-[#1B4D2E] rounded-[32px] opacity-40 blur-md"></div>
                   <div className="relative xxl:h-[820px] rounded-[32px] overflow-hidden border border-white/20">
@@ -504,7 +511,10 @@ function JointVentureContent() {
             variants={containerVariants}
             className="relative space-y-12 xs:space-y-16"
           >
-            <motion.div variants={itemVariants} className="text-center mb-10 xs:mb-12 sm:mb-16 relative">
+            <motion.div
+              variants={itemVariants}
+              className="text-center mb-10 xs:mb-12 sm:mb-16 relative"
+            >
               <div className="relative flex flex-col items-center justify-center mx-auto">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[70vw] xs:w-[min(300px,80vw)] xs:h-[min(300px,80vw)] sm:w-[min(350px,70vw)] sm:h-[min(350px,70vw)] md:w-[400px] md:h-[400px] bg-[#C7962D] rounded-full blur-[70px] xs:blur-[90px] sm:blur-[120px] md:blur-[150px] lg:blur-[180px] opacity-[0.08] xs:opacity-[0.1] sm:opacity-[0.15] md:opacity-[0.18] lg:opacity-20"></div>
                 <h2 className="relative text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl uppercase tracking-[0.2em] xs:tracking-[0.22em] sm:tracking-[0.25em] md:tracking-[0.3em] text-[#C7962D] font-quicksand mb-2 xs:mb-2.5 sm:mb-3 md:mb-4 inline-flex items-center gap-1.5 xs:gap-2 sm:gap-3 justify-center">
@@ -534,6 +544,80 @@ function JointVentureContent() {
                   />
                 </div>
               </div>
+
+              <motion.div
+                variants={itemVariants}
+                className="bg-white/5 backdrop-blur-md rounded-[24px] border border-white/15 overflow-hidden h-full flex flex-col"
+              >
+                <div className="bg-gradient-to-r from-[#C7962D]/20 to-transparent p-6 sm:p-8 border-b border-white/10">
+                  <h4 className="text-2xl sm:text-3xl md:text-4xl font-bold font-lora text-white/90 flex items-center gap-3">
+                    <FaMapMarkerAlt className="text-[#C7962D]" />
+                    {baddaChiyaLocation.name}
+                  </h4>
+                </div>
+
+                <div className="p-6 sm:p-8 flex-1 space-y-6 sm:space-y-8">
+                  <div className="bg-white/5 rounded-2xl p-5 sm:p-6 border border-white/10">
+                    <div className="flex items-start gap-4">
+                      <div className="bg-[#C7962D]/10 p-3 rounded-full mt-0.5">
+                        <FaMapMarkerAlt className="text-[#C7962D] text-xl" />
+                      </div>
+                      <div>
+                        <h5 className="text-[#e3a92d] font-semibold text-lg sm:text-xl mb-1 font-lora">
+                          Address
+                        </h5>
+                        <p className="text-white/80 font-quicksand text-base sm:text-lg">
+                          {baddaChiyaLocation.address}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-white/5 rounded-2xl p-5 sm:p-6 border border-white/10">
+                    <div className="flex items-start gap-4">
+                      <div className="bg-[#C7962D]/10 p-3 rounded-full mt-0.5">
+                        <FaPhoneAlt className="text-[#C7962D] text-xl" />
+                      </div>
+                      <div>
+                        <h5 className="text-[#e3a92d] font-semibold text-lg sm:text-xl mb-1 font-lora">
+                          Phone
+                        </h5>
+                        <p className="text-white/80 font-quicksand text-base sm:text-lg">
+                          {baddaChiyaLocation.phone}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-white/5 rounded-2xl p-5 sm:p-6 border border-white/10">
+                    <div className="flex items-start gap-4">
+                      <div className="bg-[#C7962D]/10 p-3 rounded-full mt-0.5">
+                        <FaClock className="text-[#C7962D] text-xl" />
+                      </div>
+                      <div>
+                        <h5 className="text-[#e3a92d] font-semibold text-lg sm:text-xl mb-1 font-lora">
+                          Opening Hours
+                        </h5>
+                        <div className="text-white/80 font-quicksand text-base sm:text-lg whitespace-pre-line">
+                          {baddaChiyaLocation.hours}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-auto p-6 sm:p-8 pt-0 sm:pt-0 border-t border-white/10">
+                  <a
+                    href={`https://maps.google.com/?q=${baddaChiyaLocation.coordinates.lat},${baddaChiyaLocation.coordinates.lng}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 w-full py-4 bg-[#C7962D] hover:bg-[#C7962D]/90 text-white font-medium rounded-full transition-all transform hover:scale-105 hover:shadow-glow-sm"
+                  >
+                    <FaMapMarkerAlt />
+                    Get Directions
+                  </a>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
         </Container>

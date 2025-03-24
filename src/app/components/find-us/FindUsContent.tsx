@@ -182,7 +182,7 @@ function FindUsContent() {
             >
               <div className="relative group">
                 <div className="absolute -inset-0.5 bg-gradient-to-br from-[#C7962D] to-[#1B4D2E] rounded-lg xs:rounded-xl sm:rounded-2xl opacity-10 xs:opacity-12 sm:opacity-15 blur-[1px] xs:blur-[2px] sm:blur group-hover:opacity-15 xs:group-hover:opacity-18 sm:group-hover:opacity-20 transition-opacity duration-300"></div>
-                <div className="relative space-y-2 xs:space-y-3 sm:space-y-4 md:space-y-5 bg-white/5 backdrop-blur-xl p-3 xs:p-4 sm:p-5 md:p-6 lg:p-7 rounded-lg xs:rounded-xl sm:rounded-2xl border border-white/10 shadow-lg">
+                <div className="relative space-y-2 xs:space-y-3 sm:space-y-4 md:space-y-5 bg-[#1B4D2E]/40 backdrop-blur-xl p-3 xs:p-4 sm:p-5 md:p-6 lg:p-7 rounded-lg xs:rounded-xl sm:rounded-2xl border border-white/10 shadow-lg">
                   <h4 className="font-lora text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white font-bold">
                     {selectedBranch.name}
                   </h4>
@@ -222,7 +222,7 @@ function FindUsContent() {
                 className="relative group flex-grow"
               >
                 <div className="absolute -inset-0.5 bg-gradient-to-br from-[#C7962D] to-[#1B4D2E] rounded-lg xs:rounded-xl sm:rounded-2xl opacity-10 xs:opacity-12 sm:opacity-15 blur-[1px] xs:blur-[2px] sm:blur group-hover:opacity-15 xs:group-hover:opacity-18 sm:group-hover:opacity-20 transition-opacity duration-300"></div>
-                <div className="relative h-full space-y-2 xs:space-y-3 sm:space-y-4 md:space-y-5 bg-white/5 backdrop-blur-xl p-3 xs:p-4 sm:p-5 md:p-6 lg:p-7 rounded-lg xs:rounded-xl sm:rounded-2xl border border-white/10 shadow-lg">
+                <div className="relative h-full space-y-2 xs:space-y-3 sm:space-y-4 md:space-y-5 bg-[#1B4D2E]/40 backdrop-blur-xl p-3 xs:p-4 sm:p-5 md:p-6 lg:p-7 rounded-lg xs:rounded-xl sm:rounded-2xl border border-white/10 shadow-lg">
                   <h4 className="font-lora text-base xs:text-lg sm:text-xl md:text-2xl lg:text-3xl text-white font-bold flex items-center gap-1 xs:gap-1.5 sm:gap-2 md:gap-3">
                     <GiTeapot className="text-[#C7962D] text-base xs:text-lg sm:text-xl md:text-2xl" />
                     Warm Welcome Awaits You

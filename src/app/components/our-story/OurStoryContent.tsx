@@ -83,7 +83,7 @@ function OurStoryContent() {
                 <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-br from-[#FFD700]/50 to-[#1B4D2E]/50 opacity-20 group-hover:opacity-30 transition-all duration-300"></div>
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
                   <Image
-                    src="/demo.png"
+                    src="https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/irani-hero-imgs/about-us/gxy3jn0gxqgenyy3q9rg"
                     alt="Irani Chiya Tea Experience"
                     fill
                     className="object-cover transition-transform duration-1000 group-hover:scale-110"

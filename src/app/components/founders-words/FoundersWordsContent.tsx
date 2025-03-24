@@ -48,7 +48,7 @@ function FoundersWordsContent() {
               <div className="relative h-full overflow-hidden rounded-lg xs:rounded-xl sm:rounded-xl border border-[#C7962D]/30 xs:border-2 xs:border-[#C7962D]/40">
                 <div className="aspect-[4/5] relative w-full h-full">
                   <Image
-                    src="/founder.jpeg"
+                    src="https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/irani-hero-imgs/founder/rcqkcs1jscimtefb7kev"
                     alt="Founder of Irani Chiya"
                     fill
                     className="object-cover object-center rounded-lg xs:rounded-xl transition-transform duration-700 group-hover:scale-105"

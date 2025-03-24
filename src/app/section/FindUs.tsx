@@ -9,7 +9,7 @@ function FindUs() {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="w-full bg-gradient-to-br from-[#1B4D2E] via-[#2D5A27] to-[#2E372E] relative overflow-hidden"
+      className="w-full bg-gradient-to-br from-[#1B4D2E] via-[#2D5A27] to-[#2E372E] relative overflow-hidden z-10"
       id="find-us"
     >
       <div className="absolute inset-0">

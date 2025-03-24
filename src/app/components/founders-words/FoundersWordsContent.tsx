@@ -63,7 +63,7 @@ function FoundersWordsContent() {
                       <h4 className="text-white font-lora font-bold text-base xs:text-lg sm:text-xl">
                         Saroj Paudel
                       </h4>
-                      <p className="text-[#C7962D] text-[10px] xs:text-xs sm:text-sm font-quicksand tracking-wider">
+                      <p className="text-[#C7962D] text-xs xs:text-sm sm:text-sm font-quicksand tracking-wider">
                         Founder & CEO
                       </p>
                     </div>
@@ -88,14 +88,14 @@ function FoundersWordsContent() {
                   <FaQuoteLeft className="text-[#C7962D] text-xl xs:text-2xl sm:text-3xl md:text-4xl opacity-70 xs:opacity-75 sm:opacity-80" />
 
                   <div className="space-y-3 xs:space-y-3.5 sm:space-y-4 md:space-y-5 lg:space-y-6 pl-1 xs:pl-1.5 sm:pl-2 border-l border-[#C7962D]/20 xs:border-l-2 xs:border-[#C7962D]/30">
-                    <p className="text-white/90 text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl font-lora leading-relaxed italic">
+                    <p className="text-white/90 text-base xs:text-base sm:text-lg md:text-xl lg:text-2xl font-lora leading-relaxed italic">
                       My journey with tea began over two decades ago, eventually
                       shaping a simple vision: to bring the authentic taste of
                       Irani tea to Nepal. Each cup we serve today carries that
                       same commitment to quality, tradition, and excellence.
                     </p>
 
-                    <p className="text-white/80 text-xs xs:text-sm sm:text-base md:text-lg font-quicksand leading-relaxed">
+                    <p className="text-white/80 text-sm xs:text-sm sm:text-base md:text-lg font-quicksand leading-relaxed">
                       When I established Irani Chiya, I wanted to create more than
                       just a tea house. I envisioned a sanctuary where people
                       could pause, connect, and experience the rich heritage of
@@ -104,11 +104,11 @@ function FoundersWordsContent() {
                       success, but the community's embrace of our passion.
                     </p>
 
-                    <p className="text-white/80 text-xs xs:text-sm sm:text-base md:text-lg font-quicksand leading-relaxed">
+                    <p className="text-white/80 text-sm xs:text-sm sm:text-base md:text-lg font-quicksand leading-relaxed">
                       What truly fulfills me is witnessing the community that has formed around our tea houses—students engaging in deep conversations, families creating memories, and individuals finding moments of tranquility. This connection between people, facilitated by something as simple yet profound as a cup of tea, is what drives us forward every day.
                     </p>
 
-                    <p className="text-white/80 text-xs xs:text-sm sm:text-base md:text-lg font-quicksand leading-relaxed">
+                    <p className="text-white/80 text-sm xs:text-sm sm:text-base md:text-lg font-quicksand leading-relaxed">
                       Every day, I'm reminded that what we serve isn't merely
                       tea—it's a carefully crafted experience, a moment of warmth
                       and clarity in a busy world. As we continue to grow, my
@@ -127,7 +127,7 @@ function FoundersWordsContent() {
                       Saroj Paudel
                     </span>
                   </div>
-                  <p className="text-white/70 text-xs xs:text-sm sm:text-base font-quicksand mt-0.5 xs:mt-1">
+                  <p className="text-white/70 text-sm xs:text-sm sm:text-base font-quicksand mt-0.5 xs:mt-1 font-medium">
                     Founder & Visionary
                   </p>
                 </div>

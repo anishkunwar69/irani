@@ -143,7 +143,7 @@ function FindUsContent() {
                 <span className="text-[#C7962D] italic">Irani Chiya</span>
               </h3>
             </div>
-            <p className="relative text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/80 font-quicksand leading-relaxed max-w-3xl mx-auto px-2 xs:px-3 sm:px-4 md:px-6 lg:px-0 mt-4 xs:mt-5 sm:mt-6">
+            <p className="relative text-sm xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/80 font-quicksand leading-relaxed max-w-3xl mx-auto px-2 xs:px-3 sm:px-4 md:px-6 lg:px-0 mt-4 xs:mt-5 sm:mt-6">
               With <span className="text-[#C7962D] font-bold">13 branches</span>{" "}
               across the city, we're never too far away. Currently,{" "}
               <span className="text-[#C7962D] font-bold">11 locations</span> are
@@ -158,17 +158,19 @@ function FindUsContent() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="grid grid-cols-1 min-[1171px]:grid-cols-2 gap-4 xs:gap-5 sm:gap-6 md:gap-8 lg:gap-10 items-stretch"
+            className="grid grid-cols-1 min-[1171px]:grid-cols-2 gap-4 xs:gap-5 sm:gap-6 md:gap-8 lg:gap-10 items-stretch relative z-[1]"
           >
             <div 
               className="relative h-[250px] xs:h-[300px] sm:h-[400px] md:h-[450px] lg:h-[500px] xl:h-[600px] rounded-lg xs:rounded-xl sm:rounded-2xl overflow-hidden shadow-lg xs:shadow-xl sm:shadow-2xl border border-white/10"
               suppressHydrationWarning
             >
-              <ClientOnlyMap 
-                branches={branches} 
-                center={center as [number, number]} 
-                onMarkerClick={onMarkerClick} 
-              />
+              <div className="h-full w-full">
+                <ClientOnlyMap 
+                  branches={branches} 
+                  center={center as [number, number]} 
+                  onMarkerClick={onMarkerClick} 
+                />
+              </div>
             </div>
 
             <motion.div
@@ -185,18 +187,18 @@ function FindUsContent() {
                     {selectedBranch.name}
                   </h4>
                   <div className="space-y-2 xs:space-y-2.5 sm:space-y-3 md:space-y-4 text-white/80 font-quicksand">
-                    <p className="flex items-start gap-1.5 xs:gap-2 sm:gap-3 md:gap-4 text-xs xs:text-sm sm:text-base md:text-lg">
-                      <FaMapMarkerAlt className="text-[#C7962D] text-sm xs:text-base sm:text-lg md:text-xl flex-shrink-0 mt-0.5 xs:mt-1" />
+                    <p className="flex items-start gap-1.5 xs:gap-2 sm:gap-3 md:gap-4 text-sm xs:text-sm sm:text-base md:text-lg">
+                      <FaMapMarkerAlt className="text-[#C7962D] text-base xs:text-base sm:text-lg md:text-xl flex-shrink-0 mt-0.5 xs:mt-1" />
                       <span className="line-clamp-2" suppressHydrationWarning>
                         {selectedBranch.address}
                       </span>
                     </p>
-                    <p className="flex items-center gap-1.5 xs:gap-2 sm:gap-3 md:gap-4 text-xs xs:text-sm sm:text-base md:text-lg">
-                      <FaPhoneAlt className="text-[#C7962D] text-sm xs:text-base sm:text-lg md:text-xl flex-shrink-0" />
+                    <p className="flex items-center gap-1.5 xs:gap-2 sm:gap-3 md:gap-4 text-sm xs:text-sm sm:text-base md:text-lg">
+                      <FaPhoneAlt className="text-[#C7962D] text-base xs:text-base sm:text-lg md:text-xl flex-shrink-0" />
                       <span suppressHydrationWarning>{selectedBranch.phone}</span>
                     </p>
-                    <p className="flex items-center gap-1.5 xs:gap-2 sm:gap-3 md:gap-4 text-xs xs:text-sm sm:text-base md:text-lg">
-                      <FaClock className="text-[#C7962D] text-sm xs:text-base sm:text-lg md:text-xl flex-shrink-0" />
+                    <p className="flex items-center gap-1.5 xs:gap-2 sm:gap-3 md:gap-4 text-sm xs:text-sm sm:text-base md:text-lg">
+                      <FaClock className="text-[#C7962D] text-base xs:text-base sm:text-lg md:text-xl flex-shrink-0" />
                       <span suppressHydrationWarning>{selectedBranch.hours}</span>
                     </p>
                   </div>
@@ -204,7 +206,7 @@ function FindUsContent() {
                     href={selectedBranch.mapUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 xs:gap-1.5 sm:gap-2 mt-2 xs:mt-3 sm:mt-4 md:mt-5 px-3 xs:px-4 sm:px-5 md:px-6 py-1.5 xs:py-2 sm:py-2.5 md:py-3 bg-[#C7962D] text-white text-[10px] xs:text-xs sm:text-sm md:text-base rounded-md xs:rounded-lg hover:bg-[#C7962D]/80 transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-[#C7962D] focus:ring-offset-2 focus:ring-offset-[#1B4D2E]"
+                    className="inline-flex items-center gap-1 xs:gap-1.5 sm:gap-2 mt-2 xs:mt-3 sm:mt-4 md:mt-5 px-3 xs:px-4 sm:px-5 md:px-6 py-1.5 xs:py-2 sm:py-2.5 md:py-3 bg-[#C7962D] text-white text-xs xs:text-xs sm:text-sm md:text-base rounded-md xs:rounded-lg hover:bg-[#C7962D]/80 transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus:ring-2 focus:ring-[#C7962D] focus:ring-offset-2 focus:ring-offset-[#1B4D2E]"
                   >
                     Get Directions
                     <FaMapMarkerAlt className="text-xs xs:text-sm sm:text-base md:text-lg" />
@@ -225,7 +227,7 @@ function FindUsContent() {
                     <GiTeapot className="text-[#C7962D] text-base xs:text-lg sm:text-xl md:text-2xl" />
                     Warm Welcome Awaits You
                   </h4>
-                  <p className="text-white/80 font-quicksand text-[10px] xs:text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed">
+                  <p className="text-white/80 font-quicksand text-sm xs:text-sm sm:text-sm md:text-base lg:text-lg leading-relaxed">
                     Step into our cozy tea house where every cup tells a story.
                     Our friendly staff is ready to serve you our signature Irani
                     Chiya, prepared with love and tradition. Whether you're
@@ -241,7 +243,7 @@ function FindUsContent() {
                     ].map((feature, index) => (
                       <span
                         key={index}
-                        className="px-1.5 xs:px-2 sm:px-3 md:px-4 py-0.5 xs:py-1 sm:py-1.5 md:py-2 bg-white/5 backdrop-blur-sm text-[#C7962D] rounded-full text-[8px] xs:text-[10px] sm:text-xs md:text-sm font-medium border border-[#C7962D]/30 hover:bg-white/10 transition-colors duration-300"
+                        className="px-1.5 xs:px-2 sm:px-3 md:px-4 py-0.5 xs:py-1 sm:py-1.5 md:py-2 bg-white/5 backdrop-blur-sm text-[#C7962D] rounded-full text-xs xs:text-xs sm:text-xs md:text-sm font-medium border border-[#C7962D]/30 hover:bg-white/10 transition-colors duration-300"
                       >
                         {feature}
                       </span>

@@ -299,8 +299,8 @@ function TestimonialsContent() {
                     >
                       <div className="h-full bg-white/[0.03] backdrop-blur-lg rounded-lg xs:rounded-xl sm:rounded-2xl border border-white/10 hover:border-[#C7962D]/30 hover:shadow-[0_0_15px_rgba(199,150,45,0.15)] transition-all duration-500 flex flex-col cursor-pointer">
                         <div className="p-2.5 xs:p-3 sm:p-4 md:p-5 lg:p-6 flex-grow">
-                          <div className="inline-flex items-center gap-1 xs:gap-1.5 px-1 xs:px-1.5 sm:px-2 md:px-2.5 py-0.5 xs:py-0.5 sm:py-1 md:py-1.5 bg-[#1B4D2E] rounded-full text-[9px] xs:text-[10px] sm:text-xs md:text-sm mb-1.5 xs:mb-2 sm:mb-3 md:mb-4">
-                            <FaGoogle className="text-white text-[8px] xs:text-[9px] sm:text-[10px] md:text-xs" />
+                          <div className="inline-flex items-center gap-1 xs:gap-1.5 px-1 xs:px-1.5 sm:px-2 md:px-2.5 py-0.5 xs:py-0.5 sm:py-1 md:py-1.5 bg-[#1B4D2E] rounded-full text-[10px] xs:text-[10px] sm:text-xs md:text-sm mb-1.5 xs:mb-2 sm:mb-3 md:mb-4">
+                            <FaGoogle className="text-white text-[9px] xs:text-[9px] sm:text-[10px] md:text-xs" />
                             <span className="text-white font-medium">
                               Verified Review
                             </span>
@@ -308,7 +308,7 @@ function TestimonialsContent() {
 
                           <div className="space-y-1 xs:space-y-1.5 sm:space-y-2 md:space-y-3 lg:space-y-4">
                             <FaQuoteLeft className="text-[#C7962D] text-xs xs:text-sm sm:text-base md:text-lg opacity-50" />
-                            <p className="text-white/90 font-quicksand text-[11px] xs:text-xs sm:text-sm md:text-base lg:text-lg leading-relaxed line-clamp-3 xs:line-clamp-4 sm:line-clamp-5 lg:line-clamp-6">
+                            <p className="text-white/90 font-quicksand text-sm xs:text-sm sm:text-sm md:text-base lg:text-lg leading-relaxed line-clamp-3 xs:line-clamp-4 sm:line-clamp-5 lg:line-clamp-6">
                               {testimonial.content}
                             </p>
                           </div>
@@ -316,7 +316,7 @@ function TestimonialsContent() {
 
                         <div className="border-t border-white/10 p-2.5 xs:p-3 sm:p-4 md:p-5">
                           <div className="flex items-center gap-1 xs:gap-1.5 sm:gap-2 md:gap-2.5">
-                            <div className="w-5 h-5 xs:w-6 xs:h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 rounded-full overflow-hidden flex-shrink-0">
+                            <div className="w-7 h-7 xs:w-7 xs:h-7 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 rounded-full overflow-hidden flex-shrink-0">
                               <Image
                                 src={testimonial.avatar}
                                 alt={testimonial.name}
@@ -326,7 +326,7 @@ function TestimonialsContent() {
                               />
                             </div>
                             <div>
-                              <h4 className="text-white font-semibold font-lora text-[11px] xs:text-xs sm:text-sm md:text-base lg:text-lg truncate max-w-[110px] xs:max-w-[130px] sm:max-w-[150px] md:max-w-[170px] lg:max-w-[200px]">
+                              <h4 className="text-white font-semibold font-lora text-sm xs:text-sm sm:text-sm md:text-base lg:text-lg truncate max-w-[150px] xs:max-w-[150px] sm:max-w-[150px] md:max-w-[170px] lg:max-w-[200px]">
                                 {testimonial.name}
                               </h4>
                               <div className="-ml-0.5 -mt-0.5">
@@ -343,12 +343,12 @@ function TestimonialsContent() {
             </AnimatePresence>
 
             <div className="mt-6 xs:mt-8 sm:mt-10 md:mt-12 flex justify-center">
-              <div className="flex items-center gap-1 xs:gap-1.5 sm:gap-2 md:gap-3">
+              <div className="flex items-center gap-2 xs:gap-2 sm:gap-2 md:gap-3">
                 <button
                   type="button"
                   onClick={goToPrevPage}
                   disabled={activePage === 0}
-                  className="relative inline-flex items-center justify-center p-1.5 xs:p-2 sm:p-3 md:p-4 rounded-full border focus:outline-none focus:ring-2 focus:ring-[#C7962D]/50 focus:ring-offset-2 focus:ring-offset-[#1B4D2E]"
+                  className="relative inline-flex items-center justify-center p-2 xs:p-2 sm:p-3 md:p-4 rounded-full border focus:outline-none focus:ring-2 focus:ring-[#C7962D]/50 focus:ring-offset-2 focus:ring-offset-[#1B4D2E]"
                   style={{
                     borderColor:
                       activePage === 0
@@ -362,12 +362,12 @@ function TestimonialsContent() {
                 >
                   <span className="sr-only">Previous page</span>
                   <FaChevronLeft
-                    className="h-2.5 w-2.5 xs:h-3 xs:w-3 sm:h-3.5 sm:w-3.5 md:h-4 md:w-4"
+                    className="h-3.5 w-3.5 xs:h-3.5 xs:w-3.5 sm:h-3.5 sm:w-3.5 md:h-4 md:w-4"
                     aria-hidden="true"
                   />
                 </button>
 
-                <div className="flex gap-1 xs:gap-1.5 sm:gap-2 md:gap-3">
+                <div className="flex gap-2 xs:gap-2 sm:gap-2 md:gap-3">
                   {Array.from({ length: pageCount }).map((_, index) => {
                     const showOnMobile =
                       index === 0 ||
@@ -382,7 +382,7 @@ function TestimonialsContent() {
                         return (
                           <span
                             key={`ellipsis-${index}`}
-                            className="flex items-center justify-center text-white/50 px-1"
+                            className="flex items-center justify-center text-white/50 px-1 text-sm"
                           >
                             …
                           </span>
@@ -395,11 +395,11 @@ function TestimonialsContent() {
                       <button
                         key={index}
                         onClick={() => goToPage(index)}
-                        className={`w-6 h-6 xs:w-7 xs:h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 flex items-center justify-center rounded-full focus:outline-none ${
+                        className={`w-8 h-8 xs:w-8 xs:h-8 sm:w-8 sm:h-8 md:w-9 md:h-9 flex items-center justify-center rounded-full focus:outline-none ${
                           activePage === index
-                            ? "border border-[#C7962D] bg-[#C7962D]/10 text-[#C7962D]"
+                            ? "border-2 border-[#C7962D] bg-[#C7962D]/20 text-[#C7962D] font-bold"
                             : "border border-white/20 hover:border-white/30 bg-transparent text-white/50 hover:text-white/70"
-                        } transition-all duration-300 text-[10px] xs:text-xs sm:text-sm md:text-base`}
+                        } transition-all duration-300 text-sm xs:text-sm sm:text-sm md:text-base`}
                         aria-label={`Go to page ${index + 1}`}
                         aria-current={activePage === index ? "page" : undefined}
                       >
@@ -413,7 +413,7 @@ function TestimonialsContent() {
                   type="button"
                   onClick={goToNextPage}
                   disabled={activePage === pageCount - 1}
-                  className="relative inline-flex items-center justify-center p-1.5 xs:p-2 sm:p-3 md:p-4 rounded-full border focus:outline-none focus:ring-2 focus:ring-[#C7962D]/50 focus:ring-offset-2 focus:ring-offset-[#1B4D2E]"
+                  className="relative inline-flex items-center justify-center p-2 xs:p-2 sm:p-3 md:p-4 rounded-full border focus:outline-none focus:ring-2 focus:ring-[#C7962D]/50 focus:ring-offset-2 focus:ring-offset-[#1B4D2E]"
                   style={{
                     borderColor:
                       activePage === pageCount - 1
@@ -430,15 +430,15 @@ function TestimonialsContent() {
                 >
                   <span className="sr-only">Next page</span>
                   <FaChevronRight
-                    className="h-2.5 w-2.5 xs:h-3 xs:w-3 sm:h-3.5 sm:w-3.5 md:h-4 md:w-4"
+                    className="h-3.5 w-3.5 xs:h-3.5 xs:w-3.5 sm:h-3.5 sm:w-3.5 md:h-4 md:w-4"
                     aria-hidden="true"
                   />
                 </button>
               </div>
             </div>
 
-            <div className="mt-2 xs:mt-3 sm:mt-4 text-center">
-              <span className="text-white/60 text-[10px] xs:text-xs sm:text-sm font-quicksand">
+            <div className="mt-3 xs:mt-3 sm:mt-4 text-center">
+              <span className="text-sm xs:text-sm sm:text-sm font-quicksand text-white/70 font-medium">
                 Showing page {activePage + 1} of {pageCount}
               </span>
             </div>

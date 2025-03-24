@@ -101,7 +101,7 @@ function OurStoryContent() {
               >
                 <div className="relative backdrop-blur-xl bg-white/5 rounded-2xl p-5 xs:p-6 sm:p-8 border border-white/10">
                   <div className="absolute -inset-0.5 bg-gradient-to-br from-[#FFD700] to-[#1B4D2E] rounded-2xl opacity-15 group-hover:opacity-20 blur"></div>
-                  <p className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed text-white/80 font-quicksand">
+                  <p className="text-base xs:text-base sm:text-base md:text-lg lg:text-xl leading-relaxed text-white/80 font-quicksand">
                     <span className="text-[#FFD700] font-semibold">
                       Irani Chiya
                     </span>{" "}
@@ -128,13 +128,13 @@ function OurStoryContent() {
                       <div className="absolute inset-0 bg-gradient-to-br from-[#FFD700]/20 via-[#1B4D2E]/10 to-transparent rounded-xl blur-lg"></div>
                       <div className="relative space-y-1 xs:space-y-2 bg-white/5 backdrop-blur-xl p-3 xs:p-4 sm:p-6 rounded-xl border border-white/10">
                         <div className="flex items-center gap-2 xs:gap-3">
-                          <stat.icon className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl text-[#FFD700]" />
+                          <stat.icon className="text-base xs:text-lg sm:text-lg md:text-xl lg:text-2xl text-[#FFD700]" />
                           <p className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl font-lora text-white font-bold">
                             <Number n={stat.number} />
                             {stat.number.includes("+") ? "+" : ""}
                           </p>
                         </div>
-                        <p className="text-white/70 font-quicksand text-[10px] xs:text-xs sm:text-sm md:text-base lg:text-lg">
+                        <p className="text-sm xs:text-sm sm:text-sm md:text-base lg:text-lg text-white/70 font-quicksand font-medium">
                           {stat.text}
                         </p>
                       </div>

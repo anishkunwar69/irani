@@ -46,7 +46,6 @@ export default function DynamicGalleryContent({ moments }: DynamicGalleryContent
     
     adjustCarouselForScreenSize();
 
-    // Set a safety timeout to clear any stuck loading states after 3 seconds
     const loadingSafetyTimeout = setTimeout(() => {
       setIsLoading(Array(moments.length).fill(false));
     }, 3000);
@@ -278,20 +277,20 @@ export default function DynamicGalleryContent({ moments }: DynamicGalleryContent
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={prevSlide}
-        className="absolute left-1 sm:left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 flex items-center justify-center bg-black/30 hover:bg-[#C7962D] rounded-full backdrop-blur-sm transition-all text-white border border-white/20 shadow-lg hover:shadow-[#C7962D]/20 group"
+        className="absolute left-1 sm:left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 flex items-center justify-center bg-black/30 hover:bg-[#C7962D] rounded-full backdrop-blur-sm transition-all text-white border border-white/20 shadow-lg hover:shadow-[#C7962D]/20 group"
         aria-label="Previous video"
       >
-        <FaChevronLeft className="text-sm sm:text-base md:text-lg lg:text-xl transition-transform group-hover:scale-110" />
+        <FaChevronLeft className="text-base sm:text-base md:text-lg lg:text-xl transition-transform group-hover:scale-110" />
       </motion.button>
       
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={nextSlide}
-        className="absolute right-1 sm:right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 flex items-center justify-center bg-black/30 hover:bg-[#C7962D] rounded-full backdrop-blur-sm transition-all text-white border border-white/20 shadow-lg hover:shadow-[#C7962D]/20 group"
+        className="absolute right-1 sm:right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 flex items-center justify-center bg-black/30 hover:bg-[#C7962D] rounded-full backdrop-blur-sm transition-all text-white border border-white/20 shadow-lg hover:shadow-[#C7962D]/20 group"
         aria-label="Next video"
       >
-        <FaChevronRight className="text-sm sm:text-base md:text-lg lg:text-xl transition-transform group-hover:scale-110" />
+        <FaChevronRight className="text-base sm:text-base md:text-lg lg:text-xl transition-transform group-hover:scale-110" />
       </motion.button>
 
       <div className="absolute top-0 left-0 right-0 w-full flex justify-center">
@@ -396,13 +395,13 @@ export default function DynamicGalleryContent({ moments }: DynamicGalleryContent
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                         onClick={togglePlayPause}
-                        className="w-[calc(5%+12px)] h-[calc(5%+12px)] sm:w-[calc(6%+14px)] sm:h-[calc(6%+14px)] md:w-[calc(7%+16px)] md:h-[calc(7%+16px)] lg:w-[calc(8%+16px)] lg:h-[calc(8%+16px)] rounded-full bg-[#C7962D] flex items-center justify-center text-white hover:bg-[#C7962D]/90 transition-all shadow-lg hover:shadow-[#C7962D]/30 p-[calc(1.5%+2px)] sm:p-[calc(1.8%+2px)] md:p-[calc(2%+3px)]"
+                        className="w-[calc(10%+12px)] h-[calc(10%+12px)] sm:w-[calc(5%+12px)] sm:h-[calc(5%+12px)] md:w-[calc(6%+14px)] md:h-[calc(6%+14px)] lg:w-[calc(7%+14px)] lg:h-[calc(7%+14px)] rounded-full bg-[#C7962D] flex items-center justify-center text-white hover:bg-[#C7962D]/90 transition-all shadow-lg hover:shadow-[#C7962D]/30 p-[calc(1.2%+1px)] sm:p-[calc(1.5%+2px)] md:p-[calc(1.8%+2px)]"
                         aria-label={isPlaying ? "Pause" : "Play"}
                       >
                         {isPlaying ? (
-                          <FaPause className="text-[8px] sm:text-[10px] md:text-xs lg:text-sm xl:text-base" />
+                          <FaPause className="text-xs sm:text-[8px] md:text-[10px] lg:text-xs xl:text-sm" />
                         ) : (
-                          <FaPlay className="text-[8px] sm:text-[10px] md:text-xs lg:text-sm xl:text-base ml-0.5" />
+                          <FaPlay className="text-xs sm:text-[8px] md:text-[10px] lg:text-xs xl:text-sm ml-0.5" />
                         )}
                       </motion.button>
 
@@ -412,13 +411,13 @@ export default function DynamicGalleryContent({ moments }: DynamicGalleryContent
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                         onClick={toggleMute}
-                        className="w-[calc(4%+10px)] h-[calc(4%+10px)] sm:w-[calc(5%+12px)] sm:h-[calc(5%+12px)] md:w-[calc(6%+14px)] md:h-[calc(6%+14px)] lg:w-[calc(7%+14px)] lg:h-[calc(7%+14px)] rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/20 transition-all border border-white/20 p-[calc(1.2%+1px)] sm:p-[calc(1.5%+2px)] md:p-[calc(1.8%+2px)]"
+                        className="w-[calc(10%+12px)] h-[calc(10%+12px)] sm:w-[calc(5%+12px)] sm:h-[calc(5%+12px)] md:w-[calc(6%+14px)] md:h-[calc(6%+14px)] lg:w-[calc(7%+14px)] lg:h-[calc(7%+14px)] rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/20 transition-all border border-white/20 p-[calc(1.2%+1px)] sm:p-[calc(1.5%+2px)] md:p-[calc(1.8%+2px)]"
                         aria-label={isMuted ? "Unmute" : "Mute"}
                       >
                         {isMuted ? (
-                          <FaVolumeMute className="text-[6px] sm:text-[8px] md:text-[10px] lg:text-xs xl:text-sm" />
+                          <FaVolumeMute className="text-xs sm:text-[8px] md:text-[10px] lg:text-xs xl:text-sm" />
                         ) : (
-                          <FaVolumeUp className="text-[6px] sm:text-[8px] md:text-[10px] lg:text-xs xl:text-sm" />
+                          <FaVolumeUp className="text-xs sm:text-[8px] md:text-[10px] lg:text-xs xl:text-sm" />
                         )}
                       </motion.button>
 
@@ -428,10 +427,10 @@ export default function DynamicGalleryContent({ moments }: DynamicGalleryContent
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                         onClick={handleFullscreen}
-                        className="w-[calc(4%+10px)] h-[calc(4%+10px)] sm:w-[calc(5%+12px)] sm:h-[calc(5%+12px)] md:w-[calc(6%+14px)] md:h-[calc(6%+14px)] lg:w-[calc(7%+14px)] lg:h-[calc(7%+14px)] rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/20 transition-all border border-white/20 p-[calc(1.2%+1px)] sm:p-[calc(1.5%+2px)] md:p-[calc(1.8%+2px)]"
+                        className="w-[calc(10%+12px)] h-[calc(10%+12px)] sm:w-[calc(5%+12px)] sm:h-[calc(5%+12px)] md:w-[calc(6%+14px)] md:h-[calc(6%+14px)] lg:w-[calc(7%+14px)] lg:h-[calc(7%+14px)] rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/20 transition-all border border-white/20 p-[calc(1.2%+1px)] sm:p-[calc(1.5%+2px)] md:p-[calc(1.8%+2px)]"
                         aria-label="Fullscreen"
                       >
-                        <BsFullscreen className="text-[6px] sm:text-[8px] md:text-[10px] lg:text-xs xl:text-sm" />
+                        <BsFullscreen className="text-xs sm:text-[8px] md:text-[10px] lg:text-xs xl:text-sm" />
                       </motion.button>
                     </div>
                   )}
@@ -442,7 +441,7 @@ export default function DynamicGalleryContent({ moments }: DynamicGalleryContent
         ))}
       </div>
 
-      <div className="absolute bottom-1 sm:bottom-2 md:bottom-3 lg:bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-1.5 sm:gap-2 md:gap-3">
+      <div className="absolute bottom-1 sm:bottom-2 md:bottom-3 lg:bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 sm:gap-2 md:gap-3">
         {moments.map((_, index) => (
           <motion.button
             key={index}
@@ -456,7 +455,7 @@ export default function DynamicGalleryContent({ moments }: DynamicGalleryContent
             aria-label={`Go to video ${index + 1}`}
           >
             <div
-              className={`w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-2.5 md:h-2.5 rounded-full transition-all duration-300 ${
+              className={`w-2.5 h-2.5 sm:w-2 sm:h-2 md:w-2.5 md:h-2.5 rounded-full transition-all duration-300 ${
                 currentIndex === index
                   ? "bg-[#C7962D]"
                   : "bg-white/50 group-hover:bg-white/70"
@@ -464,7 +463,7 @@ export default function DynamicGalleryContent({ moments }: DynamicGalleryContent
             ></div>
 
             {currentIndex === index && (
-              <div className="absolute -inset-1 rounded-full border border-[#C7962D]/50 animate-ping"></div>
+              <div className="absolute -inset-1.5 sm:-inset-1 rounded-full border border-[#C7962D]/50 animate-ping"></div>
             )}
           </motion.button>
         ))}

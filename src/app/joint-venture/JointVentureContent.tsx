@@ -120,7 +120,7 @@ function JointVentureContent() {
             >
               <div className="inline-flex items-center justify-center gap-1.5 xs:gap-2 sm:gap-3 mb-2 xs:mb-2.5 sm:mb-3">
                 <GiTeapot className="text-lg xs:text-xl sm:text-2xl md:text-3xl text-[#C7962D] animate-bounce" />
-                <span className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl uppercase tracking-[0.2em] xs:tracking-[0.22em] sm:tracking-[0.25em] md:tracking-[0.3em] text-[#C7962D] font-quicksand">
+                <span className="text-sm xs:text-sm sm:text-base md:text-lg lg:text-xl uppercase tracking-[0.2em] xs:tracking-[0.22em] sm:tracking-[0.25em] md:tracking-[0.3em] text-[#C7962D] font-quicksand">
                   Joint Venture
                 </span>
                 <GiTeapot className="text-lg xs:text-xl sm:text-2xl md:text-3xl text-[#C7962D] animate-bounce" />
@@ -162,7 +162,7 @@ function JointVentureContent() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/80 font-quicksand mb-6 xs:mb-8 sm:mb-10 max-w-[95%] xs:max-w-[90%] sm:max-w-2xl mx-auto leading-relaxed"
+              className="text-base xs:text-base sm:text-base md:text-lg lg:text-xl text-white/80 font-quicksand mb-6 xs:mb-8 sm:mb-10 max-w-[95%] xs:max-w-[90%] sm:max-w-2xl mx-auto leading-relaxed"
             >
               Where the tradition of Irani tea meets the authentic flavor of
               Nepali khaja, creating a unique culinary journey in the heart of
@@ -177,13 +177,13 @@ function JointVentureContent() {
             >
               <a
                 href="#about"
-                className="px-5 xs:px-6 sm:px-7 md:px-8 py-2 xs:py-2.5 sm:py-3 bg-[#C7962D] hover:bg-[#C7962D]/90 text-white text-xs xs:text-sm sm:text-base font-medium rounded-full transition-all transform hover:scale-105 hover:shadow-glow-sm"
+                className="px-5 xs:px-6 sm:px-7 md:px-8 py-2 xs:py-2.5 sm:py-3 bg-[#C7962D] hover:bg-[#C7962D]/90 text-white text-sm xs:text-sm sm:text-base font-medium rounded-full transition-all transform hover:scale-105 hover:shadow-glow-sm"
               >
                 Our Story
               </a>
               <a
                 href="#visit"
-                className="px-5 xs:px-6 sm:px-7 md:px-8 py-2 xs:py-2.5 sm:py-3 bg-white/5 hover:bg-white/10 backdrop-blur-sm text-white text-xs xs:text-sm sm:text-base font-medium rounded-full transition-all border border-white/20 hover:border-white/30"
+                className="px-5 xs:px-6 sm:px-7 md:px-8 py-2 xs:py-2.5 sm:py-3 bg-white/5 hover:bg-white/10 backdrop-blur-sm text-white text-sm xs:text-sm sm:text-base font-medium rounded-full transition-all border border-white/20 hover:border-white/30"
               >
                 Visit Us
               </a>
@@ -192,7 +192,7 @@ function JointVentureContent() {
         </Container>
 
         <motion.div
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+          className="absolute inset-x-0 bottom-10 mx-auto w-10 h-10 flex items-center justify-center"
           animate={{
             y: [0, 10, 0],
             opacity: [0.5, 1, 0.5],
@@ -290,7 +290,7 @@ function JointVentureContent() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
 
                     <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 md:p-8">
-                      <div className="flex items-center gap-3 mb-3">
+                      <div className="hidden md:flex items-center gap-3 mb-3">
                         <div className="bg-[#C7962D]/20 p-2 rounded-full backdrop-blur-md">
                           <GiTeapot className="text-[#C7962D] text-xl" />
                         </div>
@@ -456,7 +456,7 @@ function JointVentureContent() {
                   </div>
                 </div>
 
-                <motion.div
+                {/* <motion.div
                   initial={{ opacity: 0, x: -30 }}
                   animate={
                     aboutInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }
@@ -478,7 +478,7 @@ function JointVentureContent() {
                     Bringing authentic Irani tea tradition to a wider audience
                     with our special joint venture.
                   </p>
-                </motion.div>
+                </motion.div> */}
               </motion.div>
             </div>
           </motion.div>

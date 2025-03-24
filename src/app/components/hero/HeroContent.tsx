@@ -543,7 +543,7 @@ function HeroContent() {
                 {[
                   { value: "13+", label: "Branches" },
                   { value: "12+", label: "Varieties" },
-                  { value: "5K+", label: "Daily Customers" },
+                  { value: "4.5", label: "Reviews" },
                 ].map((stat, index) => (
                   <motion.div
                     key={index}

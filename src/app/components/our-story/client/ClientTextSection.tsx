@@ -23,17 +23,23 @@ const ClientTextSection = ({ children }: ClientTextSectionProps) => {
         isVisible ? 'opacity-100' : 'opacity-0'
       }`}
     >
-      <div className="space-y-6 sm:space-y-8">
-        <div className="space-y-3 sm:space-y-4">
-          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-lora text-white">
-            <span className="text-[#C7962D]">Authentic</span> Tea, Remarkable Stories
-          </h3>
-          
-          <p className="text-white/80 font-quicksand text-base sm:text-lg leading-relaxed">
-            Discover the essence of traditional tea culture reimagined for today's tea lovers. 
-            Our journey began with a mission to preserve authentic Irani tea craftsmanship while 
-            creating welcoming spaces for connection and community.
-          </p>
+      <div className="space-y-8">
+        <div className="relative group">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#1B4D2E]/10 to-transparent rounded-2xl blur-lg"></div>
+          <div className="relative space-y-1 xs:space-y-2 bg-white/5 backdrop-blur-xl p-5 xs:p-6 sm:p-8 rounded-2xl border border-white/10">
+            <p className="text-base xs:text-base sm:text-base md:text-lg lg:text-xl leading-relaxed text-white/80 font-quicksand">
+              <span className="text-[#FFD700] font-semibold">
+                Irani Chiya
+              </span>{" "}
+              began its remarkable journey in{" "}
+              <span className="text-[#FFD700] font-semibold">2022</span>,
+              driven by an unwavering vision to revolutionize Nepal's tea
+              culture. Our story is one of passion, innovation, and an
+              undying commitment to excellence. Each cup we serve is a
+              testament to our dedication to creating extraordinary tea
+              experiences that transcend the ordinary.
+            </p>
+          </div>
         </div>
         
         {children}

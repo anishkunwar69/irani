@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useCallback, useMemo, memo } from "react";
+import { useRef, useCallback, useMemo, memo, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -62,6 +62,17 @@ const ClientHeroCarousel = ({ images }: ClientHeroCarouselProps) => {
 
   const onSwiperInit = useCallback((swiper: any) => {
     swiperRef.current = swiper;
+  }, []);
+  
+  // This approach prevents image preloading without React warnings
+  useEffect(() => {
+    if (swiperRef.current && swiperRef.current.params) {
+      swiperRef.current.params.preloadImages = false;
+      swiperRef.current.lazy = {
+        loadPrevNext: true,
+        loadPrevNextAmount: 1
+      };
+    }
   }, []);
 
   return (

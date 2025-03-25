@@ -1,6 +1,14 @@
 import HeroContent from "../components/hero/HeroContent";
 import { Suspense } from "react";
 
+// Simple, immediately renderable background
+function HeroBasicBackground() {
+  return (
+    <div className="absolute inset-0 bg-gradient-to-br from-[#1B4D2E] to-[#2D5A27]"></div>
+  );
+}
+
+// Decorative background elements that can load later
 function BackgroundEffects() {
   return (
     <div className="absolute inset-0 bg-gradient-to-br from-[#1B4D2E]/95 via-[#2D5A27] to-[#1B4D2E]/95">
@@ -41,9 +49,9 @@ function Hero() {
       aria-label="Hero section"
     >
       {/* Simple base background for instant rendering */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#1B4D2E] to-[#2D5A27]"></div>
+      <HeroBasicBackground />
       
-      {/* Load decorative elements after main content */}
+      {/* Load decorative elements after main content with 100ms delay */}
       <Suspense fallback={null}>
         <BackgroundEffects />
       </Suspense>

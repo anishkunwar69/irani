@@ -376,6 +376,7 @@ const ClientBranchCarousel = ({ branchLocations }: ClientBranchCarouselProps) =>
             strokeWidth={2}
             stroke="currentColor"
             className="w-4 h-4 sm:w-5 sm:h-5 text-white"
+            aria-hidden="true"
           >
             <path
               strokeLinecap="round"
@@ -393,6 +394,7 @@ const ClientBranchCarousel = ({ branchLocations }: ClientBranchCarouselProps) =>
             strokeWidth={2}
             stroke="currentColor"
             className="w-4 h-4 sm:w-5 sm:h-5 text-white"
+            aria-hidden="true"
           >
             <path
               strokeLinecap="round"
@@ -420,6 +422,9 @@ const ClientBranchCarousel = ({ branchLocations }: ClientBranchCarouselProps) =>
               1024: { slidesPerView: 3, spaceBetween: 24 },
               1280: { slidesPerView: 4, spaceBetween: 24 },
             }}
+            updateOnWindowResize
+            observer
+            observeParents
           >
             {branchLocations.map((branch, index) => (
               <SwiperSlide key={index}>
@@ -437,7 +442,8 @@ const ClientBranchCarousel = ({ branchLocations }: ClientBranchCarouselProps) =>
                       height={300}
                       className="object-cover object-center w-full h-full"
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                      loading={index < 4 ? "eager" : "lazy"}
+                      loading={index < 2 ? "eager" : "lazy"}
+                      fetchPriority={index < 2 ? "high" : "auto"}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
 

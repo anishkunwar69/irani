@@ -5,11 +5,15 @@ import "./globals.css";
 const quicksand = Quicksand({
   variable: "--font-quicksand",
   subsets: ["latin"],
+  display: 'swap',
+  preload: true,
 });
 
 const lora = Lora({
   variable: "--font-lora",
   subsets: ["latin"],
+  display: 'swap',
+  preload: true,
 });
 
 export const viewport = {
@@ -98,6 +102,8 @@ export default function RootLayout({
           name="format-detection"
           content="telephone=no, date=no, email=no, address=no"
         />
+        <link rel="preconnect" href="https://res.cloudinary.com" />
+        <link rel="dns-prefetch" href="https://res.cloudinary.com" />
       </head>
       <body
         className={`${quicksand.variable} ${lora.variable} antialiased bg-[#1B4D2E] overflow-x-hidden`}

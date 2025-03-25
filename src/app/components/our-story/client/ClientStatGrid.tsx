@@ -1,5 +1,5 @@
 "use client";
-import { memo, useEffect, useState } from "react";
+import { memo } from "react";
 import { FaCoffee, FaLeaf, FaMugHot, FaUsers } from "react-icons/fa";
 import ClientNumber from "./ClientNumber";
 
@@ -27,27 +27,12 @@ const StatItem = memo(({ stat, index }: {
   }; 
   index: number 
 }) => {
-  const [mounted, setMounted] = useState(false);
-  
-  // Defer animations slightly based on index
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setMounted(true);
-    }, 100 + index * 50);
-    return () => clearTimeout(timer);
-  }, [index]);
-
   const IconComponent = iconMap[stat.iconName as keyof typeof iconMap];
 
   return (
     <div
       key={index}
       className="group relative"
-      style={{
-        opacity: mounted ? 1 : 0.7,
-        transform: mounted ? 'translateY(0)' : 'translateY(10px)',
-        transition: `opacity 0.4s ease-out ${index * 0.1}s, transform 0.4s ease-out ${index * 0.1}s`
-      }}
     >
       <div className="absolute inset-0 bg-gradient-to-br from-[#1B4D2E]/10 to-transparent rounded-xl blur-lg"></div>
       <div className="relative space-y-1 xs:space-y-2 bg-white/5 backdrop-blur-xl p-3 xs:p-4 sm:p-6 rounded-xl border border-white/10">

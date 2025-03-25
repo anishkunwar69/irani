@@ -1,26 +1,9 @@
 "use client";
-import { ReactNode, memo, useEffect, useState } from "react";
+import { ReactNode, memo } from "react";
 
 function ClientTextSection({ children }: { children: ReactNode }) {
-  const [mounted, setMounted] = useState(false);
-  
-  // Defer animations until after initial render
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setMounted(true);
-    }, 100);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
-    <div 
-      className="space-y-8 order-2 3xl:order-1"
-      style={{ 
-        opacity: mounted ? 1 : 0.9,
-        transform: mounted ? 'translateX(0)' : 'translateX(-20px)',
-        transition: 'opacity 0.5s ease-out, transform 0.8s ease-out'
-      }}
-    >
+    <div className="space-y-8 order-2 3xl:order-1">
       <div className="relative group">
         <div className="absolute inset-0 bg-gradient-to-br from-[#1B4D2E]/10 to-transparent rounded-2xl blur-lg"></div>
         <div className="relative space-y-1 xs:space-y-2 bg-white/5 backdrop-blur-xl p-5 xs:p-6 sm:p-8 rounded-2xl border border-white/10">

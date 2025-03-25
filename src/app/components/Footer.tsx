@@ -4,7 +4,6 @@ import Link from "next/link";
 import {
   FaClock,
   FaEnvelope,
-  FaFacebookF,
   FaHeart,
   FaInstagram,
   FaLeaf,
@@ -56,9 +55,10 @@ function Footer() {
                 {[FaInstagram, FaTiktok].map((Icon, index) => (
                   <a
                     key={index}
-                    href={index === 0 
-                      ? "https://www.instagram.com/iranichiyaa/" 
-                      : "https://www.tiktok.com/@iranichiya?_t=ZS-8uwYz8LEckh&_r=1"
+                    href={
+                      index === 0
+                        ? "https://www.instagram.com/iranichiyaa/"
+                        : "https://www.tiktok.com/@iranichiya?_t=ZS-8uwYz8LEckh&_r=1"
                     }
                     target="_blank"
                     rel="noopener noreferrer"

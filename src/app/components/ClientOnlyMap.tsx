@@ -17,7 +17,6 @@ interface ClientOnlyMapProps {
   onMarkerClick: (branch: Branch) => void;
 }
 
-// Ensure LeafletJS icon images are properly loaded
 function fixLeafletIconUrls() {
   delete (L.Icon.Default.prototype as any)._getIconUrl;
   
@@ -28,7 +27,6 @@ function fixLeafletIconUrls() {
   });
 }
 
-// Define a custom component to ensure marker clicks work on iOS
 function MarkerComponent({ branch, icon, onMarkerClick }: { 
   branch: Branch, 
   icon: L.Icon | L.Icon.Default, 
@@ -40,7 +38,7 @@ function MarkerComponent({ branch, icon, onMarkerClick }: {
       icon={icon}
       eventHandlers={{
         click: () => onMarkerClick(branch),
-        mousedown: () => onMarkerClick(branch), // Add mousedown for iOS
+        mousedown: () => onMarkerClick(branch),
       }}
     >
       <Popup>
@@ -65,13 +63,11 @@ function ClientOnlyMap({ branches, center, onMarkerClick }: ClientOnlyMapProps) 
     setIsMounted(true);
     fixLeafletIconUrls();
     
-    // Create a custom icon that's balanced but still works on iOS
     const customIcon = new L.Icon({
       iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
       shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
-      iconSize: [18, 30],     // smaller size for better appearance
-      iconAnchor: [9, 30],    // point of the icon which will correspond to marker's location
-      popupAnchor: [0, -30],  // point from which the popup should open relative to the iconAnchor
+      iconSize: [18, 30],
+      popupAnchor: [0, -30],
       shadowSize: [30, 30]
     });
     

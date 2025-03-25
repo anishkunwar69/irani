@@ -37,7 +37,6 @@ function NavbarSimple({ activeItem = 'Home' }: NavbarSimpleProps) {
     }`}>
       <Container>
         <div className="flex items-center justify-between py-4">
-          {/* Logo */}
           <Link href="/" className="relative z-10 flex items-center gap-3">
             <Image 
               src="/logo.png" 
@@ -53,7 +52,6 @@ function NavbarSimple({ activeItem = 'Home' }: NavbarSimpleProps) {
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-6 lg:gap-8">
             {navItems.map((item) => (
               <Link 
@@ -83,7 +81,6 @@ function NavbarSimple({ activeItem = 'Home' }: NavbarSimpleProps) {
             </Link>
           </nav>
 
-          {/* Mobile Menu Button */}
           <button 
             onClick={toggleMobileMenu}
             className="lg:hidden text-white focus:outline-none relative z-10"
@@ -98,7 +95,6 @@ function NavbarSimple({ activeItem = 'Home' }: NavbarSimpleProps) {
         </div>
       </Container>
 
-      {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="lg:hidden bg-[#0C1F0E]/95 backdrop-blur-md border-t border-white/10">
           <Container>

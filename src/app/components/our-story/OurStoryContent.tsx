@@ -1,4 +1,3 @@
-import { FaCoffee, FaLeaf, FaMugHot, FaUsers } from "react-icons/fa";
 import Container from "../Container";
 import ClientImageSection from "./client/ClientImageSection";
 import ClientStatGrid from "./client/ClientStatGrid";
@@ -7,10 +6,10 @@ import ClientTextSection from "./client/ClientTextSection";
 
 function OurStoryContent() {
   const stats = [
-    { icon: FaUsers, number: "5000+", text: "Daily Customers" },
-    { icon: FaMugHot, number: "13", text: "Premium Locations" },
-    { icon: FaLeaf, number: "12+", text: "Signature Blends" },
-    { icon: FaCoffee, number: "50000", text: "Monthly Servings" },
+    { iconName: "FaUsers", number: "5000+", text: "Daily Customers" },
+    { iconName: "FaMugHot", number: "13", text: "Premium Locations" },
+    { iconName: "FaLeaf", number: "12+", text: "Signature Blends" },
+    { iconName: "FaCoffee", number: "50000", text: "Monthly Servings" },
   ];
 
   return (

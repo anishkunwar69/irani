@@ -1,6 +1,6 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, memo } from "react";
 import {
   FaChevronLeft,
   FaChevronRight,
@@ -9,18 +9,13 @@ import {
   FaVolumeMute,
   FaVolumeUp,
 } from "react-icons/fa";
-
-interface Moment {
-  title: string;
-  description: string;
-  cloudinaryId: string;
-}
+import { Moment } from "./types";
 
 interface DynamicGalleryContentProps {
   moments: Moment[];
 }
 
-export default function DynamicGalleryContent({ moments }: DynamicGalleryContentProps) {
+function DynamicGalleryContent({ moments }: DynamicGalleryContentProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
@@ -159,9 +154,7 @@ export default function DynamicGalleryContent({ moments }: DynamicGalleryContent
     });
   };
 
-  // Add a new useEffect to force-clear loading states for all videos after component mounts
   useEffect(() => {
-    // Short timeout to give videos a chance to load naturally
     const forceLoadTimeout = setTimeout(() => {
       videoRefs.current.forEach((video, index) => {
         if (video && video.readyState >= 2) {
@@ -169,7 +162,6 @@ export default function DynamicGalleryContent({ moments }: DynamicGalleryContent
         }
       });
       
-      // Additional safety check after a longer delay
       setTimeout(() => {
         setIsLoading(Array(moments.length).fill(false));
       }, 1500);
@@ -178,19 +170,17 @@ export default function DynamicGalleryContent({ moments }: DynamicGalleryContent
     return () => clearTimeout(forceLoadTimeout);
   }, [moments.length]);
 
-  // Set up intersection observer to detect when gallery is out of view
   useEffect(() => {
     const options = {
-      root: null, // viewport
+      root: null, 
       rootMargin: "0px",
-      threshold: 0.1, // 10% visibility is considered "in view"
+      threshold: 0.1, 
     };
 
     const observer = new IntersectionObserver((entries) => {
       const [entry] = entries;
       setIsInView(entry.isIntersecting);
       
-      // Pause videos when gallery section is out of view
       if (!entry.isIntersecting && isPlaying) {
         videoRefs.current.forEach((video) => {
           if (video && !video.paused) {
@@ -212,7 +202,6 @@ export default function DynamicGalleryContent({ moments }: DynamicGalleryContent
     };
   }, [isPlaying]);
 
-  // Modify the effect that handles video playback to respect isInView state
   useEffect(() => {
     videoRefs.current.forEach((video, index) => {
       if (video) {
@@ -365,7 +354,7 @@ export default function DynamicGalleryContent({ moments }: DynamicGalleryContent
                   onEnded={handleVideoEnd}
                   onLoadedData={() => handleVideoLoaded(index)}
                   onCanPlay={() => handleVideoLoaded(index)}
-                  onError={() => handleVideoLoaded(index)} /* Force-clear loading state even on error */
+                  onError={() => handleVideoLoaded(index)}
                   preload="auto"
                 />
 
@@ -485,3 +474,5 @@ export default function DynamicGalleryContent({ moments }: DynamicGalleryContent
     </div>
   );
 } 
+
+export default memo(DynamicGalleryContent);

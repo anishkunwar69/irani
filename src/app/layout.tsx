@@ -7,36 +7,49 @@ import {
   Quicksand,
 } from "next/font/google";
 import "./globals.css";
+import CriticalCSS from "./components/CriticalCSS";
 
+// Load only the most essential fonts with display swap and limited weights
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  display: "swap",
+  preload: true,
+  weight: ["400", "500", "600"],
 });
 
 const playfairDisplay = Playfair_Display({
   variable: "--font-playfair-display",
   subsets: ["latin"],
+  display: "swap",
+  preload: true,
+  weight: ["400", "500", "600"],
+});
+
+// Load non-critical fonts
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+  display: "swap",
 });
 
 const quicksand = Quicksand({
   variable: "--font-quicksand",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const lora = Lora({
   variable: "--font-lora",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
+  themeColor: '#1B4D2E',
 };
 
 export const metadata: Metadata = {
@@ -119,11 +132,28 @@ export default function RootLayout({
           name="format-detection"
           content="telephone=no, date=no, email=no, address=no"
         />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        
+        {/* DNS prefetch for third-party services */}
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        
+        {/* Add preload for critical CSS */}
+        <link rel="preload" href="/globals.css" as="style" />
+        
+        {/* Meta tag for mobile theme color */}
+        <meta name="theme-color" content="#1B4D2E" />
+        
+        {/* Inline critical CSS */}
+        <CriticalCSS />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${playfairDisplay.variable} ${quicksand.variable} ${lora.variable} antialiased bg-[#1B4D2E] overflow-x-hidden`}
       >
-        {children}
+        <div className="page-transition">
+          {children}
+        </div>
       </body>
     </html>
   );

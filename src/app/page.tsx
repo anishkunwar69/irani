@@ -64,5 +64,6 @@ export default function Home() {
       <FindUs />
       <Footer />
     </main>
+    
   );
 }

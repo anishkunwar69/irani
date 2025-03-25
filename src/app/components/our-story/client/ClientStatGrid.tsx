@@ -50,8 +50,7 @@ const ClientStatGrid = ({ stats }: ClientStatGridProps) => {
             style={{
               opacity: isVisible ? 1 : 0,
               transform: isVisible && showStaggered ? 'translateY(0)' : 'translateY(0)',
-              transition: `opacity 0.3s ease${showStaggered ? ', transform 0.4s ease' : ''}`,
-              transitionDelay: animationDelay
+              transition: `opacity 0.3s ease ${animationDelay}${showStaggered ? `, transform 0.4s ease ${animationDelay}` : ''}`
             }}
           >
             {showStaggered && (

@@ -26,7 +26,7 @@ const ClientImageSection = ({ imageUrl, alt }: ClientImageSectionProps) => {
   
   return (
     <div
-      className={`relative order-1 3xl:order-2 transition-opacity duration-300 ${
+      className={`relative group order-1 3xl:order-2 transition-opacity duration-300 ${
         isVisible ? 'opacity-100' : 'opacity-0'
       }`}
     >

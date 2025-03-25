@@ -279,8 +279,6 @@ function DynamicGalleryContent({ moments }: DynamicGalleryContentProps) {
       transform: `translateX(${translateX}%) scale(${scale})`,
       opacity,
       zIndex,
-      transformStyle: "preserve-3d",
-      isolation: "isolate",
     };
   };
 
@@ -316,7 +314,7 @@ function DynamicGalleryContent({ moments }: DynamicGalleryContentProps) {
             key={index}
             style={getSlideStyle(index)}
             transition={{ duration: 0.5 }}
-            className={`absolute w-[55vw] sm:w-[45vw] md:w-[38vw] lg:w-[32vw] xl:w-[28vw] 2xl:w-[25vw] max-w-[500px] aspect-[9/16] cursor-pointer ${
+            className={`absolute w-[55vw] sm:w-[45vw] md:w-[38vw] lg:w-[32vw] xl:w-[28vw] 2xl:w-[25vw] max-w-[500px] aspect-[9/16] cursor-pointer [transform-style:preserve-3d] [isolation:isolate] ${
               currentIndex === index
                 ? "hover:scale-[1.02] transition-transform duration-300"
                 : ""

@@ -1,23 +1,16 @@
 "use client";
+import { m } from "framer-motion";
+import { memo, useMemo } from "react";
 
-import { memo } from "react";
-
-interface ClientNumberProps {
-  value: string;
-  className?: string;
-}
-
-const ClientNumber = ({ value, className = "" }: ClientNumberProps) => {
-  // Extract the numeric part and any suffix
-  const numericPart = value.replace(/[^0-9]/g, "");
-  const suffix = value.replace(/[0-9]/g, "");
+function ClientNumber({ n }: { n: string }) {
+  // Parse number only once and memoize it
+  const targetNumber = useMemo(() => parseInt(n.replace(/\D/g, ""), 10), [n]);
 
   return (
-    <span className={className}>
-      {numericPart}
-      {suffix}
-    </span>
+    <m.span className="inline-block">
+      {targetNumber}
+    </m.span>
   );
-};
+}
 
 export default memo(ClientNumber); 

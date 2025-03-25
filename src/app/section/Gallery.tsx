@@ -3,9 +3,11 @@ import ClientGalleryWrapper from "./ClientGalleryWrapper";
 
 function Gallery() {
   return (
-    <ClientGalleryWrapper>
-      <GalleryContent />
-    </ClientGalleryWrapper>
+    <section id="gallery" className="relative" style={{ zIndex: 1 }}>
+      <ClientGalleryWrapper>
+        <GalleryContent />
+      </ClientGalleryWrapper>
+    </section>
   );
 }
 

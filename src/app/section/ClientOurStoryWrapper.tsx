@@ -2,6 +2,7 @@
 
 import { ReactNode } from "react";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 
 interface ClientOurStoryWrapperProps {
   children: ReactNode;
@@ -37,7 +38,17 @@ function ClientOurStoryWrapper({ children }: ClientOurStoryWrapperProps) {
       id="our-story"
     >
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 bg-[url('/pattern-light.png')] bg-repeat opacity-[0.03] xs:opacity-[0.04] sm:opacity-5"></div>
+        <div className="absolute inset-0 opacity-[0.03] xs:opacity-[0.04] sm:opacity-5">
+          <Image
+            src="/pattern-light.png"
+            alt="Background pattern"
+            fill
+            sizes="100vw"
+            quality={30}
+            loading="lazy"
+            className="object-repeat"
+          />
+        </div>
 
         <div className="absolute -top-[10%] -right-[10%] w-[60vw] h-[60vw] xs:w-[500px] xs:h-[500px] sm:w-[600px] sm:h-[600px] md:w-[800px] md:h-[800px] bg-[#C7962D] rounded-full blur-[100px] xs:blur-[120px] sm:blur-[150px] md:blur-[180px] lg:blur-[200px] opacity-5 xs:opacity-8 sm:opacity-10 animate-pulse-slow will-change-transform"></div>
         <div className="absolute -bottom-[10%] -left-[10%] w-[50vw] h-[50vw] xs:w-[400px] xs:h-[400px] sm:w-[500px] sm:h-[500px] md:w-[600px] md:h-[600px] bg-[#1B4D2E] rounded-full blur-[80px] xs:blur-[100px] sm:blur-[120px] md:blur-[150px] lg:blur-[180px] opacity-8 xs:opacity-10 sm:opacity-15 animate-pulse-slow will-change-transform"></div>

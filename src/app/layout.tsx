@@ -7,36 +7,43 @@ import {
   Quicksand,
 } from "next/font/google";
 import "./globals.css";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const playfairDisplay = Playfair_Display({
   variable: "--font-playfair-display",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const quicksand = Quicksand({
   variable: "--font-quicksand",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const lora = Lora({
   variable: "--font-lora",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5,
+  themeColor: '#1B4D2E',
 };
 
 export const metadata: Metadata = {
@@ -105,6 +112,11 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  other: {
+    "apple-mobile-web-app-capable": "yes",
+    "apple-mobile-web-app-status-bar-style": "black-translucent",
+    "theme-color": "#1B4D2E",
+  },
 };
 
 export default function RootLayout({
@@ -118,6 +130,38 @@ export default function RootLayout({
         <meta
           name="format-detection"
           content="telephone=no, date=no, email=no, address=no"
+        />
+        {/* DNS Prefetch for external resources */}
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        
+        {/* Add structured data for rich results */}
+        <Script
+          id="structured-data"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Restaurant",
+              "name": "Irani Chiya",
+              "image": "https://iranichiya.com/logo.png",
+              "priceRange": "$$",
+              "servesCuisine": "Tea, Snacks",
+              "description": "Experience authentic Irani tea traditions with a modern twist in Kathmandu.",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Tinkune",
+                "addressLocality": "Kathmandu",
+                "addressRegion": "Bagmati",
+                "postalCode": "44600",
+                "addressCountry": "NP"
+              },
+              "telephone": "+977-9763596372",
+              "openingHours": "Mo-Su 06:00-21:00"
+            })
+          }}
         />
       </head>
       <body

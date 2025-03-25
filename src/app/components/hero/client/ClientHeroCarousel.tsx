@@ -1,8 +1,7 @@
 "use client";
 
-import { useRef, useCallback, useMemo, memo, useEffect } from "react";
+import { useRef, useCallback, useMemo, memo, useEffect, useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade, Pagination } from "swiper/modules";
 
@@ -19,6 +18,7 @@ type ClientHeroCarouselProps = {
   images: HeroImage[];
 };
 
+// Optimized for first image loading with highest priority
 const CarouselSlide = memo(({ img, index }: { img: HeroImage; index: number }) => (
   <div className="relative w-full h-full">
     <Image
@@ -28,7 +28,7 @@ const CarouselSlide = memo(({ img, index }: { img: HeroImage; index: number }) =
       height={1080}
       className="object-cover object-center w-full h-full will-change-transform"
       sizes="(max-width: 768px) 100vw, (max-width: 1280px) 70vw, 50vw"
-      priority={index === 0}
+      priority={index === 0} 
       loading={index === 0 ? "eager" : "lazy"}
       fetchPriority={index === 0 ? "high" : "auto"}
     />
@@ -40,6 +40,15 @@ CarouselSlide.displayName = "CarouselSlide";
 
 const ClientHeroCarousel = ({ images }: ClientHeroCarouselProps) => {
   const swiperRef = useRef<any>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  // Fade in after small delay to prioritize content rendering
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
 
   const swiperConfig = useMemo(() => ({
     modules: [Autoplay, EffectFade, Pagination],
@@ -64,7 +73,7 @@ const ClientHeroCarousel = ({ images }: ClientHeroCarouselProps) => {
     swiperRef.current = swiper;
   }, []);
   
-  // This approach prevents image preloading without React warnings
+  // Apply optimization directly to the Swiper instance to avoid React warnings
   useEffect(() => {
     if (swiperRef.current && swiperRef.current.params) {
       swiperRef.current.params.preloadImages = false;
@@ -76,11 +85,13 @@ const ClientHeroCarousel = ({ images }: ClientHeroCarouselProps) => {
   }, []);
 
   return (
-    <motion.div
-      initial={{ opacity: 0.8, scale: 0.98 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.5, delay: 0.1 }}
-      className="relative h-[340px] sm:h-[420px] md:h-[480px] lg:h-[600px] xl:h-[700px] hero-2lg:h-[665px] rounded-2xl overflow-hidden shadow-2xl will-change-transform"
+    <div
+      className="hero-container relative h-[340px] sm:h-[420px] md:h-[480px] lg:h-[600px] xl:h-[700px] hero-2lg:h-[665px] rounded-2xl overflow-hidden shadow-2xl will-change-transform"
+      style={{
+        opacity: isLoaded ? 1 : 0.8,
+        transform: isLoaded ? 'scale(1)' : 'scale(0.98)',
+        transition: 'opacity 0.5s, transform 0.5s'
+      }}
     >
       <div className="absolute -inset-0.5 bg-gradient-to-br from-[#C7962D] to-[#1B4D2E] rounded-2xl opacity-30 blur"></div>
       <div className="absolute inset-0 border border-white/10 rounded-2xl z-10 pointer-events-none"></div>
@@ -111,7 +122,7 @@ const ClientHeroCarousel = ({ images }: ClientHeroCarouselProps) => {
           strokeWidth="2"
         />
       </svg>
-    </motion.div>
+    </div>
   );
 };
 

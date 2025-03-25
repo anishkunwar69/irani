@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { HiChevronRight } from "react-icons/hi";
 import { Suspense, lazy } from "react";
+import Head from "next/head";
 
 import Container from "../Container";
 import ClientHeader from "./client/ClientHeader";
@@ -193,7 +194,9 @@ function HeroMainContent() {
   return (
     <div className="grid grid-cols-1 xl:grid-cols-12 gap-y-8 xl:gap-x-12 pt-28 sm:pt-32 md:pt-36 xl:pt-40 pb-4 xl:pb-8">
       <div className="col-span-1 xl:col-span-5 flex flex-col justify-center">
+        {/* Prioritize rendering the core text content first for better LCP */}
         <div className="relative z-10 lg:max-w-none">
+          {/* Secondary content elements moved back to top position */}
           <div className="mb-4 sm:mb-6 lg:mb-8">
             <div className="flex items-center">
               <div className="h-px w-10 sm:w-14 md:w-16 lg:w-20 bg-gradient-to-r from-[#C7962D] to-[#C7962D]/20"></div>
@@ -206,16 +209,15 @@ function HeroMainContent() {
             </div>
           </div>
 
-          <h1 className="font-lora text-4xl sm:text-5xl md:text-6xl lg:text-[65px] lg:leading-[1.05] xl:text-[55px] xl:leading-[1] hero-2lg:text-6xl font-bold mb-5 sm:mb-7 md:mb-6 lg:mb-8 leading-tight text-white drop-shadow-sm md:drop-shadow-md">
+          {/* Critical heading content - highest LCP priority */}
+          <h1 className="hero-heading font-lora text-4xl sm:text-5xl md:text-6xl lg:text-[65px] lg:leading-[1.05] xl:text-[55px] xl:leading-[1] hero-2lg:text-6xl font-bold mb-5 sm:mb-7 md:mb-6 lg:mb-8 leading-tight text-white drop-shadow-sm md:drop-shadow-md">
             <span className="block mb-2 sm:mb-3 md:mb-4">
               Where Every Cup
             </span>
             <span>
               Tells a{" "}
-              <span className="inline-block relative">
-                <span className="bg-gradient-to-r from-[#C7962D] via-[#DFB668] to-[#C7962D] bg-clip-text text-transparent md:drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)]">
-                  Story
-                </span>
+              <span className="hero-accent inline-block relative bg-gradient-to-r from-[#C7962D] via-[#DFB668] to-[#C7962D] bg-clip-text text-transparent md:drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)]">
+                Story
               </span>
             </span>
           </h1>
@@ -224,34 +226,17 @@ function HeroMainContent() {
 
           <div className="relative sm:before:absolute sm:before:-inset-1 md:before:-inset-2 sm:before:bg-[#C7962D]/5 md:before:bg-gradient-to-r md:before:from-[#C7962D]/10 md:before:to-transparent sm:before:rounded-xl sm:before:-z-10 sm:before:backdrop-blur-[20px] lg:before:backdrop-blur-[30px] lg:before:block xl:before:hidden">
             <p className="font-quicksand text-lg sm:text-xl sm:tracking-wide md:text-[22px] md:leading-[30px] md:tracking-wide md:font-normal md:px-3 md:py-4 lg:text-[28px] lg:leading-[1.5] lg:tracking-wide lg:font-normal lg:px-4 lg:py-5 xl:p-0 xl:text-lg hero-2lg:text-xl text-white/95 leading-relaxed mb-7 sm:mb-8 md:mb-9 lg:mb-10 xl:mb-10 w-full xl:max-w-lg">
-              Step into a world where traditional tea craftsmanship 
-                  meets
-                  modern comfort and{" "}
-                  <span className="text-[#DFB668]/95 font-medium sm:text-
-                  [#DFB668] sm:font-semibold sm:relative sm:border-b 
-                  sm:border-[#DFB668]/30 md:border-none md:relative 
-                  md:inline-flex md:px-1 md:before:absolute 
-                  md:before:inset-0 md:before:bg-[#DFB668]/10 
-                  md:before:rounded md:before:-z-[1] 
-                  lg:before:bg-transparent lg:font-semibold lg:text-
-                  [#DFB668]">
-                    authentic heritage
-                  </span>
-                  . Our carefully curated selection of premium teas 
-                  create an
-                  elegant experience that delights the senses,{" "}
-                  <span className="relative md:inline-flex md:px-1 
-                  md:mx-0.5 md:font-medium md:before:absolute 
-                  md:before:inset-0 md:before:bg-[#C7962D]/10 
-                  md:before:rounded md:before:-z-[1] md:before:blur-[2px] 
-                  md:text-white lg:relative lg:inline-flex lg:px-1 
-                  lg:mx-0.5 lg:before:absolute lg:before:inset-0 
-                  lg:before:bg-[#C7962D]/10 lg:before:rounded 
-                  lg:before:-z-[1] lg:before:blur-[2px] lg:text-white 
-                  xl:before:bg-transparent xl:px-0 xl:mx-0">
-                    soothes the mind
-                  </span>
-                  , and enriches your day.
+              Step into a world where traditional tea craftsmanship meets
+              modern comfort and{" "}
+              <span className="text-[#DFB668]/95 font-medium sm:text-[#DFB668] sm:font-semibold sm:relative sm:border-b sm:border-[#DFB668]/30 md:border-none md:relative md:inline-flex md:px-1 md:before:absolute md:before:inset-0 md:before:bg-[#DFB668]/10 md:before:rounded md:before:-z-[1] lg:before:bg-transparent lg:font-semibold lg:text-[#DFB668]">
+                authentic heritage
+              </span>
+              . Our carefully curated selection of premium teas create an
+              elegant experience that delights the senses,{" "}
+              <span className="relative md:inline-flex md:px-1 md:mx-0.5 md:font-medium md:before:absolute md:before:inset-0 md:before:bg-[#C7962D]/10 md:before:rounded md:before:-z-[1] md:before:blur-[2px] md:text-white lg:relative lg:inline-flex lg:px-1 lg:mx-0.5 lg:before:absolute lg:before:inset-0 lg:before:bg-[#C7962D]/10 lg:before:rounded lg:before:-z-[1] lg:before:blur-[2px] lg:text-white xl:before:bg-transparent xl:px-0 xl:mx-0">
+                soothes the mind
+              </span>
+              , and enriches your day.
             </p>
           </div>
 
@@ -342,9 +327,42 @@ function BranchSection() {
   );
 }
 
+// Critical inline styles for faster LCP
+const CriticalStyles = () => (
+  <Head>
+    <style dangerouslySetInnerHTML={{ __html: `
+      /* Critical styles for main headline */
+      .hero-heading {
+        font-weight: 700;
+        color: white;
+        will-change: transform;
+      }
+      .hero-accent {
+        background-image: linear-gradient(to right, #C7962D, #DFB668, #C7962D);
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+      /* Preload critical hero image */
+      @media (prefers-reduced-motion: no-preference) {
+        .hero-container {
+          opacity: 1;
+          will-change: transform;
+        }
+      }
+    `}} />
+    <link 
+      rel="preload" 
+      href={heroImages[0].src} 
+      as="image"
+      fetchPriority="high"
+    />
+  </Head>
+);
+
 function HeroContent() {
   return (
     <div className="relative">
+      <CriticalStyles />
       <ClientHeader />
       
       <Container className="relative z-10">

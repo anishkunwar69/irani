@@ -1,12 +1,13 @@
 import Footer from "./components/Footer";
-import FindUs from "./section/FindUs";
-import FoundersWord from "./section/FoundersWord";
-import Gallery from "./section/Gallery";
 import Hero from "./section/Hero";
 import OurStory from "./section/OurStory";
-import Testimonials from "./section/Testimonials";
-
 import { Metadata } from "next";
+import dynamic from 'next/dynamic';
+
+const Gallery = dynamic(() => import('./section/Gallery'), { ssr: true });
+const Testimonials = dynamic(() => import('./section/Testimonials'), { ssr: true });
+const FoundersWord = dynamic(() => import('./section/FoundersWord'), { ssr: true });
+const FindUs = dynamic(() => import('./section/FindUs'), { ssr: true });
 
 export const viewport = {
   width: 'device-width',
@@ -64,6 +65,5 @@ export default function Home() {
       <FindUs />
       <Footer />
     </main>
-    
   );
 }

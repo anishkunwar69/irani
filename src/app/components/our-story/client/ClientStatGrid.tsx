@@ -1,5 +1,6 @@
 "use client";
-import { memo } from "react";
+import { m } from "framer-motion";
+import { memo, useMemo } from "react";
 import { FaCoffee, FaLeaf, FaMugHot, FaUsers } from "react-icons/fa";
 import ClientNumber from "./ClientNumber";
 
@@ -27,10 +28,23 @@ const StatItem = memo(({ stat, index }: {
   }; 
   index: number 
 }) => {
+  const animationVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
+  };
+
   const IconComponent = iconMap[stat.iconName as keyof typeof iconMap];
 
   return (
-    <div key={index} className="group relative">
+    <m.div
+      key={index}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={animationVariants}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      className="group relative"
+    >
       <div className="absolute inset-0 bg-gradient-to-br from-[#1B4D2E]/10 to-transparent rounded-xl blur-lg"></div>
       <div className="relative space-y-1 xs:space-y-2 bg-white/5 backdrop-blur-xl p-3 xs:p-4 sm:p-6 rounded-xl border border-white/10">
         <div className="flex items-center gap-2 xs:gap-3">
@@ -44,7 +58,7 @@ const StatItem = memo(({ stat, index }: {
           {stat.text}
         </p>
       </div>
-    </div>
+    </m.div>
   );
 });
 

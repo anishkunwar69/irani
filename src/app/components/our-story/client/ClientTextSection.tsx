@@ -1,9 +1,22 @@
 "use client";
+import { m } from "framer-motion";
 import { ReactNode, memo } from "react";
+
+const animationVariants = {
+  hidden: { opacity: 0, x: -50 },
+  visible: { opacity: 1, x: 0 }
+};
 
 function ClientTextSection({ children }: { children: ReactNode }) {
   return (
-    <div className="space-y-8">
+    <m.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={animationVariants}
+      transition={{ duration: 0.8 }}
+      className="space-y-8 order-2 3xl:order-1"
+    >
       <div className="relative group">
         <div className="absolute inset-0 bg-gradient-to-br from-[#1B4D2E]/10 to-transparent rounded-2xl blur-lg"></div>
         <div className="relative space-y-1 xs:space-y-2 bg-white/5 backdrop-blur-xl p-5 xs:p-6 sm:p-8 rounded-2xl border border-white/10">
@@ -23,7 +36,7 @@ function ClientTextSection({ children }: { children: ReactNode }) {
       </div>
 
       {children}
-    </div>
+    </m.div>
   );
 }
 

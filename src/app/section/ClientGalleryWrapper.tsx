@@ -6,6 +6,8 @@ interface ClientGalleryWrapperProps {
   children: ReactNode;
 }
 
+
+
 function ClientGalleryWrapper({ children }: ClientGalleryWrapperProps) {
   return (
     <motion.section

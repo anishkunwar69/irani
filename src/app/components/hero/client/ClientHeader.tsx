@@ -11,6 +11,7 @@ const ClientHeader = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
+  // Defer non-critical scroll listener to after page load
   useEffect(() => {
     let ticking = false;
     
@@ -24,14 +25,22 @@ const ClientHeader = () => {
       }
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    // Slight delay before attaching scroll listener to prioritize rendering
+    const timer = setTimeout(() => {
+      window.addEventListener("scroll", handleScroll, { passive: true });
+    }, 100);
+    
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const toggleMobileMenu = useCallback(() => {
     setMobileMenuOpen(prev => !prev);
   }, []);
   
+  // Defer non-critical click handlers
   useEffect(() => {
     const handleHashLinkClick = (e: Event) => {
       const target = e.target as HTMLAnchorElement;
@@ -59,9 +68,13 @@ const ClientHeader = () => {
       }
     };
 
-    document.addEventListener("click", handleClick, { passive: false });
+    // Slight delay before attaching click handlers to prioritize rendering
+    const timer = setTimeout(() => {
+      document.addEventListener("click", handleClick, { passive: false });
+    }, 150);
 
     return () => {
+      clearTimeout(timer);
       document.removeEventListener("click", handleClick);
     };
   }, []);
@@ -84,9 +97,9 @@ const ClientHeader = () => {
         <nav className="py-3 sm:py-4 lg:py-5 flex justify-between items-center">
           <Link href="/" className="group relative z-10">
             <motion.div
-              initial={{ x: -20, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.6 }}
+              initial={{ opacity: 0.8 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
               className="flex items-center will-change-transform"
             >
               <Image
@@ -112,46 +125,32 @@ const ClientHeader = () => {
           </Link>
 
           <motion.div
-            initial={{ y: -10, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            initial={{ opacity: 0.8 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
             className="hidden xl:flex items-center space-x-8 will-change-transform"
           >
             {navItems.map((item, index) => (
-              <motion.div
+              <Link
                 key={item}
-                initial={{ y: -10, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.3, delay: 0.2 + index * 0.1 }}
-                className="will-change-transform"
+                href={`#${item
+                  .toLowerCase()
+                  .replace(/\s+/g, "-")
+                  .replace("'", "")}`}
+                className="font-quicksand text-sm uppercase tracking-[0.2em] text-white/90 hover:text-[#C7962D] transition-all relative group"
               >
-                <Link
-                  href={`#${item
-                    .toLowerCase()
-                    .replace(/\s+/g, "-")
-                    .replace("'", "")}`}
-                  className="font-quicksand text-sm uppercase tracking-[0.2em] text-white/90 hover:text-[#C7962D] transition-all relative group"
-                >
-                  {item}
-                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-[#C7962D] to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-                </Link>
-              </motion.div>
+                {item}
+                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-[#C7962D] to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+              </Link>
             ))}
 
-            <motion.div
-              initial={{ y: -10, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.3, delay: 0.7 }}
-              className="will-change-transform"
+            <Link
+              href="/joint-venture"
+              className="font-quicksand text-sm uppercase tracking-[0.2em] text-[#C7962D] hover:text-[#DFB668] transition-all relative group"
             >
-              <Link
-                href="/joint-venture"
-                className="font-quicksand text-sm uppercase tracking-[0.2em] text-[#C7962D] hover:text-[#DFB668] transition-all relative group"
-              >
-                Badda's Chiya
-                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-[#DFB668] to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-              </Link>
-            </motion.div>
+              Badda's Chiya
+              <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-[#DFB668] to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+            </Link>
           </motion.div>
 
           <div className="xl:hidden">
@@ -175,39 +174,25 @@ const ClientHeader = () => {
         >
           <div className="flex flex-col space-y-2 py-4 px-6">
             {navItems.map((item, index) => (
-              <motion.div
-                key={item}
-                initial={{ x: -10, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.3, delay: 0.1 * index }}
-                className="will-change-transform"
-              >
-                <Link
-                  href={`#${item
-                    .toLowerCase()
-                    .replace(/\s+/g, "-")
-                    .replace("'", "")}`}
-                  className="font-quicksand text-sm sm:text-base py-2 uppercase tracking-wider text-white/90 hover:text-[#C7962D] transition-all block"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {item}
-                </Link>
-              </motion.div>
-            ))}
-            <motion.div
-              initial={{ x: -10, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.3, delay: 0.5 }}
-              className="will-change-transform"
-            >
               <Link
-                href="/joint-venture"
-                className="font-quicksand text-sm sm:text-base py-2 uppercase tracking-wider text-[#C7962D] hover:text-[#DFB668] transition-all block"
+                key={item}
+                href={`#${item
+                  .toLowerCase()
+                  .replace(/\s+/g, "-")
+                  .replace("'", "")}`}
+                className="font-quicksand text-sm sm:text-base py-2 uppercase tracking-wider text-white/90 hover:text-[#C7962D] transition-all block"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Badda's Chiya
+                {item}
               </Link>
-            </motion.div>
+            ))}
+            <Link
+              href="/joint-venture"
+              className="font-quicksand text-sm sm:text-base py-2 uppercase tracking-wider text-[#C7962D] hover:text-[#DFB668] transition-all block"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Badda's Chiya
+            </Link>
           </div>
         </motion.div>
       )}

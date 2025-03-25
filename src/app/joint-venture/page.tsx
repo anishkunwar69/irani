@@ -1,9 +1,7 @@
 import { Metadata } from "next";
 import NavbarSimple from "../components/NavbarSimple";
-import dynamic from 'next/dynamic';
-
-const Footer = dynamic(() => import("../components/Footer"), { ssr: true });
-const JointVentureContent = dynamic(() => import("./JointVentureContent"), { ssr: true });
+import Footer from "../components/Footer";
+import JointVentureContent from "./JointVentureContent";
 
 export const viewport = {
   width: 'device-width',

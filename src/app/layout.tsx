@@ -1,27 +1,6 @@
 import type { Metadata } from "next";
-import {
-  Geist,
-  Geist_Mono,
-  Lora,
-  Playfair_Display,
-  Quicksand,
-} from "next/font/google";
+import { Lora, Quicksand } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const playfairDisplay = Playfair_Display({
-  variable: "--font-playfair-display",
-  subsets: ["latin"],
-});
 
 const quicksand = Quicksand({
   variable: "--font-quicksand",
@@ -34,7 +13,7 @@ const lora = Lora({
 });
 
 export const viewport = {
-  width: 'device-width',
+  width: "device-width",
   initialScale: 1,
   maximumScale: 5,
 };
@@ -121,7 +100,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${playfairDisplay.variable} ${quicksand.variable} ${lora.variable} antialiased bg-[#1B4D2E] overflow-x-hidden`}
+        className={`${quicksand.variable} ${lora.variable} antialiased bg-[#1B4D2E] overflow-x-hidden`}
       >
         {children}
       </body>

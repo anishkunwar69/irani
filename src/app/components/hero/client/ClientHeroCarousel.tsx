@@ -24,8 +24,9 @@ const CarouselSlide = memo(({ img, index }: { img: HeroImage; index: number }) =
     <Image
       src={img.src}
       alt={img.alt}
-      fill
-      className="object-cover object-center will-change-transform"
+      width={1920}
+      height={1080}
+      className="object-cover object-center w-full h-full will-change-transform"
       sizes="(max-width: 768px) 100vw, (max-width: 1280px) 70vw, 50vw"
       priority={index === 0}
       loading={index === 0 ? "eager" : "lazy"}
@@ -56,6 +57,8 @@ const ClientHeroCarousel = ({ images }: ClientHeroCarouselProps) => {
       },
     },
     loop: true,
+    initialSlide: 0,
+    preloadImages: false,
   }), []);
 
   const onSwiperInit = useCallback((swiper: any) => {
@@ -64,9 +67,9 @@ const ClientHeroCarousel = ({ images }: ClientHeroCarouselProps) => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.95 }}
+      initial={{ opacity: 0.8, scale: 0.98 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.8, delay: 0.4 }}
+      transition={{ duration: 0.5, delay: 0.1 }}
       className="relative h-[340px] sm:h-[420px] md:h-[480px] lg:h-[600px] xl:h-[700px] hero-2lg:h-[665px] rounded-2xl overflow-hidden shadow-2xl will-change-transform"
     >
       <div className="absolute -inset-0.5 bg-gradient-to-br from-[#C7962D] to-[#1B4D2E] rounded-2xl opacity-30 blur"></div>
@@ -90,6 +93,7 @@ const ClientHeroCarousel = ({ images }: ClientHeroCarouselProps) => {
         className="absolute top-0 right-0 w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 xl:w-16 xl:h-16 text-[#C7962D]/30 z-10"
         viewBox="0 0 100 100"
         fill="none"
+        aria-hidden="true"
       >
         <path
           d="M0 0L100 0L100 100"

@@ -2,12 +2,10 @@ import Footer from "./components/Footer";
 import Hero from "./section/Hero";
 import OurStory from "./section/OurStory";
 import { Metadata } from "next";
-import dynamic from 'next/dynamic';
-
-const Gallery = dynamic(() => import('./section/Gallery'), { ssr: true });
-const Testimonials = dynamic(() => import('./section/Testimonials'), { ssr: true });
-const FoundersWord = dynamic(() => import('./section/FoundersWord'), { ssr: true });
-const FindUs = dynamic(() => import('./section/FindUs'), { ssr: true });
+import Gallery from './section/Gallery';
+import Testimonials from './section/Testimonials';
+import FoundersWord from './section/FoundersWord';
+import FindUs from './section/FindUs';
 
 export const viewport = {
   width: 'device-width',

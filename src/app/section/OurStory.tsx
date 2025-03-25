@@ -3,9 +3,11 @@ import ClientOurStoryWrapper from "./ClientOurStoryWrapper";
 
 function OurStory() {
   return (
-    <ClientOurStoryWrapper>
-      <OurStoryContent />
-    </ClientOurStoryWrapper>
+    <section id="our-story" className="relative z-[2]">
+      <ClientOurStoryWrapper>
+        <OurStoryContent />
+      </ClientOurStoryWrapper>
+    </section>
   );
 }
 

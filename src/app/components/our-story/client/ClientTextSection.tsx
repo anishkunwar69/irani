@@ -1,21 +1,25 @@
 "use client";
-import { m } from "framer-motion";
-import { ReactNode, memo } from "react";
-
-const animationVariants = {
-  hidden: { opacity: 0, x: -50 },
-  visible: { opacity: 1, x: 0 }
-};
+import { ReactNode, memo, useEffect, useState } from "react";
 
 function ClientTextSection({ children }: { children: ReactNode }) {
+  const [mounted, setMounted] = useState(false);
+  
+  // Defer animations until after initial render
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setMounted(true);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <m.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      variants={animationVariants}
-      transition={{ duration: 0.8 }}
+    <div 
       className="space-y-8 order-2 3xl:order-1"
+      style={{ 
+        opacity: mounted ? 1 : 0.9,
+        transform: mounted ? 'translateX(0)' : 'translateX(-20px)',
+        transition: 'opacity 0.5s ease-out, transform 0.8s ease-out'
+      }}
     >
       <div className="relative group">
         <div className="absolute inset-0 bg-gradient-to-br from-[#1B4D2E]/10 to-transparent rounded-2xl blur-lg"></div>
@@ -36,7 +40,7 @@ function ClientTextSection({ children }: { children: ReactNode }) {
       </div>
 
       {children}
-    </m.div>
+    </div>
   );
 }
 

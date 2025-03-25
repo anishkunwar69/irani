@@ -13,23 +13,20 @@ function OurStoryContent() {
   ];
 
   return (
-    <div className="py-14 xs:py-16 sm:py-18 md:py-20">
+    <div className="py-14">
       <Container>
-        <div className="relative space-y-12 xs:space-y-16">
-          <div className="relative">
-            <ClientStoryHeader />
-
-            <div className="grid grid-cols-1 3xl:grid-cols-2 gap-8 xs:gap-10 sm:gap-12 md:gap-16 items-center">
-              <ClientImageSection
-                imageUrl="https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/irani-hero-imgs/about-us/gxy3jn0gxqgenyy3q9rg"
-                alt="Irani Chiya Tea Experience"
-              />
-
-              <ClientTextSection>
-                <ClientStatGrid stats={stats} />
-              </ClientTextSection>
-            </div>
-          </div>
+        {/* Image first for faster LCP */}
+        <ClientImageSection
+          imageUrl="https://res.cloudinary.com/dmq5tx0bd/image/upload/f_webp,q_50,w_480/v1/irani-hero-imgs/about-us/gxy3jn0gxqgenyy3q9rg"
+          alt="Irani Chiya Tea Experience"
+        />
+            
+        {/* Content after image */}
+        <div className="mt-8">
+          <ClientStoryHeader />
+          <ClientTextSection>
+            <ClientStatGrid stats={stats} />
+          </ClientTextSection>
         </div>
       </Container>
     </div>

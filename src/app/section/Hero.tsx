@@ -1,5 +1,4 @@
 import HeroContent from "../components/hero/HeroContent";
-import Image from "next/image";
 
 function Hero() {
   return (
@@ -9,18 +8,7 @@ function Hero() {
       aria-label="Hero section"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-[#1B4D2E]/95 via-[#2D5A27] to-[#1B4D2E]/95">
-        <div className="absolute inset-0 opacity-10 mix-blend-overlay">
-          <Image 
-            src="/pattern.png" 
-            alt="Background pattern" 
-            fill
-            sizes="100vw"
-            quality={40}
-            priority={false}
-            loading="lazy"
-            className="object-repeat opacity-10"
-          />
-        </div>
+        <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-10 bg-repeat mix-blend-overlay"></div>
         
         <div className="absolute top-0 right-0 h-[1px] w-full transform -rotate-[30deg] origin-top-right">
           <div className="absolute inset-0 bg-gradient-to-l from-[#C7962D] via-[#C7962D]/30 to-transparent"></div>

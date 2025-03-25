@@ -1,24 +1,14 @@
 "use client";
-import dynamic from "next/dynamic";
+import { motion } from "framer-motion";
 import { ReactNode } from "react";
-import Image from "next/image";
 
 interface ClientGalleryWrapperProps {
   children: ReactNode;
 }
 
-// Lazy load framer-motion
-const MotionSection = dynamic(() => 
-  import('framer-motion').then(mod => {
-    const { motion } = mod;
-    return { default: motion.section };
-  }),
-  { ssr: false }
-);
-
 function ClientGalleryWrapper({ children }: ClientGalleryWrapperProps) {
   return (
-    <MotionSection
+    <motion.section
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
@@ -27,18 +17,7 @@ function ClientGalleryWrapper({ children }: ClientGalleryWrapperProps) {
       id="gallery"
     >
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Optimized pattern loading with next/image */}
-        <div className="absolute inset-0 opacity-[0.03] xs:opacity-[0.04] sm:opacity-5">
-          <Image
-            src="/pattern-light.png"
-            alt="Background pattern"
-            fill
-            sizes="100vw"
-            quality={25}
-            loading="lazy"
-            className="object-repeat"
-          />
-        </div>
+        <div className="absolute inset-0 bg-[url('/pattern-light.png')] bg-repeat opacity-[0.03] xs:opacity-[0.04] sm:opacity-5"></div>
 
         <div className="absolute -top-[10%] -right-[5%] w-[60vw] h-[60vw] xs:w-[500px] xs:h-[500px] sm:w-[600px] sm:h-[600px] md:w-[700px] md:h-[700px] bg-[#C7962D] rounded-full blur-[100px] xs:blur-[120px] sm:blur-[150px] md:blur-[180px] lg:blur-[200px] opacity-5 xs:opacity-6 sm:opacity-8 animate-pulse-slow"></div>
         <div className="absolute -bottom-[10%] -left-[5%] w-[50vw] h-[50vw] xs:w-[400px] xs:h-[400px] sm:w-[500px] sm:h-[500px] md:w-[600px] md:h-[600px] bg-[#1B4D2E] rounded-full blur-[80px] xs:blur-[100px] sm:blur-[120px] md:blur-[150px] lg:blur-[180px] opacity-5 xs:opacity-6 sm:opacity-8 animate-pulse-slow"></div>
@@ -60,7 +39,7 @@ function ClientGalleryWrapper({ children }: ClientGalleryWrapperProps) {
         </div>
       </div>
       {children}
-    </MotionSection>
+    </motion.section>
   );
 }
 

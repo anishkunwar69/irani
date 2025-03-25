@@ -6,9 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "optimize-images": "node scripts/optimize-images.js",
-    "optimize-build": "node scripts/optimize-build.js"
+    "lint": "next lint"
   },
   "dependencies": {
     "@react-google-maps/api": "^2.20.5",
@@ -31,9 +29,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.1.6",
-    "glob": "^10.3.10",
     "postcss": "^8",
-    "sharp": "^0.33.2",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }

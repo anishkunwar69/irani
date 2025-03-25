@@ -22,29 +22,12 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
     ],
-    // Add WebP format support
-    formats: ['image/webp', 'image/avif'],
-    // Increase cache TTL for better performance
-    minimumCacheTTL: 60,
   },
   eslint: {
     ignoreDuringBuilds: true,
   },
-  // Enable SWC minification
-  swcMinify: true,
   // Disable React strict mode which causes double renders and can trigger hydration issues
   reactStrictMode: false,
-  // Remove console logs in production
-  compiler: {
-    removeConsole: process.env.NODE_ENV === "production",
-  },
-  // Enable experimental optimizations
-  experimental: {
-    // Optimize CSS
-    optimizeCss: true,
-    // Optimize server components
-    optimizeServerReact: true,
-  },
   // Disable React StrictMode warnings in development
   webpack: (config, { dev }) => {
     if (dev) {
@@ -54,12 +37,6 @@ const nextConfig: NextConfig = {
         'react-dom$': 'react-dom/profiling',
       };
     }
-    
-    // Add module optimization for production
-    if (!dev) {
-      config.optimization.minimize = true;
-    }
-    
     return config;
   },
 };

@@ -1,25 +1,10 @@
 "use client";
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
-import { useState } from "react";
-import dynamic from 'next/dynamic';
 
 interface ClientFindUsWrapperProps {
   children: ReactNode;
 }
-
-// Dynamically import the map component with no SSR
-const ClientOnlyMap = dynamic(
-  () => import('../components/ClientOnlyMap'),
-  { 
-    ssr: false,
-    loading: () => (
-      <div className="h-full w-full bg-white/5 flex items-center justify-center">
-        <div className="w-10 h-10 border-3 border-[#C7962D]/20 border-t-[#C7962D] rounded-full animate-spin"></div>
-      </div>
-    )
-  }
-);
 
 export default function ClientFindUsWrapper({ children }: ClientFindUsWrapperProps) {
   return (

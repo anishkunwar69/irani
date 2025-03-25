@@ -22,34 +22,42 @@ const iconMap = {
 
 const ClientStatGrid = ({ stats }: ClientStatGridProps) => {
   const [isVisible, setIsVisible] = useState(false);
+  const [showStaggered, setShowStaggered] = useState(false);
   
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 300);
+    // Show basic grid immediately for better LCP
+    setIsVisible(true);
     
-    return () => clearTimeout(timer);
+    // Defer staggered animations which are not critical
+    const animationTimer = setTimeout(() => {
+      setShowStaggered(true);
+    }, 1200);
+    
+    return () => clearTimeout(animationTimer);
   }, []);
   
   return (
     <div className="grid grid-cols-2 gap-3 xs:gap-4 sm:gap-6">
       {stats.map((stat, index) => {
         const IconComponent = iconMap[stat.iconName as keyof typeof iconMap];
-        const animationDelay = `${index * 100}ms`;
+        // Only apply delays if staggered animations are enabled
+        const animationDelay = showStaggered ? `${index * 100}ms` : '0ms';
         
         return (
           <div
             key={index}
-            className="group relative"
+            className="relative"
             style={{
               opacity: isVisible ? 1 : 0,
-              transform: isVisible ? 'translateY(0)' : 'translateY(20px)',
-              transition: `opacity 0.5s ease, transform 0.5s ease`,
+              transform: isVisible && showStaggered ? 'translateY(0)' : 'translateY(0)',
+              transition: `opacity 0.3s ease${showStaggered ? ', transform 0.4s ease' : ''}`,
               transitionDelay: animationDelay
             }}
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-[#1B4D2E]/10 to-transparent rounded-xl blur-lg"></div>
-            <div className="relative space-y-1 xs:space-y-2 bg-white/5 backdrop-blur-xl p-3 xs:p-4 sm:p-6 rounded-xl border border-white/10">
+            {showStaggered && (
+              <div className="absolute inset-0 bg-gradient-to-br from-[#1B4D2E]/10 to-transparent rounded-xl blur-lg"></div>
+            )}
+            <div className="relative space-y-1 xs:space-y-2 bg-white/5 p-3 xs:p-4 sm:p-6 rounded-xl border border-white/10">
               <div className="flex items-center gap-2 xs:gap-3">
                 {IconComponent && <IconComponent className="text-base xs:text-lg sm:text-lg md:text-xl lg:text-2xl text-[#FFD700]" />}
                 <p className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl font-lora text-white font-bold">

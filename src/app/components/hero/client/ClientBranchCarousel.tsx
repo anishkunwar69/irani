@@ -23,9 +23,15 @@ const ClientBranchCarousel = ({ branchLocations }: ClientBranchCarouselProps) =>
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
 
+  // Defer mounting logic to after first render
   useEffect(() => {
-    setIsMounted(true);
-    return () => setIsMounted(false);
+    const timer = setTimeout(() => {
+      setIsMounted(true);
+    }, 100);
+    return () => {
+      clearTimeout(timer);
+      setIsMounted(false);
+    };
   }, []);
 
   const handleSlideChange = useCallback((swiper: any) => {
@@ -64,13 +70,12 @@ const ClientBranchCarousel = ({ branchLocations }: ClientBranchCarouselProps) =>
         ></div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.9, y: 20 }}
+          initial={{ opacity: 0, scale: 0.95 }}
           animate={{
             opacity: isDialogOpen ? 1 : 0,
-            scale: isDialogOpen ? 1 : 0.9,
-            y: isDialogOpen ? 0 : 20,
+            scale: isDialogOpen ? 1 : 0.95,
           }}
-          transition={{ duration: 0.4, type: "spring", bounce: 0.1 }}
+          transition={{ duration: 0.3 }}
           className="relative w-full max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-4xl bg-gradient-to-br from-[#3D6A37]/95 via-[#2D5A27]/90 to-[#34895B]/85 backdrop-blur-xl rounded-2xl overflow-hidden shadow-2xl max-h-[85vh] sm:max-h-[90vh] flex flex-col"
         >
           <div className="absolute top-0 right-0 w-20 sm:w-24 md:w-32 h-20 sm:h-24 md:h-32 opacity-15">
@@ -79,6 +84,7 @@ const ClientBranchCarousel = ({ branchLocations }: ClientBranchCarouselProps) =>
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               className="w-full h-full"
+              aria-hidden="true"
             >
               <path
                 d="M50 10C60 25 80 25 90 20C85 40 70 55 50 60C30 55 15 40 10 20C20 25 40 25 50 10Z"
@@ -99,36 +105,25 @@ const ClientBranchCarousel = ({ branchLocations }: ClientBranchCarouselProps) =>
           {selectedBranch && (
             <div className="flex flex-col h-full overflow-auto">
               <div className="w-full relative">
-                <motion.div
-                  key={selectedBranch.name}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.5 }}
-                  className="relative w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[500px]"
-                >
+                <div className="relative w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[500px]">
                   <div className="absolute inset-0">
                     <Image
                       src={selectedBranch.imgUrl || "/branch.jpg"}
                       alt={selectedBranch.name}
-                      fill
-                      className={`object-cover ${
+                      width={1200}
+                      height={800}
+                      className={`object-cover w-full h-full ${
                         selectedBranch.isCenter ? "object-center" : "object-top"
                       }`}
                       sizes="(max-width: 640px) 100vw, (max-width: 768px) 600px, 800px"
-                      priority
+                      loading="eager"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#336644]/70 via-[#336644]/30 to-transparent"></div>
                   </div>
-                </motion.div>
+                </div>
 
                 <div className="absolute bottom-0 left-0 w-full p-3 sm:p-4 md:p-6">
-                  <motion.div
-                    key={`title-${selectedBranch.name}`}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                  >
+                  <div className="motion-safe:animate-fadeIn">
                     <h2 className="font-lora text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white drop-shadow-md">
                       {selectedBranch.name}
                     </h2>
@@ -138,7 +133,7 @@ const ClientBranchCarousel = ({ branchLocations }: ClientBranchCarouselProps) =>
                         {selectedBranch.address}
                       </p>
                     </div>
-                  </motion.div>
+                  </div>
                 </div>
               </div>
 
@@ -227,13 +222,7 @@ const ClientBranchCarousel = ({ branchLocations }: ClientBranchCarouselProps) =>
               </div>
 
               <div className="p-4 sm:p-5 md:p-6 lg:p-8 flex-1 overflow-y-auto bg-gradient-to-b from-transparent to-black/5">
-                <motion.div
-                  key={`content-${selectedBranch.name}`}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5 }}
-                  className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6 lg:gap-8"
-                >
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6 lg:gap-8">
                   <div className="space-y-4 sm:space-y-5 md:space-y-6">
                     <div>
                       <h3 className="font-lora text-base sm:text-lg md:text-xl text-[#C7962D] font-semibold mb-2 sm:mb-3 flex items-center">
@@ -351,7 +340,7 @@ const ClientBranchCarousel = ({ branchLocations }: ClientBranchCarouselProps) =>
                       )}
                     </div>
                   </div>
-                </motion.div>
+                </div>
 
                 <div className="mt-4 sm:mt-6 md:mt-8 flex items-center justify-between">
                   <div className="h-1 w-full bg-gradient-to-r from-transparent via-[#C7962D]/30 to-transparent rounded-full"></div>
@@ -434,11 +423,9 @@ const ClientBranchCarousel = ({ branchLocations }: ClientBranchCarouselProps) =>
           >
             {branchLocations.map((branch, index) => (
               <SwiperSlide key={index}>
-                <motion.div
-                  className="relative h-56 sm:h-60 md:h-64 rounded-lg overflow-hidden group cursor-pointer"
+                <div
+                  className="relative h-56 sm:h-60 md:h-64 rounded-lg overflow-hidden group cursor-pointer hover:-translate-y-1 transition-transform duration-300"
                   onClick={() => openBranchDialog(branch)}
-                  whileHover={{ y: -5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
                 >
                   <div className="absolute -inset-0.5 bg-gradient-to-br from-[#C7962D] to-[#1B4D2E] rounded-lg opacity-30 blur-[1px] group-hover:opacity-50 transition-opacity"></div>
 
@@ -446,10 +433,11 @@ const ClientBranchCarousel = ({ branchLocations }: ClientBranchCarouselProps) =>
                     <Image
                       src={branch.imgUrl || "/branch.jpg"}
                       alt={`${branch.name} - ${branch.address}`}
-                      fill
-                      className="object-cover object-center transition-transform duration-700"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      priority={index === 0}
+                      width={400}
+                      height={300}
+                      className="object-cover object-center w-full h-full"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      loading={index < 4 ? "eager" : "lazy"}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
 
@@ -472,16 +460,35 @@ const ClientBranchCarousel = ({ branchLocations }: ClientBranchCarouselProps) =>
                       </button>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               </SwiperSlide>
             ))}
           </Swiper>
         </div>
       </div>
 
-      <BranchDialog />
+      {/* Only render dialog when mounted */}
+      {isMounted && <BranchDialog />}
     </>
   );
 };
+
+// Add custom CSS for fade-in animation
+if (typeof window !== 'undefined') {
+  if (!document.getElementById('irani-custom-animations')) {
+    const style = document.createElement('style');
+    style.id = 'irani-custom-animations';
+    style.innerHTML = `
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fadeIn {
+        animation: fadeIn 0.3s ease-out forwards;
+      }
+    `;
+    document.head.appendChild(style);
+  }
+}
 
 export default memo(ClientBranchCarousel); 

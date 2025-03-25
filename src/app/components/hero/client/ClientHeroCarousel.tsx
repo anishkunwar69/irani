@@ -58,7 +58,6 @@ const ClientHeroCarousel = ({ images }: ClientHeroCarouselProps) => {
     },
     loop: true,
     initialSlide: 0,
-    preloadImages: false,
   }), []);
 
   const onSwiperInit = useCallback((swiper: any) => {

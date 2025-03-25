@@ -1,0 +1,58 @@
+"use client";
+import { m } from "framer-motion";
+import { IconType } from "react-icons";
+import ClientNumber from "./ClientNumber";
+import { memo, useMemo } from "react";
+
+interface StatProps {
+  stats: {
+    icon: IconType;
+    number: string;
+    text: string;
+  }[];
+}
+
+const StatItem = memo(({ stat, index }: { stat: { icon: IconType; number: string; text: string }; index: number }) => {
+  const animationVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
+  };
+
+  return (
+    <m.div
+      key={index}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={animationVariants}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      className="group relative"
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-[#1B4D2E]/10 to-transparent rounded-xl blur-lg"></div>
+      <div className="relative space-y-1 xs:space-y-2 bg-white/5 backdrop-blur-xl p-3 xs:p-4 sm:p-6 rounded-xl border border-white/10">
+        <div className="flex items-center gap-2 xs:gap-3">
+          <stat.icon className="text-base xs:text-lg sm:text-lg md:text-xl lg:text-2xl text-[#FFD700]" />
+          <p className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl font-lora text-white font-bold">
+            <ClientNumber n={stat.number} />
+            {stat.number.includes("+") ? "+" : ""}
+          </p>
+        </div>
+        <p className="text-sm xs:text-sm sm:text-sm md:text-base lg:text-lg text-white/70 font-quicksand font-medium">
+          {stat.text}
+        </p>
+      </div>
+    </m.div>
+  );
+});
+
+function ClientStatGrid({ stats }: StatProps) {
+  return (
+    <div className="grid grid-cols-2 gap-3 xs:gap-4 sm:gap-6">
+      {stats.map((stat, index) => (
+        <StatItem key={index} stat={stat} index={index} />
+      ))}
+    </div>
+  );
+}
+
+export default memo(ClientStatGrid); 

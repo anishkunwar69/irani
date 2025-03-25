@@ -8,7 +8,6 @@ import Testimonials from "./section/Testimonials";
 
 import { Metadata } from "next";
 
-// Add viewport export
 export const viewport = {
   width: 'device-width',
   initialScale: 1,

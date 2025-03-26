@@ -28,6 +28,8 @@ const ClientHeader = () => {
     // Slight delay before attaching scroll listener to prioritize rendering
     const timer = setTimeout(() => {
       window.addEventListener("scroll", handleScroll, { passive: true });
+      // Check initial scroll position in case page is loaded already scrolled
+      handleScroll();
     }, 100);
     
     return () => {
@@ -92,6 +94,7 @@ const ClientHeader = () => {
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 border-b border-white/10 backdrop-blur-lg bg-[#1B4D2E]/80 will-change-transform ${
         isScrolled ? "shadow-md" : ""
       }`}
+      style={{ position: 'fixed' }}
     >
       <Container>
         <nav className="py-3 sm:py-4 lg:py-5 flex justify-between items-center">
@@ -170,7 +173,7 @@ const ClientHeader = () => {
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           transition={{ duration: 0.3 }}
-          className="absolute top-full left-0 right-0 bg-[#1B4D2E]/95 backdrop-blur-lg border-b border-white/10 shadow-lg z-50 xl:hidden will-change-transform"
+          className="fixed top-[calc(var(--header-height,60px))] left-0 right-0 bg-[#1B4D2E]/95 backdrop-blur-lg border-b border-white/10 shadow-lg z-50 xl:hidden will-change-transform"
         >
           <div className="flex flex-col space-y-2 py-4 px-6">
             {navItems.map((item, index) => (

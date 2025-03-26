@@ -1,8 +1,14 @@
+import { Suspense, lazy } from "react";
 import Container from "../Container";
 import ClientImageSection from "./client/ClientImageSection";
-import ClientStatGrid from "./client/ClientStatGrid";
 import ClientStoryHeader from "./client/ClientStoryHeader";
-import ClientTextSection from "./client/ClientTextSection";
+
+// Lazy load non-critical components
+const ClientTextSection = lazy(() => import("./client/ClientTextSection"));
+const ClientStatGrid = lazy(() => import("./client/ClientStatGrid"));
+
+// Simple fallback with solid background
+const FallbackDiv = () => <div className="min-h-[300px] bg-[#1B4D2E]/20 rounded-lg animate-pulse"></div>;
 
 function OurStoryContent() {
   const stats = [
@@ -20,14 +26,18 @@ function OurStoryContent() {
             <ClientStoryHeader />
 
             <div className="grid grid-cols-1 3xl:grid-cols-2 gap-8 xs:gap-10 sm:gap-12 md:gap-16 items-center">
+              {/* Prioritize image section */}
               <ClientImageSection
                 imageUrl="https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/irani-hero-imgs/about-us/gxy3jn0gxqgenyy3q9rg"
                 alt="Irani Chiya Tea Experience"
               />
 
-              <ClientTextSection>
-                <ClientStatGrid stats={stats} />
-              </ClientTextSection>
+              {/* Defer text content loading */}
+              <Suspense fallback={<FallbackDiv />}>
+                <ClientTextSection>
+                  <ClientStatGrid stats={stats} />
+                </ClientTextSection>
+              </Suspense>
             </div>
           </div>
         </div>

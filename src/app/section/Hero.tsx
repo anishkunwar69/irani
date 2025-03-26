@@ -5,11 +5,11 @@ function Hero() {
   return (
     <section 
       id="hero" 
-      className="relative w-full overflow-hidden bg-[#1B4D2E]"
+      className="relative w-full overflow-hidden bg-[#29552a]"
       aria-label="Hero section"
     >
       {/* Simple solid background color */}
-      <div className="absolute inset-0 bg-[#1B4D2E]"></div>
+      <div className="absolute inset-0 bg-[#29552a]"></div>
       
       {/* Prioritize the main hero content */}
       <div className="relative z-10">

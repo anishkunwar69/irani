@@ -18,8 +18,7 @@ function ClientTextSection({ children }: { children: ReactNode }) {
       className="space-y-8 order-2 3xl:order-1"
     >
       <div className="relative group">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#1B4D2E]/10 to-transparent rounded-2xl blur-lg"></div>
-        <div className="relative space-y-1 xs:space-y-2 bg-white/5 backdrop-blur-xl p-5 xs:p-6 sm:p-8 rounded-2xl border border-white/10">
+        <div className="relative space-y-1 xs:space-y-2 bg-[#1B4D2E]/30 p-5 xs:p-6 sm:p-8 rounded-2xl border border-white/10">
           <p className="text-base xs:text-base sm:text-base md:text-lg lg:text-xl leading-relaxed text-white/80 font-quicksand">
             <span className="text-[#FFD700] font-semibold">
               Irani Chiya

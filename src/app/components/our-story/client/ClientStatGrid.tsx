@@ -45,8 +45,7 @@ const StatItem = memo(({ stat, index }: {
       transition={{ duration: 0.6, delay: index * 0.1 }}
       className="group relative"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-[#1B4D2E]/10 to-transparent rounded-xl blur-lg"></div>
-      <div className="relative space-y-1 xs:space-y-2 bg-white/5 backdrop-blur-xl p-3 xs:p-4 sm:p-6 rounded-xl border border-white/10">
+      <div className="relative space-y-1 xs:space-y-2 bg-[#1B4D2E]/30 p-3 xs:p-4 sm:p-6 rounded-xl border border-white/10">
         <div className="flex items-center gap-2 xs:gap-3">
           {IconComponent && <IconComponent className="text-base xs:text-lg sm:text-lg md:text-xl lg:text-2xl text-[#FFD700]" />}
           <p className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl font-lora text-white font-bold">

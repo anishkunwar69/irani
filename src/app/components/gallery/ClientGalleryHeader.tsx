@@ -8,9 +8,9 @@ function ClientGalleryHeader() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(400px,90vw)] h-[min(400px,90vw)] bg-[#C7962D] rounded-full blur-[min(130px,14vw)] opacity-[0.12] sm:opacity-[0.1]"></div>
       <div className="relative">
         <h2 className="text-xs sm:text-sm md:text-base lg:text-lg uppercase tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] text-[#C7962D] font-quicksand mb-2 xs:mb-2.5 sm:mb-3 md:mb-4 inline-flex items-center gap-1 sm:gap-2 md:gap-3 justify-center">
-          <GiTeapot className="text-lg sm:text-xl md:text-2xl lg:text-3xl animate-bounce" />
+          <GiTeapot className="text-lg sm:text-xl md:text-2xl lg:text-3xl" />
           Our Moments
-          <GiTeapot className="text-lg sm:text-xl md:text-2xl lg:text-3xl animate-bounce" />
+          <GiTeapot className="text-lg sm:text-xl md:text-2xl lg:text-3xl" />
         </h2>
         <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold font-lora text-white/90 leading-tight max-w-[95%] sm:max-w-[90%] mx-auto px-2 sm:px-4 md:px-0">
           Experience The{" "}

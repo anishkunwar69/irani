@@ -33,11 +33,11 @@ function ClientTestimonialCard({ testimonial, index }: ClientTestimonialCardProp
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`Read ${testimonial.name}'s review on Google`}
-        className="block h-full transition-transform duration-300 hover:-translate-y-1 focus:-translate-y-1 focus:outline-none"
+        className="block h-full"
       >
-        <div className="h-full bg-white/[0.03] backdrop-blur-lg rounded-lg xs:rounded-xl sm:rounded-2xl border border-white/10 hover:border-[#C7962D]/30 hover:shadow-[0_0_15px_rgba(199,150,45,0.15)] transition-all duration-500 flex flex-col cursor-pointer">
+        <div className="h-full bg-[#1B4D2E]/80 rounded-lg xs:rounded-xl sm:rounded-2xl border border-white/10 hover:border-[#C7962D]/30 transition-all duration-300 flex flex-col cursor-pointer">
           <div className="p-2.5 xs:p-3 sm:p-4 md:p-5 lg:p-6 flex-grow">
-            <div className="inline-flex items-center gap-1 xs:gap-1.5 px-1 xs:px-1.5 sm:px-2 md:px-2.5 py-0.5 xs:py-0.5 sm:py-1 md:py-1.5 bg-[#1B4D2E] rounded-full text-[10px] xs:text-[10px] sm:text-xs md:text-sm mb-1.5 xs:mb-2 sm:mb-3 md:mb-4">
+            <div className="inline-flex items-center gap-1 xs:gap-1.5 px-1 xs:px-1.5 sm:px-2 md:px-2.5 py-0.5 xs:py-0.5 sm:py-1 md:py-1.5 bg-white/[0.03] backdrop-blur-sm rounded-full text-[10px] xs:text-[10px] sm:text-xs md:text-sm mb-1.5 xs:mb-2 sm:mb-3 md:mb-4 border border-white/10">
               <FaGoogle className="text-white text-[9px] xs:text-[9px] sm:text-[10px] md:text-xs" />
               <span className="text-white font-medium">
                 Verified Review

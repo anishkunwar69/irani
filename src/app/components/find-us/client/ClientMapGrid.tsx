@@ -5,6 +5,7 @@ import ClientBranchDetails from "./ClientBranchDetails";
 import ClientFindUsMap from "./ClientFindUsMap";
 import { BranchType } from "../types";
 import { memo } from "react";
+
 interface ClientMapGridProps {
   branches: BranchType[];
   initialBranch: BranchType;
@@ -20,14 +21,14 @@ function ClientMapGrid({ branches, initialBranch }: ClientMapGridProps) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
+      initial={{ opacity: 0.9, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.8, delay: 0.4 }}
+      transition={{ duration: 0.3 }}
       className="grid grid-cols-1 min-[1171px]:grid-cols-2 gap-4 xs:gap-5 sm:gap-6 md:gap-8 lg:gap-10 items-stretch relative z-[1]"
     >
       <div 
-        className="relative h-[250px] xs:h-[300px] sm:h-[400px] md:h-[450px] lg:h-[500px] xl:h-[600px] rounded-lg xs:rounded-xl sm:rounded-2xl overflow-hidden shadow-lg xs:shadow-xl sm:shadow-2xl border border-white/10"
+        className="relative h-[250px] xs:h-[300px] sm:h-[400px] md:h-[450px] lg:h-[500px] xl:h-[600px] rounded-lg xs:rounded-xl sm:rounded-2xl overflow-hidden shadow-md border border-white/10"
         suppressHydrationWarning
       >
         <ClientFindUsMap 

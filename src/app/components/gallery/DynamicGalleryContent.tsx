@@ -446,34 +446,6 @@ function DynamicGalleryContent({ moments }: DynamicGalleryContentProps) {
             );
           })}
         </div>
-
-        <div className="absolute bottom-1 sm:bottom-2 md:bottom-3 lg:bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 sm:gap-2 md:gap-3">
-          {moments.map((_, index) => (
-            <m.button
-              key={index}
-              initial={false}
-              animate={{
-                scale: currentIndex === index ? 1.3 : 1,
-                opacity: currentIndex === index ? 1 : 0.5,
-              }}
-              onClick={() => setCurrentIndex(index)}
-              className="relative group"
-              aria-label={`Go to video ${index + 1}`}
-            >
-              <div
-                className={`w-2.5 h-2.5 sm:w-2 sm:h-2 md:w-2.5 md:h-2.5 rounded-full transition-all duration-300 ${
-                  currentIndex === index
-                    ? "bg-[#C7962D]"
-                    : "bg-white/50 group-hover:bg-white/70"
-                }`}
-              ></div>
-
-              {currentIndex === index && (
-                <div className="absolute -inset-1.5 sm:-inset-1 rounded-full border border-[#C7962D]/50 animate-ping"></div>
-              )}
-            </m.button>
-          ))}
-        </div>
       </div>
     </LazyMotion>
   );

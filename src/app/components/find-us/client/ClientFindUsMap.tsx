@@ -10,6 +10,7 @@ interface ClientFindUsMapProps {
   onMarkerClick: (branch: BranchType) => void;
 }
 
+// Optimize map loading with simpler loading state
 const ClientOnlyMap = dynamic(() => import('../../ClientOnlyMap').then(mod => {
   const WrappedMap = (props: any) => {
     const { branches, center, onMarkerClick, ...rest } = props;
@@ -24,7 +25,7 @@ const ClientOnlyMap = dynamic(() => import('../../ClientOnlyMap').then(mod => {
 }), { 
   ssr: false,
   loading: () => (
-    <div className="h-full w-full bg-white/5 flex items-center justify-center">
+    <div className="h-full w-full bg-[#284f29] flex items-center justify-center">
       <div className="w-10 h-10 border-3 border-[#C7962D]/20 border-t-[#C7962D] rounded-full animate-spin"></div>
     </div>
   ) 

@@ -2,7 +2,9 @@ import Container from "../Container";
 import ClientFindUsHeader from "./client/ClientFindUsHeader";
 import ClientMapGrid from "./client/ClientMapGrid";
 import { BranchType } from "./types";
+import { memo } from "react";
 
+// Pre-define branches data to avoid computation during render
 const branches: BranchType[] = [
   {
     name: "Irani Chiya - Main Branch",
@@ -118,4 +120,4 @@ function FindUsContent() {
   );
 }
 
-export default FindUsContent;
+export default memo(FindUsContent);

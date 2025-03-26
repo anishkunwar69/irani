@@ -1,6 +1,6 @@
-import Image from "next/image";
 import FindUsContent from "../components/find-us/FindUsContent";
 import ClientFindUsWrapper from "./ClientFindUsWrapper";
+import { memo } from "react";
 
 const FindUs = () => {
   return (
@@ -10,4 +10,4 @@ const FindUs = () => {
   );
 };
 
-export default FindUs;
+export default memo(FindUs);

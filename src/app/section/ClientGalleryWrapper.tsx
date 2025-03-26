@@ -9,7 +9,7 @@ interface ClientGalleryWrapperProps {
 // Simple static wrapper for initial render
 const StaticWrapper = ({ children }: { children: ReactNode }) => (
   <section
-    className="w-full bg-gradient-to-br from-[#1B4D2E] via-[#2D5A27] to-[#2E372E] relative overflow-hidden opacity-[0.99]"
+    className="w-full bg-[#29552a] relative overflow-hidden opacity-[0.99]"
     id="gallery"
   >
     {children}
@@ -54,31 +54,14 @@ function ClientGalleryWrapper({ children }: ClientGalleryWrapperProps) {
     return () => clearTimeout(timer);
   }, []);
 
-  // Simplified background styles for better performance
-  const bgStyles = {
-    backgroundImage: "url('/pattern-light.png')",
-    backgroundRepeat: "repeat",
-    opacity: 0.05,
-  };
-
   return (
     <>
       {isClient ? (
         <AnimatedSection
-          className="w-full bg-gradient-to-br from-[#1B4D2E] via-[#2D5A27] to-[#2E372E] relative overflow-hidden"
+          className="w-full bg-[#29552a] relative overflow-hidden"
           id="gallery"
         >
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute inset-0" style={bgStyles}></div>
-            
-            {/* Essential decorative elements only */}
-            <div className="absolute -top-[10%] -right-[5%] w-[60vw] h-[60vw] xs:w-[500px] xs:h-[500px] bg-[#C7962D] rounded-full blur-[100px] opacity-5 xs:opacity-6 animate-pulse-slow"></div>
-            <div className="absolute -bottom-[10%] -left-[5%] w-[50vw] h-[50vw] xs:w-[400px] xs:h-[400px] bg-[#1B4D2E] rounded-full blur-[80px] opacity-5 xs:opacity-6 animate-pulse-slow"></div>
-
-            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#C7962D]/20 xs:via-[#C7962D]/25 to-transparent"></div>
-            <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#C7962D]/20 xs:via-[#C7962D]/25 to-transparent"></div>
-          </div>
-          
+          {/* Removed all decorative elements for better performance */}
           {children}
         </AnimatedSection>
       ) : (

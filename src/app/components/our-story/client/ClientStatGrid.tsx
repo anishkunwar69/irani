@@ -45,7 +45,7 @@ const StatItem = memo(({ stat, index }: {
       transition={{ duration: 0.6, delay: index * 0.1 }}
       className="group relative"
     >
-      <div className="relative space-y-1 xs:space-y-2 bg-[#1B4D2E]/30 p-3 xs:p-4 sm:p-6 rounded-xl border border-white/10">
+      <div className="relative space-y-1 xs:space-y-2 bg-white/10 backdrop-blur-sm p-3 xs:p-4 sm:p-6 rounded-xl border border-white/15 shadow-md shadow-black/5 hover:bg-white/15 transition-colors duration-300">
         <div className="flex items-center gap-2 xs:gap-3">
           {IconComponent && <IconComponent className="text-base xs:text-lg sm:text-lg md:text-xl lg:text-2xl text-[#FFD700]" />}
           <p className="text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl font-lora text-white font-bold">
@@ -53,7 +53,7 @@ const StatItem = memo(({ stat, index }: {
             {stat.number.includes("+") ? "+" : ""}
           </p>
         </div>
-        <p className="text-sm xs:text-sm sm:text-sm md:text-base lg:text-lg text-white/70 font-quicksand font-medium">
+        <p className="text-sm xs:text-sm sm:text-sm md:text-base lg:text-lg text-white/80 font-quicksand font-medium">
           {stat.text}
         </p>
       </div>

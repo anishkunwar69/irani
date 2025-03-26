@@ -5,7 +5,6 @@ import { memo } from "react";
 function ClientGalleryHeader() {
   return (
     <div className="text-center mb-8 xs:mb-10 sm:mb-12 md:mb-14 relative">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[min(400px,90vw)] h-[min(400px,90vw)] bg-[#C7962D] rounded-full blur-[min(130px,14vw)] opacity-[0.12] sm:opacity-[0.1]"></div>
       <div className="relative">
         <h2 className="text-xs sm:text-sm md:text-base lg:text-lg uppercase tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] text-[#C7962D] font-quicksand mb-2 xs:mb-2.5 sm:mb-3 md:mb-4 inline-flex items-center gap-1 sm:gap-2 md:gap-3 justify-center">
           <GiTeapot className="text-lg sm:text-xl md:text-2xl lg:text-3xl" />

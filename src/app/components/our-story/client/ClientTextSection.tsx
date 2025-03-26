@@ -18,8 +18,8 @@ function ClientTextSection({ children }: { children: ReactNode }) {
       className="space-y-8 order-2 3xl:order-1"
     >
       <div className="relative group">
-        <div className="relative space-y-1 xs:space-y-2 bg-[#1B4D2E]/30 p-5 xs:p-6 sm:p-8 rounded-2xl border border-white/10">
-          <p className="text-base xs:text-base sm:text-base md:text-lg lg:text-xl leading-relaxed text-white/80 font-quicksand">
+        <div className="relative space-y-1 xs:space-y-2 bg-white/10 backdrop-blur-sm p-5 xs:p-6 sm:p-8 rounded-2xl border border-white/15 shadow-lg shadow-black/5">
+          <p className="text-base xs:text-base sm:text-base md:text-lg lg:text-xl leading-relaxed text-white/90 font-quicksand">
             <span className="text-[#FFD700] font-semibold">
               Irani Chiya
             </span>{" "}

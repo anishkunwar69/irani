@@ -288,7 +288,7 @@ function DynamicGalleryContent({ moments }: DynamicGalleryContentProps) {
     
     scale = Math.max(scale, 0.1);
     opacity = Math.max(opacity, 0.1);
-    zIndex = 10 - Math.abs(adjustedDiff);
+    zIndex = Math.min(5 - Math.abs(adjustedDiff), 5);
 
     return {
       transform: `translateX(${translateX}%) scale(${scale})`,
@@ -301,26 +301,26 @@ function DynamicGalleryContent({ moments }: DynamicGalleryContentProps) {
     <LazyMotion features={domAnimation}>
       <div
         ref={containerRef}
-        className="w-full h-[calc(100vw*0.95)] sm:h-[calc(100vw*0.75)] md:h-[calc(100vw*0.65)] lg:h-[calc(100vw*0.55)] xl:h-[calc(100vw*0.45)] 2xl:h-[calc(100vw*0.4)] max-h-[80vh] relative mb-7 sm:mb-10 md:mb-10 lg:mb-10 xl:mb-20 gallery-5xl:mb-36"
+        className="w-full h-[calc(100vw*0.95)] sm:h-[calc(100vw*0.75)] md:h-[calc(100vw*0.65)] lg:h-[calc(100vw*0.55)] xl:h-[calc(100vw*0.45)] 2xl:h-[calc(100vw*0.4)] max-h-[80vh] relative mb-7 sm:mb-10 md:mb-10 lg:mb-10 xl:mb-20 gallery-5xl:mb-36 bg-[#29552a] z-[5]"
       >
         <m.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={prevSlide}
-          className="absolute left-1 sm:left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 flex items-center justify-center bg-black/30 hover:bg-[#C7962D] rounded-full backdrop-blur-sm transition-all text-white border border-white/20 shadow-lg hover:shadow-[#C7962D]/20 group"
+          className="absolute left-1 sm:left-4 md:left-8 top-1/2 -translate-y-1/2 z-[10] w-10 h-10 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 flex items-center justify-center bg-black/30 hover:bg-[#C7962D] rounded-full text-white"
           aria-label="Previous video"
         >
-          <FaChevronLeft className="text-base sm:text-base md:text-lg lg:text-xl transition-transform group-hover:scale-110" />
+          <FaChevronLeft className="text-base sm:text-base md:text-lg lg:text-xl" />
         </m.button>
         
         <m.button
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           onClick={nextSlide}
-          className="absolute right-1 sm:right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 flex items-center justify-center bg-black/30 hover:bg-[#C7962D] rounded-full backdrop-blur-sm transition-all text-white border border-white/20 shadow-lg hover:shadow-[#C7962D]/20 group"
+          className="absolute right-1 sm:right-4 md:right-8 top-1/2 -translate-y-1/2 z-[10] w-10 h-10 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 flex items-center justify-center bg-black/30 hover:bg-[#C7962D] rounded-full text-white"
           aria-label="Next video"
         >
-          <FaChevronRight className="text-base sm:text-base md:text-lg lg:text-xl transition-transform group-hover:scale-110" />
+          <FaChevronRight className="text-base sm:text-base md:text-lg lg:text-xl" />
         </m.button>
 
         <div className="absolute top-0 left-0 right-0 w-full flex justify-center">
@@ -342,17 +342,9 @@ function DynamicGalleryContent({ moments }: DynamicGalleryContentProps) {
                 onClick={() => handleVideoClick(index)}
               >
                 <div className="relative w-full h-full overflow-hidden group">
-                  <div
-                    className={`absolute -inset-0.5 bg-gradient-to-b from-[#C7962D] to-[#1B4D2E] opacity-20 blur transition-all duration-500 ${
-                      currentIndex === index
-                        ? "opacity-60 group-hover:opacity-80"
-                        : "opacity-20"
-                    }`}
-                  ></div>
-
-                  <div className="relative w-full h-full bg-gradient-to-br from-[#0C1F0E]/90 to-[#1B4D2E]/90 overflow-hidden border border-white/10 shadow-xl backdrop-blur-sm">
+                  <div className="relative w-full h-full overflow-hidden">
                     {isLoading[index] && (
-                      <div className="absolute inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm z-10">
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/40 z-10">
                         <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 border-3 sm:border-4 border-[#C7962D]/20 border-t-[#C7962D] rounded-full animate-spin"></div>
                       </div>
                     )}
@@ -363,11 +355,7 @@ function DynamicGalleryContent({ moments }: DynamicGalleryContentProps) {
                           if (el) videoRefs.current[index] = el;
                         }}
                         data-index={index}
-                        className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 ${
-                          currentIndex === index
-                            ? "scale-100 group-hover:scale-105"
-                            : "scale-105"
-                        }`}
+                        className="absolute inset-0 w-full h-full object-cover"
                         src={createVideoUrl(moment.cloudinaryId)}
                         poster={createPosterUrl(moment.cloudinaryId)}
                         playsInline
@@ -380,17 +368,9 @@ function DynamicGalleryContent({ moments }: DynamicGalleryContentProps) {
                       />
                     )}
 
-                    <div
-                      className={`absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/80 transition-opacity duration-300 ${
-                        currentIndex === index
-                          ? "opacity-80 group-hover:opacity-50"
-                          : "opacity-90"
-                      }`}
-                    ></div>
-
                     {currentIndex === index && (
                       <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-18 lg:h-18 xl:w-20 xl:h-20 rounded-full bg-black/40 backdrop-blur-md flex items-center justify-center border border-white/20 shadow-xl">
+                        <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-18 lg:h-18 xl:w-20 xl:h-20 rounded-full bg-black/40 flex items-center justify-center">
                           {isPlaying ? (
                             <FaPause className="text-xl sm:text-2xl md:text-3xl text-white" />
                           ) : (
@@ -432,7 +412,7 @@ function DynamicGalleryContent({ moments }: DynamicGalleryContentProps) {
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
                             onClick={togglePlayPause}
-                            className="w-[calc(10%+12px)] h-[calc(10%+12px)] sm:w-[calc(5%+12px)] sm:h-[calc(5%+12px)] md:w-[calc(6%+14px)] md:h-[calc(6%+14px)] lg:w-[calc(7%+14px)] lg:h-[calc(7%+14px)] rounded-full bg-[#C7962D] flex items-center justify-center text-white hover:bg-[#C7962D]/90 transition-all shadow-lg hover:shadow-[#C7962D]/30 p-[calc(1.2%+1px)] sm:p-[calc(1.5%+2px)] md:p-[calc(1.8%+2px)]"
+                            className="w-[calc(10%+12px)] h-[calc(10%+12px)] sm:w-[calc(5%+12px)] sm:h-[calc(5%+12px)] md:w-[calc(6%+14px)] md:h-[calc(6%+14px)] lg:w-[calc(7%+14px)] lg:h-[calc(7%+14px)] rounded-full bg-[#C7962D] flex items-center justify-center text-white p-[calc(1.2%+1px)] sm:p-[calc(1.5%+2px)] md:p-[calc(1.8%+2px)]"
                             aria-label={isPlaying ? "Pause" : "Play"}
                           >
                             {isPlaying ? (
@@ -448,7 +428,7 @@ function DynamicGalleryContent({ moments }: DynamicGalleryContentProps) {
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
                             onClick={toggleMute}
-                            className="w-[calc(10%+12px)] h-[calc(10%+12px)] sm:w-[calc(5%+12px)] sm:h-[calc(5%+12px)] md:w-[calc(6%+14px)] md:h-[calc(6%+14px)] lg:w-[calc(7%+14px)] lg:h-[calc(7%+14px)] rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/20 transition-all border border-white/20 p-[calc(1.2%+1px)] sm:p-[calc(1.5%+2px)] md:p-[calc(1.8%+2px)]"
+                            className="w-[calc(10%+12px)] h-[calc(10%+12px)] sm:w-[calc(5%+12px)] sm:h-[calc(5%+12px)] md:w-[calc(6%+14px)] md:h-[calc(6%+14px)] lg:w-[calc(7%+14px)] lg:h-[calc(7%+14px)] rounded-full bg-white/10 flex items-center justify-center text-white p-[calc(1.2%+1px)] sm:p-[calc(1.5%+2px)] md:p-[calc(1.8%+2px)]"
                             aria-label={isMuted ? "Unmute" : "Mute"}
                           >
                             {isMuted ? (

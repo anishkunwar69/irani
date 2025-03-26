@@ -1,6 +1,20 @@
+import dynamic from "next/dynamic";
+
+// Import hero component normally for faster LCP
 import ClientJointVentureHero from "./client/ClientJointVentureHero";
-import ClientJointVentureAbout from "./client/ClientJointVentureAbout";
-import ClientJointVentureVisit from "./client/ClientJointVentureVisit";
+
+// Dynamically import other components for better performance
+const ClientJointVentureAbout = dynamic(
+  () => import("./client/ClientJointVentureAbout"),
+  { ssr: true }
+);
+
+const ClientJointVentureVisit = dynamic(
+  () => import("./client/ClientJointVentureVisit"),
+  { ssr: true }
+);
+
+import { memo } from "react";
 
 function JointVentureContent() {
   return (
@@ -12,4 +26,4 @@ function JointVentureContent() {
   );
 }
 
-export default JointVentureContent;
+export default memo(JointVentureContent);

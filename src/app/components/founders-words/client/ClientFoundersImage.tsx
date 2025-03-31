@@ -19,12 +19,15 @@ function ClientFoundersImage() {
         <div className="relative h-full overflow-hidden rounded-lg xs:rounded-xl sm:rounded-xl border border-[#C7962D]/30 xs:border-2 xs:border-[#C7962D]/40">
           <div className="aspect-[4/5] relative w-full h-full">
             <Image
-              src="/founder.jpeg"
+              src="https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/irani-hero-imgs/founder/lm846lzr1yvnleifgj3i"
               alt="Founder of Irani Chiya"
               fill
               className="object-cover object-center rounded-lg xs:rounded-xl transition-transform duration-700 group-hover:scale-105"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               priority
+              quality={85}
+              placeholder="blur"
+              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P+/HgAEDQIHXG8H1QAAAABJRU5ErkJggg=="
             />
 
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30 opacity-60"></div>

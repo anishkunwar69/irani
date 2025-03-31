@@ -12,6 +12,7 @@ interface ClientBranchDetailsProps {
 function ClientBranchDetails({ selectedBranch }: ClientBranchDetailsProps) {
   return (
     <motion.div
+
       initial={{ opacity: 0.9, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}

@@ -11,7 +11,6 @@ const ClientHeader = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Defer non-critical scroll listener to after page load
   useEffect(() => {
     let ticking = false;
     
@@ -25,10 +24,8 @@ const ClientHeader = () => {
       }
     };
 
-    // Slight delay before attaching scroll listener to prioritize rendering
     const timer = setTimeout(() => {
       window.addEventListener("scroll", handleScroll, { passive: true });
-      // Check initial scroll position in case page is loaded already scrolled
       handleScroll();
     }, 100);
     
@@ -42,7 +39,6 @@ const ClientHeader = () => {
     setMobileMenuOpen(prev => !prev);
   }, []);
   
-  // Defer non-critical click handlers
   useEffect(() => {
     const handleHashLinkClick = (e: Event) => {
       const target = e.target as HTMLAnchorElement;
@@ -70,7 +66,6 @@ const ClientHeader = () => {
       }
     };
 
-    // Slight delay before attaching click handlers to prioritize rendering
     const timer = setTimeout(() => {
       document.addEventListener("click", handleClick, { passive: false });
     }, 150);

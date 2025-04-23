@@ -1,5 +1,5 @@
 "use client";
-import { LazyMotion, domAnimation, m } from "framer-motion";
+import { AnimatePresence, LazyMotion, domAnimation, m } from "framer-motion";
 import React, { useEffect, useRef, useState, memo, useMemo } from "react";
 import {
   FaChevronLeft,
@@ -381,7 +381,7 @@ function DynamicGalleryContent({ moments }: DynamicGalleryContentProps) {
                     )}
 
                     <div
-                      className={`absolute bottom-0 left-0 right-0 p-[calc(3%+5px)] z-10 transition-all duration-300 ${
+                      className={`absolute bottom-0 left-0 right-0 p-[calc(3%+5px)] z-10 transition-all duration-300 my-6 ${
                         currentIndex === index
                           ? "translate-y-0 opacity-100"
                           : "translate-y-8 opacity-0"
@@ -390,6 +390,19 @@ function DynamicGalleryContent({ moments }: DynamicGalleryContentProps) {
                       <h3 className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-lora text-white font-semibold mb-[calc(1%+2px)] sm:mb-[calc(1%+4px)] md:mb-[calc(1.5%+4px)]">
                         {moment.title}
                       </h3>
+
+                      {currentIndex === index && (
+                        <AnimatePresence>
+                          <m.p
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0 }}
+                            className="text-[10px] sm:text-xs md:text-sm lg:text-base text-white/80 mb-[calc(2%+4px)] sm:mb-[calc(2%+6px)] md:mb-[calc(3%+6px)] font-quicksand line-clamp-2 sm:line-clamp-3"
+                          >
+                            {moment.description}
+                          </m.p>
+                        </AnimatePresence>
+                      )}
 
                       {currentIndex === index && (
                         <div className="flex items-center gap-[calc(1%+3px)] sm:gap-[calc(1.5%+3px)] md:gap-[calc(2%+3px)]">

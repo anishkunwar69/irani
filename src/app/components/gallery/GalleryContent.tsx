@@ -27,7 +27,7 @@ const moments: Moment[] = [
     cloudinaryId: "pmsleglfxh2um51yc7wg",
   },
   {
-    title: "TU Cricket Team in Irani Chiya 🏏☕️",
+    title: "TU Cricket Team in Irani Chiya 🏏",
     description: "Where champions come to unwind",
     cloudinaryId: "xikzfycxwhhoo4chdj8o",
   },

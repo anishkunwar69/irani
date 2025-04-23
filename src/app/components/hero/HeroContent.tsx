@@ -155,17 +155,7 @@ const branchLocations: BranchLocation[] = [
     imgUrl:
       "https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/irani-hero-imgs/branches/qpbllaiek7jwlfld13ex",
     hasGoogleMaps: false,
-  },
-  {
-    name: "Irani Chiya - Kapan",
-    address: "Kapan, Kathmandu",
-    mapUrl: "",
-    contact: "+977-9764624248",
-    hours: "6:00 AM - 9:00 PM",
-    imgUrl:
-      "https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/irani-hero-imgs/branches/xu4vscr3xoreq37vekjn",
-    hasGoogleMaps: false,
-  },
+  }
 ];
 
 export { branchLocations };

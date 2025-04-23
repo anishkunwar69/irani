@@ -248,13 +248,26 @@ function Footer() {
             className="pt-6 sm:pt-7 md:pt-8 border-t border-white/20 w-full"
           >
             <div className="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0 w-full">
-              <p className="text-white/80 font-quicksand text-xs sm:text-sm order-2 sm:order-1">
-                © {year}{" "}
-                <span className="text-white font-quicksand font-semibold text-sm sm:text-base">
-                  Irani Chiya
-                </span>
-                . All rights reserved.
-              </p>
+              <div className="flex flex-col items-center sm:items-start space-y-2 order-2 sm:order-1">
+                <p className="text-white/80 font-quicksand text-xs sm:text-sm">
+                  © {year}{" "}
+                  <span className="text-white font-quicksand font-semibold text-sm sm:text-base">
+                    Irani Chiya
+                  </span>
+                  . All rights reserved.
+                </p>
+                <p className="text-white/80 font-quicksand text-xs sm:text-sm">
+                  Created by:{" "}
+                  <a
+                    href="https://anishkunwar.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white hover:text-[#1B4D2E] transition-colors font-semibold"
+                  >
+                    Anish Kunwar
+                  </a>
+                </p>
+              </div>
               <div className="flex flex-col xs:flex-row items-center space-y-2 xs:space-y-0 xs:space-x-4 md:space-x-6 order-1 sm:order-2">
                 <div className="flex space-x-4 sm:space-x-6">
                   <a

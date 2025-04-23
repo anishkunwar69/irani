@@ -11,18 +11,18 @@ function ClientFoundersImage() {
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="min-[1539px]:col-span-2 flex flex-col justify-center"
+      className="min-[1440px]:col-span-2 flex flex-col justify-center"
     >
       <div className="relative group">
         <div className="absolute -inset-1 xs:-inset-1.5 sm:-inset-2 bg-gradient-to-br from-[#C7962D] to-[#8B7513] rounded-lg xs:rounded-xl sm:rounded-2xl opacity-40 xs:opacity-45 sm:opacity-50 blur-[2px] xs:blur-[3px] sm:blur-sm group-hover:opacity-60 xs:group-hover:opacity-65 sm:group-hover:opacity-70 transition-all duration-700"></div>
 
         <div className="relative h-full overflow-hidden rounded-lg xs:rounded-xl sm:rounded-xl border border-[#C7962D]/30 xs:border-2 xs:border-[#C7962D]/40">
-          <div className="aspect-[4/5] relative w-full h-full">
+          <div className="min-[1440px]:aspect-[4/5] max-md:aspect-[4/5] relative w-full min-[1440px]:h-full max-md:h-full h-[650px]">
             <Image
               src="https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/irani-hero-imgs/founder/lm846lzr1yvnleifgj3i"
               alt="Founder of Irani Chiya"
               fill
-              className="object-cover object-center rounded-lg xs:rounded-xl transition-transform duration-700 group-hover:scale-105"
+              className="object-cover object-bottom rounded-lg xs:rounded-xl transition-transform duration-700 min-[1440px]:group-hover:scale-105"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               priority
               quality={85}

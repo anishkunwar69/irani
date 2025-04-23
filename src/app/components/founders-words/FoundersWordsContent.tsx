@@ -9,7 +9,7 @@ function FoundersWordsContent() {
       <Container>
         <ClientFoundersHeader />
 
-        <div className="grid grid-cols-1 min-[1539px]:grid-cols-5 gap-4 xs:gap-6 sm:gap-8 md:gap-10 lg:gap-12 relative">
+        <div className="grid grid-cols-1 min-[1440px]:grid-cols-5 gap-4 xs:gap-6 sm:gap-8 md:gap-10 lg:gap-12 relative">
           <ClientFoundersImage />
           <ClientFoundersMessage />
         </div>

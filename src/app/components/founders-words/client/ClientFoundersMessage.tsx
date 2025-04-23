@@ -11,7 +11,7 @@ function ClientFoundersMessage() {
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8, delay: 0.2 }}
-      className="min-[1539px]:col-span-3 flex flex-col justify-center mt-4 xs:mt-5 sm:mt-6 md:mt-8 min-[1539px]:mt-0"
+      className="min-[1440px]:col-span-3 flex flex-col justify-center mt-4 xs:mt-5 sm:mt-6 md:mt-8 min-[1440px]:mt-0"
     >
       <div className="relative group h-full">
         <div className="absolute -inset-0.5 bg-gradient-to-br from-[#C7962D] to-[#1B4D2E] rounded-lg xs:rounded-xl sm:rounded-2xl opacity-10 xs:opacity-12 sm:opacity-15 group-hover:opacity-15 xs:group-hover:opacity-18 sm:group-hover:opacity-20 blur-[1px] xs:blur-[2px] sm:blur transition-opacity duration-300"></div>

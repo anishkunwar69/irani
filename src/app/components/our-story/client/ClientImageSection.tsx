@@ -18,7 +18,7 @@ function ClientImageSection({ imageUrl, alt }: { imageUrl: string; alt: string }
       transition={{ duration: 0.6 }}
       className="relative group order-1 3xl:order-2"
     >
-      <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-[#C7962D]/20">
+      <div className="relative min-[1440px]:h-full max-lg:h-full rounded-2xl overflow-hidden border border-[#C7962D]/20 aspect-auto ">
         <Image
           src={imageUrl}
           alt={alt}

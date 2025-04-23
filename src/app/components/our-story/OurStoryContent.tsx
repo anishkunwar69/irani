@@ -28,7 +28,7 @@ function OurStoryContent() {
             <div className="grid grid-cols-1 3xl:grid-cols-2 gap-8 xs:gap-10 sm:gap-12 md:gap-16 items-center">
               {/* Prioritize image section */}
               <ClientImageSection
-                imageUrl="https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/irani-hero-imgs/about-us/gxy3jn0gxqgenyy3q9rg"
+                imageUrl="https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/irani/jedtlphck4l2i5bmqm11"
                 alt="Irani Chiya Tea Experience"
               />
 

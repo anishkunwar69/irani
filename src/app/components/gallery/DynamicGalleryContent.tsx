@@ -381,7 +381,7 @@ function DynamicGalleryContent({ moments }: DynamicGalleryContentProps) {
                     )}
 
                     <div
-                      className={`absolute bottom-0 left-0 right-0 p-[calc(3%+5px)] z-10 transition-all duration-300 my-6 ${
+                      className={`absolute bottom-0 left-0 right-0 p-[calc(3%+5px)] z-10 transition-all duration-300 lg:my-6 2xl:my-0 ${
                         currentIndex === index
                           ? "translate-y-0 opacity-100"
                           : "translate-y-8 opacity-0"

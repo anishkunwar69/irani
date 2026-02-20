@@ -8,7 +8,9 @@ const ClientTextSection = lazy(() => import("./client/ClientTextSection"));
 const ClientStatGrid = lazy(() => import("./client/ClientStatGrid"));
 
 // Simple fallback with solid background
-const FallbackDiv = () => <div className="min-h-[300px] bg-[#1B4D2E]/20 rounded-lg animate-pulse"></div>;
+const FallbackDiv = () => (
+  <div className="min-h-[300px] bg-[#1B4D2E]/20 rounded-lg animate-pulse"></div>
+);
 
 function OurStoryContent() {
   const stats = [

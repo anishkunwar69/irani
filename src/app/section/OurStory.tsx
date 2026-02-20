@@ -1,11 +1,11 @@
+import { Suspense } from "react";
 import OurStoryContent from "../components/our-story/OurStoryContent";
 import ClientOurStoryWrapper from "./ClientOurStoryWrapper";
-import { Suspense } from "react";
 
 // Simple fallback for the entire section
 const OurStoryFallback = () => (
-  <section 
-    id="our-story" 
+  <section
+    id="our-story"
     className="w-full min-h-[500px] overflow-hidden bg-[#1B4D2E] relative"
   >
     <div className="animate-pulse flex flex-col items-center justify-center p-10 space-y-8">

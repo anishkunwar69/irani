@@ -1,14 +1,15 @@
-import Footer from "./components/Footer";
-import Hero from "./section/Hero";
-import OurStory from "./section/OurStory";
 import { Metadata } from "next";
-import Gallery from './section/Gallery';
-import Testimonials from './section/Testimonials';
-import FoundersWord from './section/FoundersWord';
-import FindUs from './section/FindUs';
+import Footer from "./components/Footer";
+import FindUs from "./section/FindUs";
+import FoundersWord from "./section/FoundersWord";
+import Gallery from "./section/Gallery";
+import Hero from "./section/Hero";
+import News from "./section/News";
+import OurStory from "./section/OurStory";
+import Testimonials from "./section/Testimonials";
 
 export const viewport = {
-  width: 'device-width',
+  width: "device-width",
   initialScale: 1,
   maximumScale: 5,
 };
@@ -52,6 +53,8 @@ export const metadata: Metadata = {
   },
 };
 
+
+
 export default function Home() {
   return (
     <main className="min-h-screen overflow-x-hidden">
@@ -59,6 +62,7 @@ export default function Home() {
       <OurStory />
       <Gallery />
       <Testimonials />
+      <News />
       <FoundersWord />
       <FindUs />
       <Footer />

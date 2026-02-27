@@ -74,7 +74,6 @@ function ClientBranchDetails({ selectedBranch }: ClientBranchDetailsProps) {
           <div className="flex flex-wrap gap-1 xs:gap-1.5 sm:gap-2 md:gap-3 pt-1 xs:pt-1.5 sm:pt-2">
             {[
               "Friendly Atmosphere",
-              "Traditional Recipe",
               "Cozy Seating",
               "Free Wi-Fi",
             ].map((feature, index) => (

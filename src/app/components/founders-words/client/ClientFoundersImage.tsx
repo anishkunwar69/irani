@@ -19,10 +19,10 @@ function ClientFoundersImage() {
         <div className="relative h-full overflow-hidden rounded-lg xs:rounded-xl sm:rounded-xl border border-[#C7962D]/30 xs:border-2 xs:border-[#C7962D]/40">
           <div className="min-[1440px]:aspect-[4/5] max-md:aspect-[4/5] relative w-full min-[1440px]:h-full max-md:h-full h-[650px]">
             <Image
-              src="https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/irani-hero-imgs/founder/lm846lzr1yvnleifgj3i"
+              src="https://res.cloudinary.com/dmq5tx0bd/image/upload/v1772180494/Whisk_16230ec5c2ef948acac48d117edb840ddr_k7chxo.png"
               alt="Founder of Irani Chiya"
               fill
-              className="object-cover object-bottom rounded-lg xs:rounded-xl transition-transform duration-700 min-[1440px]:group-hover:scale-105"
+              className="object-cover object-bottom rounded-lg xs:rounded-xl transition-transform duration-700"
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               priority
               quality={85}
@@ -47,6 +47,6 @@ function ClientFoundersImage() {
       </div>
     </motion.div>
   );
-} 
+}
 
 export default memo(ClientFoundersImage);   

@@ -25,7 +25,7 @@ function ClientMapGrid({ branches, initialBranch }: ClientMapGridProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.3 }}
-      className="grid grid-cols-1 min-[1171px]:grid-cols-2 gap-4 xs:gap-5 sm:gap-6 md:gap-8 lg:gap-10 items-stretch relative z-[1]"
+      className="grid grid-cols-1 min-[1171px]:grid-cols-2 gap-4 xs:gap-5 sm:gap-6 md:gap-8 lg:gap-10 items-center relative z-[1]"
     >
       <div 
         className="relative h-[250px] xs:h-[300px] sm:h-[400px] md:h-[450px] lg:h-[500px] xl:h-[600px] rounded-lg xs:rounded-xl sm:rounded-2xl overflow-hidden shadow-md border border-white/10"

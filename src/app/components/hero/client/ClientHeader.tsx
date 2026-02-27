@@ -3,21 +3,58 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect, useCallback, memo } from "react";
+import { useState, useEffect, useCallback, memo, useRef } from "react";
 import { FaMugHot } from "react-icons/fa";
 import Container from "../../Container";
 
 const ClientHeader = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
+
+  // Refs so the rAF callback always reads fresh values without stale closures
+  const lastScrollY = useRef(0);
+  const mobileMenuOpenRef = useRef(false);
+
+  // Keep the ref in sync with state
+  useEffect(() => {
+    mobileMenuOpenRef.current = mobileMenuOpen;
+  }, [mobileMenuOpen]);
 
   useEffect(() => {
+    // Read from whichever container is actually scrolling.
+    // window.scrollY stays 0 when overflow-x:hidden on <main> makes it
+    // the real scroll container instead of the window.
+    const getScrollY = () =>
+      window.scrollY ||
+      document.documentElement.scrollTop ||
+      document.body.scrollTop ||
+      0;
+
     let ticking = false;
-    
+
     const handleScroll = () => {
+      const currentY = getScrollY();
+      const atTop = currentY < 10;
+      const scrollingDown = currentY > lastScrollY.current;
+      const delta = Math.abs(currentY - lastScrollY.current);
+
+      lastScrollY.current = currentY;
+
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          setIsScrolled(window.scrollY > 10);
+          setIsScrolled(!atTop);
+
+          if (delta > 4) {
+            if (atTop) {
+              setHidden(false);
+            } else if (scrollingDown) {
+              if (!mobileMenuOpenRef.current) setHidden(true);
+            } else {
+              setHidden(false);
+            }
+          }
+
           ticking = false;
         });
         ticking = true;
@@ -25,20 +62,22 @@ const ClientHeader = () => {
     };
 
     const timer = setTimeout(() => {
-      window.addEventListener("scroll", handleScroll, { passive: true });
+      // capture:true catches scroll on ANY element — essential when a child
+      // element is the real scroll container, not the window
+      document.addEventListener("scroll", handleScroll, { passive: true, capture: true });
       handleScroll();
     }, 100);
-    
+
     return () => {
       clearTimeout(timer);
-      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("scroll", handleScroll, true);
     };
   }, []);
 
   const toggleMobileMenu = useCallback(() => {
     setMobileMenuOpen(prev => !prev);
   }, []);
-  
+
   useEffect(() => {
     const handleHashLinkClick = (e: Event) => {
       const target = e.target as HTMLAnchorElement;
@@ -60,8 +99,8 @@ const ClientHeader = () => {
     };
 
     const handleClick = (e: MouseEvent) => {
-      if ((e.target as Element).tagName === 'A' && 
-          (e.target as HTMLAnchorElement).getAttribute('href')?.startsWith('#')) {
+      if ((e.target as Element).tagName === 'A' &&
+        (e.target as HTMLAnchorElement).getAttribute('href')?.startsWith('#')) {
         handleHashLinkClick(e);
       }
     };
@@ -86,10 +125,13 @@ const ClientHeader = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 border-b border-white/10 backdrop-blur-lg bg-[#1B4D2E]/80 will-change-transform ${
-        isScrolled ? "shadow-md" : ""
-      }`}
-      style={{ position: 'fixed' }}
+      className={`fixed top-0 left-0 right-0 z-[100] border-b border-white/10 backdrop-blur-lg bg-[#1B4D2E]/80 will-change-transform ${isScrolled ? "shadow-md" : ""
+        }`}
+      style={{
+        transform: hidden ? "translateY(-100%)" : "translateY(0)",
+        transition: "transform 350ms cubic-bezier(0.4, 0, 0.2, 1)",
+        zIndex: 100,
+      }}
     >
       <Container>
         <nav className="py-3 sm:py-4 lg:py-5 flex justify-between items-center">

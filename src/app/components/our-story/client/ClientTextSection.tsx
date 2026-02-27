@@ -15,7 +15,7 @@ function ClientTextSection({ children }: { children: ReactNode }) {
       viewport={{ once: true }}
       variants={animationVariants}
       transition={{ duration: 0.8 }}
-      className="space-y-8 order-2 3xl:order-1"
+      className="space-y-8 order-2 lg:order-1"
     >
       <div className="relative group">
         <div className="relative space-y-1 xs:space-y-2 bg-white/10 backdrop-blur-sm p-5 xs:p-6 sm:p-8 rounded-2xl border border-white/15 shadow-lg shadow-black/5">

@@ -27,10 +27,10 @@ function OurStoryContent() {
           <div className="relative">
             <ClientStoryHeader />
 
-            <div className="grid grid-cols-1 3xl:grid-cols-2 gap-8 xs:gap-10 sm:gap-12 md:gap-16 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 xs:gap-10 sm:gap-12 md:gap-14 lg:gap-10 xl:gap-12 3xl:gap-16 items-center">
               {/* Prioritize image section */}
               <ClientImageSection
-                imageUrl="https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/irani/jedtlphck4l2i5bmqm11"
+                imageUrl="https://res.cloudinary.com/dmq5tx0bd/image/upload/v1772180311/irani/Whisk_d29b85f5429efa485554bd5422f7ee0cdr_c5uurq.png"
                 alt="Irani Chiya Tea Experience"
               />
 

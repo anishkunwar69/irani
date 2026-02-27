@@ -16,19 +16,19 @@ function ClientImageSection({ imageUrl, alt }: { imageUrl: string; alt: string }
       viewport={{ once: true, margin: "-100px" }}
       variants={animationVariants}
       transition={{ duration: 0.6 }}
-      className="relative group order-1 3xl:order-2"
+      className="relative group order-1 lg:order-2"
     >
-      <div className="relative min-[1440px]:h-full max-lg:h-full rounded-2xl overflow-hidden border border-[#C7962D]/20 aspect-auto ">
+      <div className="relative rounded-2xl overflow-hidden border border-[#C7962D]/20 aspect-video lg:aspect-[3/4] min-[1300px]:aspect-[4/3] 3xl:aspect-auto 3xl:h-full">
         <Image
           src={imageUrl}
           alt={alt}
           width={1200}
           height={900}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          sizes="(max-width: 1024px) 100vw, (max-width: 1550px) 50vw, 40vw"
           priority
           fetchPriority="high"
           quality={90}
-          className="object-cover w-full h-full"
+          className="object-cover w-full h-full object-center lg:object-[35%_center] min-[1300px]:object-center"
         />
       </div>
     </m.div>

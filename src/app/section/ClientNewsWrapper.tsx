@@ -13,7 +13,7 @@ function ClientNewsWrapper({ children }: ClientNewsWrapperProps) {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
-            className="w-full relative overflow-hidden bg-[#1B4D2E]"
+            className="w-full relative overflow-hidden bg-[#1B4D2E] min-h-[60vh] sm:min-h-[70vh] lg:min-h-[80vh] flex flex-col justify-center"
             id="media"
         >
             {/* Subtle overlay to distinguish slightly from testimonials if needed, but keeping base color same for consistency */}

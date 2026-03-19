@@ -52,20 +52,18 @@ const ClientBranchCarousel = ({ branchLocations }: ClientBranchCarouselProps) =>
 
   const BranchDialog = () => {
     if (!isMounted || !selectedBranch) return null;
-    
+
     return createPortal(
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: isDialogOpen ? 1 : 0 }}
         transition={{ duration: 0.3 }}
-        className={`fixed inset-0 z-[9999] flex items-center justify-center p-2 sm:p-4 md:p-6 lg:p-8 ${
-          isDialogOpen ? "" : "pointer-events-none"
-        }`}
+        className={`fixed inset-0 z-[9999] flex items-center justify-center p-2 sm:p-4 md:p-6 lg:p-8 ${isDialogOpen ? "" : "pointer-events-none"
+          }`}
       >
         <div
-          className={`absolute inset-0 bg-black/60 backdrop-blur-sm ${
-            isDialogOpen ? "" : "pointer-events-none"
-          }`}
+          className={`absolute inset-0 bg-black/60 backdrop-blur-sm ${isDialogOpen ? "" : "pointer-events-none"
+            }`}
           onClick={closeBranchDialog}
         ></div>
 
@@ -104,17 +102,16 @@ const ClientBranchCarousel = ({ branchLocations }: ClientBranchCarouselProps) =>
 
           {selectedBranch && (
             <div className="flex flex-col h-full overflow-auto">
-              <div className="w-full relative">
-                <div className="relative w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[500px]">
+              <div className="w-full relative shrink-0">
+                <div className="relative w-full h-[25vh] min-h-[200px] max-h-[350px] sm:h-[30vh] md:h-[35vh] lg:h-[40vh] lg:max-h-[400px]">
                   <div className="absolute inset-0">
                     <Image
                       src={selectedBranch.imgUrl || "/branch.jpg"}
                       alt={selectedBranch.name}
                       width={1200}
                       height={800}
-                      className={`object-cover w-full h-full ${
-                        selectedBranch.isCenter ? "object-center" : "object-top"
-                      }`}
+                      className={`object-cover w-full h-full ${selectedBranch.isCenter ? "object-center" : "object-top"
+                        }`}
                       sizes="(max-width: 640px) 100vw, (max-width: 768px) 600px, 800px"
                       loading="eager"
                     />
@@ -178,11 +175,10 @@ const ClientBranchCarousel = ({ branchLocations }: ClientBranchCarouselProps) =>
                       <button
                         key={index}
                         onClick={() => setSelectedBranch(branch)}
-                        className={`w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-2.5 md:h-2.5 rounded-full transition-all duration-300 ${
-                          isActive
+                        className={`w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-2.5 md:h-2.5 rounded-full transition-all duration-300 ${isActive
                             ? "bg-[#C7962D] scale-110 shadow-[0_0_8px_rgba(199,150,45,0.6)]"
                             : "bg-white/30 hover:bg-white/50"
-                        }`}
+                          }`}
                         aria-label={`View ${branch.name}`}
                       />
                     );

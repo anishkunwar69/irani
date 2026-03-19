@@ -15,7 +15,7 @@ const FallbackDiv = () => (
 function OurStoryContent() {
   const stats = [
     { iconName: "FaUsers", number: "5000+", text: "Daily Customers" },
-    { iconName: "FaMugHot", number: "13", text: "Premium Locations" },
+    { iconName: "FaMugHot", number: "21", text: "Premium Locations" },
     { iconName: "FaLeaf", number: "12+", text: "Signature Blends" },
     { iconName: "FaCoffee", number: "50000", text: "Monthly Servings" },
   ];

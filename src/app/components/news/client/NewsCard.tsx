@@ -31,9 +31,9 @@ function NewsCard({ news, index }: NewsCardProps) {
                 href={news.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block h-full"
+                className="block h-full outline-none focus-visible:ring-2 focus-visible:ring-[#C7962D]/50 rounded-2xl"
             >
-                <div className="h-full bg-[#1B4D2E]/80 rounded-lg xs:rounded-xl sm:rounded-2xl border border-white/10 hover:border-[#C7962D]/30 transition-all duration-300 flex flex-col cursor-pointer overflow-hidden">
+                <div className="h-full bg-[#205C36]/60 backdrop-blur-sm rounded-2xl border border-white/10 hover:border-[#C7962D]/40 transition-all duration-300 flex flex-col cursor-pointer overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-[#C7962D]/5 group-hover:-translate-y-1">
 
                     {/* Image Section */}
                     <div className="relative aspect-[4/3] w-full overflow-hidden">
@@ -46,29 +46,21 @@ function NewsCard({ news, index }: NewsCardProps) {
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#1B4D2E] via-transparent to-transparent opacity-90" />
 
-                        {/* Source Badge - Styled like Testimonial Verified Badge */}
-                        <div className="absolute top-3 left-3 xs:top-4 xs:left-4">
-                            <div className="inline-flex items-center gap-1 xs:gap-1.5 px-2 xs:px-2.5 py-1 bg-black/40 backdrop-blur-md rounded-full border border-white/10">
-                                <FaNewspaper className="text-[#C7962D] text-[10px] xs:text-xs" />
-                                <span className="text-[9px] xs:text-[10px] uppercase tracking-wider font-medium text-white/90">
-                                    {news.source}
-                                </span>
-                            </div>
-                        </div>
+                        
                     </div>
 
-                    {/* Content Section - Matches Testimonial Card Padding */}
-                    <div className="p-2.5 xs:p-3 sm:p-4 md:p-5 lg:p-6 flex flex-col flex-grow">
-                        <h3 className="text-white/80 font-semibold font-lora text-sm xs:text-base sm:text-lg md:text-xl leading-tight mb-3 line-clamp-3 group-hover:text-[#C7962D] transition-colors duration-300">
+                    {/* Content Section */}
+                    <div className="p-5 sm:p-6 flex flex-col flex-grow relative bg-gradient-to-br from-white/[0.03] to-transparent">
+                        <h3 className="text-white/90 font-semibold font-lora text-base sm:text-lg lg:text-xl leading-snug mb-4 line-clamp-3 group-hover:text-[#C7962D] transition-colors duration-300 drop-shadow-sm">
                             {news.title}
                         </h3>
 
-                        <div className="mt-auto pt-3 xs:pt-4 flex items-center justify-between border-t border-white/10">
-                            <span className="text-[10px] xs:text-xs font-quicksand text-[#C7962D] uppercase tracking-widest">
+                        <div className="mt-auto pt-4 flex items-center justify-between border-t border-white/10 relative z-10">
+                            <span className="text-[11px] sm:text-xs font-quicksand font-bold text-[#C7962D] uppercase tracking-widest group-hover:tracking-[0.2em] transition-all duration-300">
                                 Read Article
                             </span>
-                            <div className="w-6 h-6 xs:w-7 xs:h-7 rounded-full flex items-center justify-center bg-[#C7962D] transition-colors duration-300">
-                                <FaArrowRight className="text-white text-[10px] xs:text-xs -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
+                            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center bg-[#C7962D]/10 group-hover:bg-[#C7962D] transition-colors duration-300 border border-[#C7962D]/30 group-hover:border-transparent">
+                                <FaArrowRight className="text-[#C7962D] group-hover:text-white text-xs sm:text-sm -rotate-45 group-hover:rotate-0 transition-all duration-300" />
                             </div>
                         </div>
                     </div>

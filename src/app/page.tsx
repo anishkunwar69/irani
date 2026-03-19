@@ -4,9 +4,9 @@ import FindUs from "./section/FindUs";
 import FoundersWord from "./section/FoundersWord";
 import Gallery from "./section/Gallery";
 import Hero from "./section/Hero";
-import News from "./section/News";
 import OurStory from "./section/OurStory";
 import Testimonials from "./section/Testimonials";
+import News from "./section/News";
 
 export const viewport = {
   width: "device-width",
@@ -62,7 +62,7 @@ export default function Home() {
       <OurStory />
       <Gallery />
       <Testimonials />
-      {/* <News /> */}
+      <News />
       <FoundersWord />
       <FindUs />
       <Footer />

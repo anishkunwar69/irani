@@ -8,9 +8,13 @@ interface NewsGridProps {
 
 function NewsGrid({ newsItems }: NewsGridProps) {
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 xs:gap-4 sm:gap-5 md:gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-stretch justify-center">
             {newsItems.map((item, index) => (
-                <NewsCard key={item.idx} news={item} index={index} />
+                <div key={item.idx} className={`w-full ${index === 2 ? 'md:col-span-2 lg:col-span-1 flex justify-center lg:block' : ''}`}>
+                    <div className={`${index === 2 ? 'w-full md:w-1/2 lg:w-full h-full' : 'h-full'}`}>
+                        <NewsCard news={item} index={index} />
+                    </div>
+                </div>
             ))}
         </div>
     );

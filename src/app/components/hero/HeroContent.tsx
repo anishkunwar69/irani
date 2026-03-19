@@ -84,11 +84,11 @@ const branchLocations: BranchLocation[] = [
     name: "Irani Chiya - Sinamangal",
     address: "Sinamangal, Kathmandu",
     mapUrl:
-      "https://www.google.com/maps?sca_esv=da1ae0c58ff6cd0b&lqi=ChNpcmFuaSBjaGl5YSBuZWFyIG1lIgOQAQFIg9_99py9gIAIWiEQABABGAAYASITaXJhbmkgY2hpeWEgbmVhciBtZTICbmWSAQtjb2ZmZWVfc2hvcA&phdesc=9Yex5RGu8rE&vet=12ahUKEwjW3rPllo6MAxX4UGcHHZbxE4QQ8UF6BAgEEFw..i&lei=JIvWZ9a8O_ihnesPluPPoAg&cs=1&um=1&ie=UTF-8&fb=1&gl=np&sa=X&geocode=KVPOFEsAGes5MWOiV-cQGCgb&daddr=M8XX%2B3PG,+Kathmandu+44600",
-    contact: "+977-9849300844",
+      "https://www.google.com/maps/dir//Irani+Chiya+-+Sinamangal,+M9W2%2B92J,+Kathmandu+44600/@27.7167161,85.3835776,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x39eb19004b14ce53:0x1b281810e757a263!2m2!1d85.3499998!2d27.6959572?entry=ttu&g_ep=EgoyMDI2MDMxNS4wIKXMDSoASAFQAw%3D%3D",
+    contact: "+977-9857090744",
     hours: "6:00 AM - 9:00 PM",
     imgUrl:
-      "https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/irani-hero-imgs/branches/jneouzmufmsfdkrxwqkh",
+      "https://res.cloudinary.com/dmq5tx0bd/image/upload/v1773907464/irani/Whisk_2fda80c70564f928ba14cbec4fb6b61adr_hn1dje.png",
     hasGoogleMaps: true,
   },
   {
@@ -155,6 +155,90 @@ const branchLocations: BranchLocation[] = [
     imgUrl:
       "https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/irani-hero-imgs/branches/qpbllaiek7jwlfld13ex",
     hasGoogleMaps: false,
+  },
+  {
+    name: "Irani Chiya - Thapathali",
+    address: "Thapathali",
+    mapUrl:
+      "https://www.google.com/maps?s=web&sca_esv=a7d38202f4f38a7c&lqi=ChNpcmFuaSBjaGl5YSBuZWFyIG1lIgOQAQFImb_thfm8gIAIWiUQABABGAAYARgCGAMiE2lyYW5pIGNoaXlhIG5lYXIgbWUyAm5lkgELY29mZmVlX3Nob3A&phdesc=juo5zUjiiMk&vet=12ahUKEwjw96nfwquTAxUjd2wGHe0uJygQ1YkKegQIKxAB..i&cs=1&um=1&ie=UTF-8&fb=1&gl=np&sa=X&geocode=KfWX-BgAGes5McCL2hUizCHL&daddr=M8R8%2BGG4+Bhanchha+Sekuwa+Corner,+Near,+Tripura+Marg,+Kathmandu+44600",
+    contact: "+977-9865296322",
+    hours: "6:00 AM - 9:00 PM",
+    imgUrl:
+      "https://res.cloudinary.com/dmq5tx0bd/image/upload/v1773909424/Whisk_2a47c13801ce871a8e545d48c3645ed4eg_eq5ma4.png",
+    hasGoogleMaps: true,
+  },
+  {
+    name: "Irani Chiya - Sankhamul",
+    address: "Sankhamul",
+    mapUrl:
+      "https://www.google.com/maps?s=web&sca_esv=a7d38202f4f38a7c&lqi=ChNpcmFuaSBjaGl5YSBuZWFyIG1lIgOQAQFIv7fqhMW9gIAIWiUQABABGAAYARgCGAMiE2lyYW5pIGNoaXlhIG5lYXIgbWUyAm5lkgELY29mZmVlX3Nob3A&phdesc=7_q67Dw9Prc&vet=12ahUKEwjw96nfwquTAxUjd2wGHe0uJygQ1YkKegQILxAB..i&cs=1&um=1&ie=UTF-8&fb=1&gl=np&sa=X&geocode=KctmU0AAGes5MdbjB7UuvUZK&daddr=M8MM%2BG29,+Kathmandu+44600",
+    contact: "+977-9843524899",
+    hours: "6:00 AM - 9:00 PM",
+    imgUrl:
+      "https://res.cloudinary.com/dmq5tx0bd/image/upload/v1773909424/Whisk_2a47c13801ce871a8e545d48c3645ed4eg_eq5ma4.png",
+    hasGoogleMaps: true,
+  },
+  {
+    name: "Irani Chiya - Anamnagar",
+    address: "Anamnagar",
+    mapUrl:
+      "https://www.google.com/maps?s=web&sca_esv=a7d38202f4f38a7c&lqi=ChNpcmFuaSBjaGl5YSBuZWFyIG1lIgOQAQFIuqjSscuzgIAIWiUQABABGAAYARgCGAMiE2lyYW5pIGNoaXlhIG5lYXIgbWUyAm5lkgELY29mZmVlX3Nob3A&phdesc=1XFsaLieG2I&vet=12ahUKEwjw96nfwquTAxUjd2wGHe0uJygQ1YkKegQIKhAB..i&cs=1&um=1&ie=UTF-8&fb=1&gl=np&sa=X&geocode=KVkSrBcAGes5MWPKD8tbC98s&daddr=M8WH%2B25V,+%E0%A4%9F%E0%A4%82%E0%A4%95+%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%B8%E0%A4%BE%E0%A4%A6+%E0%A4%98%E0%A5%81%E0%A4%AE%E0%A5%8D%E0%A4%A4%E0%A5%80+%E0%A4%B8%E0%A4%A1%E0%A4%95,+Kathmandu+44600",
+    contact: "+977-9828889925",
+    hours: "6:00 AM - 9:00 PM",
+    imgUrl:
+      "https://res.cloudinary.com/dmq5tx0bd/image/upload/v1773909424/Whisk_2a47c13801ce871a8e545d48c3645ed4eg_eq5ma4.png",
+    hasGoogleMaps: true,
+  },
+  {
+    name: "Irani Chiya - Nayabazar",
+    address: "Nayabazar",
+    mapUrl:
+      "https://www.google.com/maps?s=web&sca_esv=a7d38202f4f38a7c&lqi=ChNpcmFuaSBjaGl5YSBuZWFyIG1lIgOQAQFI-YrF5Li9gIAIWiUQABABGAAYARgCGAMiE2lyYW5pIGNoaXlhIG5lYXIgbWUyAm5lkgEJdGVhX2hvdXNl&phdesc=M5opcSHSHZQ&vet=12ahUKEwjw96nfwquTAxUjd2wGHe0uJygQ1YkKegQILhAB..i&cs=1&um=1&ie=UTF-8&fb=1&gl=np&sa=X&geocode=KWvHsyYAGes5MWBwq9R5XlJX&daddr=Kathmandu+44600",
+    contact: "+977-9860190522",
+    hours: "6:00 AM - 9:00 PM",
+    imgUrl:
+      "https://res.cloudinary.com/dmq5tx0bd/image/upload/v1773909424/Whisk_2a47c13801ce871a8e545d48c3645ed4eg_eq5ma4.png",
+    hasGoogleMaps: true,
+  },
+  {
+    name: "Irani Chiya - Bhaisepati",
+    address: "Bhaisepati",
+    mapUrl: "",
+    contact: "+977-9851137532",
+    hours: "6:00 AM - 9:00 PM",
+    imgUrl:
+      "https://res.cloudinary.com/dmq5tx0bd/image/upload/v1773909424/Whisk_2a47c13801ce871a8e545d48c3645ed4eg_eq5ma4.png",
+    hasGoogleMaps: false,
+  },
+  {
+    name: "Irani Chiya - Kharibot, Balkumari",
+    address: "Kharibot, Balkumari",
+    mapUrl: "",
+    contact: "+977-9849300842",
+    hours: "6:00 AM - 9:00 PM",
+    imgUrl:
+      "https://res.cloudinary.com/dmq5tx0bd/image/upload/v1773909424/Whisk_2a47c13801ce871a8e545d48c3645ed4eg_eq5ma4.png",
+    hasGoogleMaps: false,
+  },
+  {
+    name: "Irani Chiya - Radhe Radhe",
+    address: "Radhe Radhe",
+    mapUrl: "",
+    contact: "+977-9808921454",
+    hours: "6:00 AM - 9:00 PM",
+    imgUrl:
+      "https://res.cloudinary.com/dmq5tx0bd/image/upload/v1773909424/Whisk_2a47c13801ce871a8e545d48c3645ed4eg_eq5ma4.png",
+    hasGoogleMaps: false,
+  },
+  {
+    name: "Irani Chiya - KIST Hospital, Imadol Road",
+    address: "KIST Hospital, Imadol Road",
+    mapUrl: "",
+    contact: "+977-9849136505",
+    hours: "6:00 AM - 9:00 PM",
+    imgUrl:
+      "https://res.cloudinary.com/dmq5tx0bd/image/upload/v1773909424/Whisk_2a47c13801ce871a8e545d48c3645ed4eg_eq5ma4.png",
+    hasGoogleMaps: false,
   }
 ];
 
@@ -214,10 +298,10 @@ function HeroMainContent() {
 
           <div className="relative sm:before:absolute sm:before:-inset-1 md:before:-inset-2 sm:before:bg-[#C7962D]/5 md:before:bg-gradient-to-r md:before:from-[#C7962D]/10 md:before:to-transparent sm:before:rounded-xl sm:before:-z-10 sm:before:backdrop-blur-[20px] lg:before:backdrop-blur-[30px] lg:before:block xl:before:hidden">
             <p className="font-quicksand text-lg sm:text-xl sm:tracking-wide md:text-[22px] md:leading-[30px] md:tracking-wide md:font-normal md:px-3 md:py-4 lg:text-[28px] lg:leading-[1.5] lg:tracking-wide lg:font-normal lg:px-4 lg:py-5 xl:p-0 xl:text-lg hero-2lg:text-xl text-white/95 leading-relaxed mb-7 sm:mb-8 md:mb-9 lg:mb-10 xl:mb-10 w-full xl:max-w-lg">
-              Step into a world where traditional tea craftsmanship 
-                  meets
-                  modern comfort and{" "}
-                  <span className="text-[#DFB668]/95 font-medium sm:text-
+              Step into a world where traditional tea craftsmanship
+              meets
+              modern comfort and{" "}
+              <span className="text-[#DFB668]/95 font-medium sm:text-
                   [#DFB668] sm:font-semibold sm:relative sm:border-b 
                   sm:border-[#DFB668]/30 md:border-none md:relative 
                   md:inline-flex md:px-1 md:before:absolute 
@@ -225,12 +309,12 @@ function HeroMainContent() {
                   md:before:rounded md:before:-z-[1] 
                   lg:before:bg-transparent lg:font-semibold lg:text-
                   [#DFB668]">
-                    authentic heritage
-                  </span>
-                  . Our carefully curated selection of premium teas 
-                  create an
-                  elegant experience that delights the senses,{" "}
-                  <span className="relative md:inline-flex md:px-1 
+                authentic heritage
+              </span>
+              . Our carefully curated selection of premium teas
+              create an
+              elegant experience that delights the senses,{" "}
+              <span className="relative md:inline-flex md:px-1 
                   md:mx-0.5 md:font-medium md:before:absolute 
                   md:before:inset-0 md:before:bg-[#C7962D]/10 
                   md:before:rounded md:before:-z-[1] md:before:blur-[2px] 
@@ -239,9 +323,9 @@ function HeroMainContent() {
                   lg:before:bg-[#C7962D]/10 lg:before:rounded 
                   lg:before:-z-[1] lg:before:blur-[2px] lg:text-white 
                   xl:before:bg-transparent xl:px-0 xl:mx-0">
-                    soothes the mind
-                  </span>
-                  , and enriches your day.
+                soothes the mind
+              </span>
+              , and enriches your day.
             </p>
           </div>
 
@@ -272,7 +356,7 @@ function HeroMainContent() {
 
           <div className="mt-10 sm:mt-12 md:mt-8 lg:mt-9 xl:mt-12 grid grid-cols-3 gap-4 sm:gap-5 lg:gap-6 w-full lg:max-w-2xl xl:max-w-md max-md:mb-3 max-xl:mb-6">
             {[
-              { value: "13+", label: "Branches" },
+              { value: "21+", label: "Branches" },
               { value: "12+", label: "Varieties" },
               { value: "4.5", label: "Reviews" },
             ].map((stat, index) => (
@@ -336,11 +420,11 @@ function HeroContent() {
   return (
     <div className="relative">
       <ClientHeader />
-      
+
       <Container className="relative z-10">
         {/* Render critical content immediately */}
         <HeroMainContent />
-        
+
         {/* Defer loading of branch section which is below the fold */}
         <Suspense fallback={<div className="h-20" />}>
           <BranchSection />

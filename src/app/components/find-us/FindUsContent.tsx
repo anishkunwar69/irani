@@ -57,7 +57,7 @@ const branches: BranchType[] = [
     phone: "+977-9849300844",
     hours: "6:00 AM - 9:00 PM",
     mapUrl:
-      "https://www.google.com/maps?sca_esv=da1ae0c58ff6cd0b&lqi=ChNpcmFuaSBjaGl5YSBuZWFyIG1lIgOQAQFIg9_99py9gIAIWiEQABABGAAYASITaXJhbmkgY2hpeWEgbmVhciBtZTICbmWSAQtjb2ZmZWVfc2hvcA&phdesc=9Yex5RGu8rE&vet=12ahUKEwjW3rPllo6MAxX4UGcHHZbxE4QQ8UF6BAgEEFw..i&lei=JIvWZ9a8O_ihnesPluPPoAg&cs=1&um=1&ie=UTF-8&fb=1&gl=np&sa=X&geocode=KVPOFEsAGes5MWOiV-cQGCgb&daddr=M8XX%2B3PG,+Kathmandu+44600",
+      "https://www.google.com/maps/dir//Irani+Chiya+-+Sinamangal,+M9W2%2B92J,+Kathmandu+44600/@27.7167161,85.3835776,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x39eb19004b14ce53:0x1b281810e757a263!2m2!1d85.3499998!2d27.6959572?entry=ttu&g_ep=EgoyMDI2MDMxNS4wIKXMDSoASAFQAw%3D%3D",
     coordinates: { lat: 27.6976913, lng: 85.3493278 },
   },
   {
@@ -105,6 +105,42 @@ const branches: BranchType[] = [
       "https://www.google.com/maps?sca_esv=5b982d6d415b0dfc&vet=12ahUKEwjG2e-hnpSMAxUC1TgGHRNtHwIQ8UF6BAgFEFw..i&lei=SbjZZ4aREIKq4-EPk9r9EA&cs=1&um=1&ie=UTF-8&fb=1&gl=np&sa=X&geocode=KQtbkHwAGes5MfB3RjVxAwh_&daddr=P88W%2B8J9,+Kathmandu+44600",
     coordinates: { lat: 27.7135, lng: 85.3447 },
   },
+  {
+    name: "Irani Chiya - Thapathali",
+    address: "Thapathali",
+    phone: "+977-9865296322",
+    hours: "6:00 AM - 9:00 PM",
+    mapUrl:
+      "https://www.google.com/maps?s=web&sca_esv=a7d38202f4f38a7c&lqi=ChNpcmFuaSBjaGl5YSBuZWFyIG1lIgOQAQFImb_thfm8gIAIWiUQABABGAAYARgCGAMiE2lyYW5pIGNoaXlhIG5lYXIgbWUyAm5lkgELY29mZmVlX3Nob3A&phdesc=juo5zUjiiMk&vet=12ahUKEwjw96nfwquTAxUjd2wGHe0uJygQ1YkKegQIKxAB..i&cs=1&um=1&ie=UTF-8&fb=1&gl=np&sa=X&geocode=KfWX-BgAGes5McCL2hUizCHL&daddr=M8R8%2BGG4+Bhanchha+Sekuwa+Corner,+Near,+Tripura+Marg,+Kathmandu+44600",
+    coordinates: { lat: 27.6925, lng: 85.3182 },
+  },
+  {
+    name: "Irani Chiya - Sankhamul",
+    address: "Sankhamul",
+    phone: "+977-9843524899",
+    hours: "6:00 AM - 9:00 PM",
+    mapUrl:
+      "https://www.google.com/maps?s=web&sca_esv=a7d38202f4f38a7c&lqi=ChNpcmFuaSBjaGl5YSBuZWFyIG1lIgOQAQFIv7fqhMW9gIAIWiUQABABGAAYARgCGAMiE2lyYW5pIGNoaXlhIG5lYXIgbWUyAm5lkgELY29mZmVlX3Nob3A&phdesc=7_q67Dw9Prc&vet=12ahUKEwjw96nfwquTAxUjd2wGHe0uJygQ1YkKegQILxAB..i&cs=1&um=1&ie=UTF-8&fb=1&gl=np&sa=X&geocode=KctmU0AAGes5MdbjB7UuvUZK&daddr=M8MM%2BG29,+Kathmandu+44600",
+    coordinates: { lat: 27.6811, lng: 85.3340 },
+  },
+  {
+    name: "Irani Chiya - Anamnagar",
+    address: "Anamnagar",
+    phone: "+977-9828889925",
+    hours: "6:00 AM - 9:00 PM",
+    mapUrl:
+      "https://www.google.com/maps?s=web&sca_esv=a7d38202f4f38a7c&lqi=ChNpcmFuaSBjaGl5YSBuZWFyIG1lIgOQAQFIuqjSscuzgIAIWiUQABABGAAYARgCGAMiE2lyYW5pIGNoaXlhIG5lYXIgbWUyAm5lkgELY29mZmVlX3Nob3A&phdesc=1XFsaLieG2I&vet=12ahUKEwjw96nfwquTAxUjd2wGHe0uJygQ1YkKegQIKhAB..i&cs=1&um=1&ie=UTF-8&fb=1&gl=np&sa=X&geocode=KVkSrBcAGes5MWPKD8tbC98s&daddr=M8WH%2B25V,+%E0%A4%9F%E0%A4%82%E0%A4%95+%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%B8%E0%A4%BE%E0%A4%A6+%E0%A4%98%E0%A5%81%E0%A4%AE%E0%A5%8D%E0%A4%A4%E0%A5%80+%E0%A4%B8%E0%A4%A1%E0%A4%95,+Kathmandu+44600",
+    coordinates: { lat: 27.7011, lng: 85.3255 },
+  },
+  {
+    name: "Irani Chiya - Nayabazar",
+    address: "Nayabazar",
+    phone: "+977-9860190522",
+    hours: "6:00 AM - 9:00 PM",
+    mapUrl:
+      "https://www.google.com/maps?s=web&sca_esv=a7d38202f4f38a7c&lqi=ChNpcmFuaSBjaGl5YSBuZWFyIG1lIgOQAQFI-YrF5Li9gIAIWiUQABABGAAYARgCGAMiE2lyYW5pIGNoaXlhIG5lYXIgbWUyAm5lkgEJdGVhX2hvdXNl&phdesc=M5opcSHSHZQ&vet=12ahUKEwjw96nfwquTAxUjd2wGHe0uJygQ1YkKegQILhAB..i&cs=1&um=1&ie=UTF-8&fb=1&gl=np&sa=X&geocode=KWvHsyYAGes5MWBwq9R5XlJX&daddr=Kathmandu+44600",
+    coordinates: { lat: 27.7262, lng: 85.3072 },
+  }
 ];
 
 function FindUsContent() {

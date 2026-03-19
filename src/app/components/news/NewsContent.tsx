@@ -12,7 +12,7 @@ const newsItems: NewsItemType[] = [
         title: "Nepali Tea Brand Irani Chiya Expanding Global Footprint",
         url: "https://www.setopati.com/global/other-global/354339",
         image:
-            "https://res.cloudinary.com/dmq5tx0bd/image/upload/v1747035498/fambook/tqntmanqobllp1pvqtr8.jpg",
+            "https://res.cloudinary.com/dmq5tx0bd/image/upload/v1773911265/Whisk_44cd66795801015b06b4e0c031395742dr_a1kcyc.png",
     },
     {
         idx: 2,
@@ -34,11 +34,11 @@ const newsItems: NewsItemType[] = [
 
 function NewsContent() {
     return (
-        <div className="py-14 xs:py-16 sm:py-18 md:py-20">
+        <div className="py-14 sm:py-16 md:py-20">
             <Container>
-                <div className="relative space-y-12 xs:space-y-16">
-                    {/* Header Section - Matches Testimonials/Founders Header Layout Exactly */}
-                    <div className="text-center mb-10 xs:mb-12 sm:mb-16 relative">
+                <div className="relative space-y-12 sm:space-y-16">
+                    {/* Header Section */}
+                    <div className="text-center mb-10 sm:mb-14 lg:mb-16 relative">
                         <motion.div
                             initial={{ scale: 0.9, opacity: 0 }}
                             whileInView={{ scale: 1, opacity: 1 }}
@@ -46,12 +46,12 @@ function NewsContent() {
                             transition={{ duration: 0.6 }}
                             className="relative"
                         >
-                            <h2 className="text-xs xs:text-sm sm:text-base md:text-lg lg:text-xl uppercase tracking-[0.2em] xs:tracking-[0.22em] sm:tracking-[0.25em] md:tracking-[0.3em] text-[#C7962D] font-quicksand mb-2 xs:mb-2.5 sm:mb-3 md:mb-4 inline-flex items-center gap-1.5 xs:gap-2 sm:gap-3 justify-center">
-                                <GiTeapot className="text-lg xs:text-xl sm:text-2xl md:text-3xl" />
+                            <h2 className="text-sm sm:text-base md:text-lg lg:text-xl uppercase tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.3em] text-[#C7962D] font-quicksand mb-3 sm:mb-4 inline-flex items-center gap-2 sm:gap-3 justify-center">
+                                <GiTeapot className="text-xl sm:text-2xl md:text-3xl" />
                                 Featured In
-                                <GiTeapot className="text-lg xs:text-xl sm:text-2xl md:text-3xl" />
+                                <GiTeapot className="text-xl sm:text-2xl md:text-3xl" />
                             </h2>
-                            <h3 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-lora text-white/90 leading-tight xs:leading-[1.15] sm:leading-[1.2] max-w-[95%] xs:max-w-[90%] sm:max-w-4xl mx-auto px-1 xs:px-2 sm:px-0">
+                            <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-lora text-white/90 leading-tight sm:leading-[1.2] max-w-[95%] sm:max-w-4xl mx-auto px-2 sm:px-0">
                                 Spreading the <span className="text-[#C7962D] italic">Aroma</span>{" "}
                                 Globally
                             </h3>

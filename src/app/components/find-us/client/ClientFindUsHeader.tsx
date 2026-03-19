@@ -24,9 +24,9 @@ function ClientFindUsHeader() {
         </h3>
       </div>
       <p className="relative text-sm xs:text-sm sm:text-base md:text-lg lg:text-xl text-white/80 font-quicksand leading-relaxed max-w-3xl mx-auto px-2 xs:px-3 sm:px-4 md:px-6 lg:px-0 mt-4 xs:mt-5 sm:mt-6">
-        With <span className="text-[#C7962D] font-bold">12 branches</span>{" "}
+        With <span className="text-[#C7962D] font-bold">21 branches</span>{" "}
         across the city, we're never too far away. Currently,{" "}
-        <span className="text-[#C7962D] font-bold">11 locations</span> are
+        <span className="text-[#C7962D] font-bold">15 locations</span> are
         available on Google Maps, with more being added soon. Each branch
         offers the same exceptional quality and service that Irani Chiya
         is known for.

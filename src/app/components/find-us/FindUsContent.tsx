@@ -8,9 +8,18 @@ import { memo } from "react";
 const branches: BranchType[] = [
   {
     name: "Irani Chiya - Main Branch",
+    address: "Kathmandu",
+    phone: "01-4533520",
+    hours: "9:00 AM - 6:00 PM",
+    mapUrl:
+      "https://www.google.com/maps?vet=10CAAQoqAOahcKEwjYtLjh3JWXAxUAAAAAHQAAAAAQBQ..i&udm&fvr=1&pvq=Cg0vZy8xMXpmOXY2NmY4Ih0KF2lyYW5pIGNoaXlhIGhlYWQgb2ZmaWNlEAIYA4kBe11nIw9uUjk&lqi=ChdpcmFuaSBjaGl5YSBoZWFkIG9mZmljZVolIhdpcmFuaSBjaGl5YSBoZWFkIG9mZmljZSoKCAIQABABEAIQA5IBBGNhZmU&cs=1&um=1&ie=UTF-8&fb=1&gl=np&sa=X&geocode=KTNYwTfQGes5MXtdZyMPblI5&daddr=27.696490,+85.336545,+Kathmandu+44600",
+    coordinates: { lat: 27.69649, lng: 85.336545 },
+  },
+  {
+    name: "Irani Chiya - Tinkune",
     address: "Tinkune, Kathmandu",
     phone: "+977-9763596372",
-    hours: "6:00 AM - 9:00 PM",
+    hours: "9:00 AM - 6:00 PM",
     mapUrl:
       "https://www.google.com/maps?sca_esv=da1ae0c58ff6cd0b&lqi=ChNpcmFuaSBjaGl5YSBuZWFyIG1lIgOQAQFIwpHi5I27gIAIWiEQABABGAAYASITaXJhbmkgY2hpeWEgbmVhciBtZTICbmWSAQl0ZWFfc3RvcmU&phdesc=R8YRAXBR-Y0&vet=12ahUKEwjW3rPllo6MAxX4UGcHHZbxE4QQ8UF6BAgEEFw..i&lei=JIvWZ9a8O_ihnesPluPPoAg&cs=1&um=1&ie=UTF-8&fb=1&gl=np&sa=X&geocode=KVVPjBsAGes5MXLzzkuNjCPF&daddr=M8MW%2B974,+Subidha+Marg,+Kathmandu+44600",
     coordinates: { lat: 27.6833983, lng: 85.3457092 },
@@ -19,7 +28,7 @@ const branches: BranchType[] = [
     name: "Irani Chiya - Jadibuti",
     address: "Jadibuti, Kathmandu",
     phone: "+977-9849887974",
-    hours: "6:00 AM - 9:00 PM",
+    hours: "9:00 AM - 6:00 PM",
     mapUrl:
       "https://www.google.com/maps/dir//Kathmandu+44600/@27.6724266,85.2656097,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x39eb198954b9ea11:0xfdc36dd62c528c08!2m2!1d85.3480065!2d27.6724534?entry=ttu&g_ep=EgoyMDI1MDMxMi4wIKXMDSoASAFQAw%3D%3D",
     coordinates: { lat: 27.6724534, lng: 85.3480065 },
@@ -28,7 +37,7 @@ const branches: BranchType[] = [
     name: "Irani Chiya - Setopul",
     address: "Setopul, Kathmandu",
     phone: "+977-9808921454",
-    hours: "6:00 AM - 9:00 PM",
+    hours: "9:00 AM - 6:00 PM",
     mapUrl:
       "https://www.google.com/maps/dir//Setopul,+Kathmandu+44600/@27.7022099,85.2541167,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x39eb19d241dad4c1:0x617fde978538cae5!2m2!1d85.3365569!2d27.7022255?entry=ttu&g_ep=EgoyMDI1MDMxOS4yIKXMDSoASAFQAw%3D%3D",
     coordinates: { lat: 27.7022255, lng: 85.3365569 },
@@ -37,7 +46,7 @@ const branches: BranchType[] = [
     name: "Irani Chiya - Lokanthali",
     address: "Lokanthali, Kathmandu",
     phone: "+977-9818791384",
-    hours: "6:00 AM - 9:00 PM",
+    hours: "9:00 AM - 6:00 PM",
     mapUrl:
       "https://www.google.com/maps/dir//M9C4%2BXMR,+Bhaktapur+44600/@27.6724515,85.2742364,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x39eb1b005e6cd1f5:0x18105445f9806969!2m2!1d85.3566375!2d27.6724793?entry=ttu&g_ep=EgoyMDI1MDMxMi4wIKXMDSoASAFQAw%3D%3D",
     coordinates: { lat: 27.6724793, lng: 85.3566375 },
@@ -46,7 +55,7 @@ const branches: BranchType[] = [
     name: "Irani Chiya - Tikathali",
     address: "Tikathali, Lalitpur",
     phone: "+977-9851310532",
-    hours: "6:00 AM - 9:00 PM",
+    hours: "9:00 AM - 6:00 PM",
     mapUrl:
       "https://www.google.com/maps?sca_esv=da1ae0c58ff6cd0b&lqi=ChNpcmFuaSBjaGl5YSBuZWFyIG1lIgOQAQFIr6rH8s-ygIAIWiEQABABGAAYASITaXJhbmkgY2hpeWEgbmVhciBtZTICbmWSAQtjb2ZmZWVfc2hvcA&phdesc=7g6-WLqNVWA&vet=12ahUKEwjW3rPllo6MAxX4UGcHHZbxE4QQ8UF6BAgEEFw..i&lei=JIvWZ9a8O_ihnesPluPPoAg&cs=1&um=1&ie=UTF-8&fb=1&gl=np&sa=X&geocode=KYN4ElEAG-s5McrLW08wWk8m&daddr=Mahalaxmi+44600",
     coordinates: { lat: 27.6652582, lng: 85.3580772 },
@@ -55,25 +64,16 @@ const branches: BranchType[] = [
     name: "Irani Chiya - Sinamangal",
     address: "Sinamangal, Kathmandu",
     phone: "+977-9849300844",
-    hours: "6:00 AM - 9:00 PM",
+    hours: "9:00 AM - 6:00 PM",
     mapUrl:
       "https://www.google.com/maps/dir//Irani+Chiya+-+Sinamangal,+M9W2%2B92J,+Kathmandu+44600/@27.7167161,85.3835776,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x39eb19004b14ce53:0x1b281810e757a263!2m2!1d85.3499998!2d27.6959572?entry=ttu&g_ep=EgoyMDI2MDMxNS4wIKXMDSoASAFQAw%3D%3D",
     coordinates: { lat: 27.6976913, lng: 85.3493278 },
   },
   {
-    name: "Irani Chiya - Baneshwor",
-    address: "Bhimsengola Marga, Kathmandu",
-    phone: "+977-9767648218",
-    hours: "6:00 AM - 9:00 PM",
-    mapUrl:
-      "https://www.google.com/maps?sca_esv=da1ae0c58ff6cd0b&lqi=ChNpcmFuaSBjaGl5YSBuZWFyIG1lIgOQAQFI0NPcsaW7gIAIWiEQABABGAAYASITaXJhbmkgY2hpeWEgbmVhciBtZTICbmWSAQtjb2ZmZWVfc2hvcA&phdesc=1TO3F6bfh7I&vet=12ahUKEwjW3rPllo6MAxX4UGcHHZbxE4QQ8UF6BAgEEFw..i&lei=JIvWZ9a8O_ihnesPluPPoAg&cs=1&um=1&ie=UTF-8&fb=1&gl=np&sa=X&geocode=KWuxMnQAGes5MblsGPBxC9OX&daddr=M8VV%2B8RF,+Bhimsengola+Marg,+Kathmandu+44600",
-    coordinates: { lat: 27.693311, lng: 85.3445585 },
-  },
-  {
     name: "Irani Chiya - Imadol",
     address: "Bojepokhari, Lalitpur",
     phone: "+977-9807659081",
-    hours: "6:00 AM - 9:00 PM",
+    hours: "9:00 AM - 6:00 PM",
     mapUrl:
       "https://www.google.com/maps?sca_esv=da1ae0c58ff6cd0b&lqi=ChNpcmFuaSBjaGl5YSBuZWFyIG1lIgOQAQFIy9-d4Pm6gIAIWiEQABABGAAYASITaXJhbmkgY2hpeWEgbmVhciBtZTICbmWSAQtjb2ZmZWVfc2hvcA&phdesc=h25d7u2FR84&vet=12ahUKEwjW3rPllo6MAxX4UGcHHZbxE4QQ8UF6BAgEEFw..i&lei=JIvWZ9a8O_ihnesPluPPoAg&cs=1&um=1&ie=UTF-8&fb=1&gl=np&sa=X&geocode=KYtjiFsAGes5MXhWuRT_XrPb&daddr=M87X%2B3HC,+Mahalaxmi+44705",
     coordinates: { lat: 27.6625973, lng: 85.3489757 },
@@ -82,7 +82,7 @@ const branches: BranchType[] = [
     name: "Irani Chiya - Mahalaxmi",
     address: "Mahalaxmi, Lalitpur",
     phone: "+977-9849136505",
-    hours: "6:00 AM - 9:00 PM",
+    hours: "9:00 AM - 6:00 PM",
     mapUrl:
       "https://www.google.com/maps?sca_esv=da1ae0c58ff6cd0b&lqi=ChNpcmFuaSBjaGl5YSBuZWFyIG1lIgOQAQFIxfznmoy7gIAIWiEQABABGAAYASITaXJhbmkgY2hpeWEgbmVhciBtZTICbmWSAQRjYWZl&phdesc=ukpzSAcLP_Y&vet=12ahUKEwjW3rPllo6MAxX4UGcHHZbxE4QQ8UF6BAgEEFw..i&lei=JIvWZ9a8O_ihnesPluPPoAg&cs=1&um=1&ie=UTF-8&fb=1&gl=np&sa=X&geocode=Kb0koU4AF-s5MWR92ielfnxr&daddr=M84X%2BR7M,+Mahalaxmi",
     coordinates: { lat: 27.6570835, lng: 85.3481791 },
@@ -91,7 +91,7 @@ const branches: BranchType[] = [
     name: "Irani Chiya - Chyasal",
     address: "Chyasal, Lalitpur",
     phone: "+977-9742831495",
-    hours: "6:00 AM - 9:00 PM",
+    hours: "9:00 AM - 6:00 PM",
     mapUrl:
       "https://www.google.com/maps?sca_esv=5b982d6d415b0dfc&vet=12ahUKEwjG2e-hnpSMAxUC1TgGHRNtHwIQ8UF6BAgFEFw..i&lei=SbjZZ4aREIKq4-EPk9r9EA&cs=1&um=1&ie=UTF-8&fb=1&gl=np&sa=X&geocode=KeWKWwUAGes5MbErX1Pm2-MC&daddr=M8FP%2B22R,+Shahid+Shukra+Raj+Sadak+Paschim,+Lalitpur+44600",
     coordinates: { lat: 27.6773, lng: 85.3248 },
@@ -100,7 +100,7 @@ const branches: BranchType[] = [
     name: "Irani Chiya - Chabahil",
     address: "Chabahil, Kathmandu",
     phone: "+977-9709737912",
-    hours: "6:00 AM - 9:00 PM",
+    hours: "9:00 AM - 6:00 PM",
     mapUrl:
       "https://www.google.com/maps?sca_esv=5b982d6d415b0dfc&vet=12ahUKEwjG2e-hnpSMAxUC1TgGHRNtHwIQ8UF6BAgFEFw..i&lei=SbjZZ4aREIKq4-EPk9r9EA&cs=1&um=1&ie=UTF-8&fb=1&gl=np&sa=X&geocode=KQtbkHwAGes5MfB3RjVxAwh_&daddr=P88W%2B8J9,+Kathmandu+44600",
     coordinates: { lat: 27.7135, lng: 85.3447 },
@@ -109,7 +109,7 @@ const branches: BranchType[] = [
     name: "Irani Chiya - Thapathali",
     address: "Thapathali",
     phone: "+977-9865296322",
-    hours: "6:00 AM - 9:00 PM",
+    hours: "9:00 AM - 6:00 PM",
     mapUrl:
       "https://www.google.com/maps?s=web&sca_esv=a7d38202f4f38a7c&lqi=ChNpcmFuaSBjaGl5YSBuZWFyIG1lIgOQAQFImb_thfm8gIAIWiUQABABGAAYARgCGAMiE2lyYW5pIGNoaXlhIG5lYXIgbWUyAm5lkgELY29mZmVlX3Nob3A&phdesc=juo5zUjiiMk&vet=12ahUKEwjw96nfwquTAxUjd2wGHe0uJygQ1YkKegQIKxAB..i&cs=1&um=1&ie=UTF-8&fb=1&gl=np&sa=X&geocode=KfWX-BgAGes5McCL2hUizCHL&daddr=M8R8%2BGG4+Bhanchha+Sekuwa+Corner,+Near,+Tripura+Marg,+Kathmandu+44600",
     coordinates: { lat: 27.6925, lng: 85.3182 },
@@ -118,7 +118,7 @@ const branches: BranchType[] = [
     name: "Irani Chiya - Sankhamul",
     address: "Sankhamul",
     phone: "+977-9843524899",
-    hours: "6:00 AM - 9:00 PM",
+    hours: "9:00 AM - 6:00 PM",
     mapUrl:
       "https://www.google.com/maps?s=web&sca_esv=a7d38202f4f38a7c&lqi=ChNpcmFuaSBjaGl5YSBuZWFyIG1lIgOQAQFIv7fqhMW9gIAIWiUQABABGAAYARgCGAMiE2lyYW5pIGNoaXlhIG5lYXIgbWUyAm5lkgELY29mZmVlX3Nob3A&phdesc=7_q67Dw9Prc&vet=12ahUKEwjw96nfwquTAxUjd2wGHe0uJygQ1YkKegQILxAB..i&cs=1&um=1&ie=UTF-8&fb=1&gl=np&sa=X&geocode=KctmU0AAGes5MdbjB7UuvUZK&daddr=M8MM%2BG29,+Kathmandu+44600",
     coordinates: { lat: 27.6811, lng: 85.3340 },
@@ -127,7 +127,7 @@ const branches: BranchType[] = [
     name: "Irani Chiya - Anamnagar",
     address: "Anamnagar",
     phone: "+977-9828889925",
-    hours: "6:00 AM - 9:00 PM",
+    hours: "9:00 AM - 6:00 PM",
     mapUrl:
       "https://www.google.com/maps?s=web&sca_esv=a7d38202f4f38a7c&lqi=ChNpcmFuaSBjaGl5YSBuZWFyIG1lIgOQAQFIuqjSscuzgIAIWiUQABABGAAYARgCGAMiE2lyYW5pIGNoaXlhIG5lYXIgbWUyAm5lkgELY29mZmVlX3Nob3A&phdesc=1XFsaLieG2I&vet=12ahUKEwjw96nfwquTAxUjd2wGHe0uJygQ1YkKegQIKhAB..i&cs=1&um=1&ie=UTF-8&fb=1&gl=np&sa=X&geocode=KVkSrBcAGes5MWPKD8tbC98s&daddr=M8WH%2B25V,+%E0%A4%9F%E0%A4%82%E0%A4%95+%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%B8%E0%A4%BE%E0%A4%A6+%E0%A4%98%E0%A5%81%E0%A4%AE%E0%A5%8D%E0%A4%A4%E0%A5%80+%E0%A4%B8%E0%A4%A1%E0%A4%95,+Kathmandu+44600",
     coordinates: { lat: 27.7011, lng: 85.3255 },
@@ -136,7 +136,7 @@ const branches: BranchType[] = [
     name: "Irani Chiya - Nayabazar",
     address: "Nayabazar",
     phone: "+977-9860190522",
-    hours: "6:00 AM - 9:00 PM",
+    hours: "9:00 AM - 6:00 PM",
     mapUrl:
       "https://www.google.com/maps?s=web&sca_esv=a7d38202f4f38a7c&lqi=ChNpcmFuaSBjaGl5YSBuZWFyIG1lIgOQAQFI-YrF5Li9gIAIWiUQABABGAAYARgCGAMiE2lyYW5pIGNoaXlhIG5lYXIgbWUyAm5lkgEJdGVhX2hvdXNl&phdesc=M5opcSHSHZQ&vet=12ahUKEwjw96nfwquTAxUjd2wGHe0uJygQ1YkKegQILhAB..i&cs=1&um=1&ie=UTF-8&fb=1&gl=np&sa=X&geocode=KWvHsyYAGes5MWBwq9R5XlJX&daddr=Kathmandu+44600",
     coordinates: { lat: 27.7262, lng: 85.3072 },

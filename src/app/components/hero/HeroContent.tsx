@@ -25,11 +25,21 @@ type BranchLocation = {
 const branchLocations: BranchLocation[] = [
   {
     name: "Irani Chiya - Main Branch",
+    address: "Kathmandu",
+    mapUrl:
+      "https://www.google.com/maps?vet=10CAAQoqAOahcKEwjYtLjh3JWXAxUAAAAAHQAAAAAQBQ..i&udm&fvr=1&pvq=Cg0vZy8xMXpmOXY2NmY4Ih0KF2lyYW5pIGNoaXlhIGhlYWQgb2ZmaWNlEAIYA4kBe11nIw9uUjk&lqi=ChdpcmFuaSBjaGl5YSBoZWFkIG9mZmljZVolIhdpcmFuaSBjaGl5YSBoZWFkIG9mZmljZSoKCAIQABABEAIQA5IBBGNhZmU&cs=1&um=1&ie=UTF-8&fb=1&gl=np&sa=X&geocode=KTNYwTfQGes5MXtdZyMPblI5&daddr=27.696490,+85.336545,+Kathmandu+44600",
+    contact: "01-4533520",
+    hours: "9:00 AM - 6:00 PM",
+    imgUrl: "/branch.jpg",
+    hasGoogleMaps: true,
+  },
+  {
+    name: "Irani Chiya - Tinkune",
     address: "Tinkune, Kathmandu",
     mapUrl:
       "https://www.google.com/maps?sca_esv=da1ae0c58ff6cd0b&lqi=ChNpcmFuaSBjaGl5YSBuZWFyIG1lIgOQAQFIwpHi5I27gIAIWiEQABABGAAYASITaXJhbmkgY2hpeWEgbmVhciBtZTICbmWSAQl0ZWFfc3RvcmU&phdesc=R8YRAXBR-Y0&vet=12ahUKEwjW3rPllo6MAxX4UGcHHZbxE4QQ8UF6BAgEEFw..i&lei=JIvWZ9a8O_ihnesPluPPoAg&cs=1&um=1&ie=UTF-8&fb=1&gl=np&sa=X&geocode=KVVPjBsAGes5MXLzzkuNjCPF&daddr=M8MW%2B974,+Subidha+Marg,+Kathmandu+44600",
     contact: "+977-9763596372",
-    hours: "6:00 AM - 10:00 PM",
+    hours: "9:00 AM - 6:00 PM",
     imgUrl:
       "https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/irani-hero-imgs/branches/tti6axczorwqzx4omgeb",
     hasGoogleMaps: true,
@@ -40,7 +50,7 @@ const branchLocations: BranchLocation[] = [
     mapUrl:
       "https://www.google.com/maps/dir//Kathmandu+44600/@27.6724266,85.2656097,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x39eb198954b9ea11:0xfdc36dd62c528c08!2m2!1d85.3480065!2d27.6724534?entry=ttu&g_ep=EgoyMDI1MDMxMi4wIKXMDSoASAFQAw%3D%3D",
     contact: "+977-9849887974",
-    hours: "6:00 AM - 9:00 PM",
+    hours: "9:00 AM - 6:00 PM",
     imgUrl:
       "https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/irani-hero-imgs/branches/bxkpcbevoxw7nzlpokw6",
     hasGoogleMaps: true,
@@ -51,7 +61,7 @@ const branchLocations: BranchLocation[] = [
     mapUrl:
       "https://www.google.com/maps/dir//M9C4%2BXMR,+Bhaktapur+44600/@27.6724515,85.2742364,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x39eb1b005e6cd1f5:0x18105445f9806969!2m2!1d85.3566375!2d27.6724793?entry=ttu&g_ep=EgoyMDI1MDMxMi4wIKXMDSoASAFQAw%3D%3D",
     contact: "+977-9818791384",
-    hours: "6:00 AM - 9:00 PM",
+    hours: "9:00 AM - 6:00 PM",
     imgUrl:
       "https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/irani-hero-imgs/branches/it8dmc5xmttcsrjdqvrq",
     hasGoogleMaps: true,
@@ -62,7 +72,7 @@ const branchLocations: BranchLocation[] = [
     mapUrl:
       "https://www.google.com/maps?gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIKCAEQABgKGBYYHjINCAIQABiGAxiABBiKBTINCAMQABiGAxiABBiKBTINCAQQABiGAxiABBiKBTINCAUQABiGAxiABBiKBTIGCAYQRRg8MgYIBxBFGDzSAQgzODQ3ajBqN6gCALACAA&um=1&ie=UTF-8&fb=1&gl=np&sa=X&geocode=KcHU2kHSGes5MeXKOIWX3n9h&daddr=Setopul,+Kathmandu+44600",
     contact: "+977-9808921454",
-    hours: "6:00 AM - 9:00 PM",
+    hours: "9:00 AM - 6:00 PM",
     imgUrl:
       "https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/irani-hero-imgs/branches/tpdasabvu6l8328dldmr",
     hasGoogleMaps: true,
@@ -74,7 +84,7 @@ const branchLocations: BranchLocation[] = [
     mapUrl:
       "https://www.google.com/maps?sca_esv=da1ae0c58ff6cd0b&lqi=ChNpcmFuaSBjaGl5YSBuZWFyIG1lIgOQAQFIr6rH8s-ygIAIWiEQABABGAAYASITaXJhbmkgY2hpeWEgbmVhciBtZTICbmWSAQtjb2ZmZWVfc2hvcA&phdesc=7g6-WLqNVWA&vet=12ahUKEwjW3rPllo6MAxX4UGcHHZbxE4QQ8UF6BAgEEFw..i&lei=JIvWZ9a8O_ihnesPluPPoAg&cs=1&um=1&ie=UTF-8&fb=1&gl=np&sa=X&geocode=KYN4ElEAG-s5McrLW08wWk8m&daddr=Mahalaxmi+44600",
     contact: "+977-9851310532",
-    hours: "6:00 AM - 9:00 PM",
+    hours: "9:00 AM - 6:00 PM",
     imgUrl:
       "https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/irani-hero-imgs/branches/bhtggnir0qklp7sl4inj",
     hasGoogleMaps: true,
@@ -86,20 +96,9 @@ const branchLocations: BranchLocation[] = [
     mapUrl:
       "https://www.google.com/maps/dir//Irani+Chiya+-+Sinamangal,+M9W2%2B92J,+Kathmandu+44600/@27.7167161,85.3835776,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x39eb19004b14ce53:0x1b281810e757a263!2m2!1d85.3499998!2d27.6959572?entry=ttu&g_ep=EgoyMDI2MDMxNS4wIKXMDSoASAFQAw%3D%3D",
     contact: "+977-9857090744",
-    hours: "6:00 AM - 9:00 PM",
+    hours: "9:00 AM - 6:00 PM",
     imgUrl:
       "https://res.cloudinary.com/dmq5tx0bd/image/upload/v1773907464/irani/Whisk_2fda80c70564f928ba14cbec4fb6b61adr_hn1dje.png",
-    hasGoogleMaps: true,
-  },
-  {
-    name: "Irani Chiya - Baneshwor",
-    address: "Bhimsengola Marga, Kathmandu",
-    mapUrl:
-      "https://www.google.com/maps?sca_esv=da1ae0c58ff6cd0b&lqi=ChNpcmFuaSBjaGl5YSBuZWFyIG1lIgOQAQFI0NPcsaW7gIAIWiEQABABGAAYASITaXJhbmkgY2hpeWEgbmVhciBtZTICbmWSAQtjb2ZmZWVfc2hvcA&phdesc=1TO3F6bfh7I&vet=12ahUKEwjW3rPllo6MAxX4UGcHHZbxE4QQ8UF6BAgEEFw..i&lei=JIvWZ9a8O_ihnesPluPPoAg&cs=1&um=1&ie=UTF-8&fb=1&gl=np&sa=X&geocode=KWuxMnQAGes5MblsGPBxC9OX&daddr=M8VV%2B8RF,+Bhimsengola+Marg,+Kathmandu+44600",
-    contact: "+977-9767648218",
-    hours: "6:00 AM - 9:00 PM",
-    imgUrl:
-      "https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/irani-hero-imgs/branches/r0obfrwqc2w3o7s3xak9",
     hasGoogleMaps: true,
   },
   {
@@ -108,7 +107,7 @@ const branchLocations: BranchLocation[] = [
     mapUrl:
       "https://www.google.com/maps?sca_esv=da1ae0c58ff6cd0b&lqi=ChNpcmFuaSBjaGl5YSBuZWFyIG1lIgOQAQFIy9-d4Pm6gIAIWiEQABABGAAYASITaXJhbmkgY2hpeWEgbmVhciBtZTICbmWSAQtjb2ZmZWVfc2hvcA&phdesc=h25d7u2FR84&vet=12ahUKEwjW3rPllo6MAxX4UGcHHZbxE4QQ8UF6BAgEEFw..i&lei=JIvWZ9a8O_ihnesPluPPoAg&cs=1&um=1&ie=UTF-8&fb=1&gl=np&sa=X&geocode=KYtjiFsAGes5MXhWuRT_XrPb&daddr=M87X%2B3HC,+Mahalaxmi+44705",
     contact: "+977-9807659081",
-    hours: "6:00 AM - 9:00 PM",
+    hours: "9:00 AM - 6:00 PM",
     imgUrl:
       "https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/irani-hero-imgs/branches/bevyppyat8o4ykkci2wa",
     hasGoogleMaps: true,
@@ -119,7 +118,7 @@ const branchLocations: BranchLocation[] = [
     mapUrl:
       "https://www.google.com/maps?sca_esv=5b982d6d415b0dfc&vet=12ahUKEwjG2e-hnpSMAxUC1TgGHRNtHwIQ8UF6BAgFEFw..i&lei=SbjZZ4aREIKq4-EPk9r9EA&cs=1&um=1&ie=UTF-8&fb=1&gl=np&sa=X&geocode=KeWKWwUAGes5MbErX1Pm2-MC&daddr=M8FP%2B22R,+Shahid+Shukra+Raj+Sadak+Paschim,+Lalitpur+44600",
     contact: "+977-9742831495",
-    hours: "6:00 AM - 9:00 PM",
+    hours: "9:00 AM - 6:00 PM",
     imgUrl:
       "https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/irani-hero-imgs/branches/hrkxfdzq6oy4fprdoqih",
     hasGoogleMaps: true,
@@ -130,7 +129,7 @@ const branchLocations: BranchLocation[] = [
     mapUrl:
       "https://www.google.com/maps?sca_esv=5b982d6d415b0dfc&vet=12ahUKEwjG2e-hnpSMAxUC1TgGHRNtHwIQ8UF6BAgFEFw..i&lei=SbjZZ4aREIKq4-EPk9r9EA&cs=1&um=1&ie=UTF-8&fb=1&gl=np&sa=X&geocode=KQtbkHwAGes5MfB3RjVxAwh_&daddr=P88W%2B8J9,+Kathmandu+44600",
     contact: "+977-9709737912",
-    hours: "6:00 AM - 9:00 PM",
+    hours: "9:00 AM - 6:00 PM",
     imgUrl:
       "https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/irani-hero-imgs/branches/vlxyui5iwqqqtiunluv8",
     hasGoogleMaps: true,
@@ -141,7 +140,7 @@ const branchLocations: BranchLocation[] = [
     mapUrl:
       "https://www.google.com/maps?sca_esv=da1ae0c58ff6cd0b&lqi=ChNpcmFuaSBjaGl5YSBuZWFyIG1lIgOQAQFIxPznmry7gIAIWiEQABABGAAYASITaXJhbmkgY2hpeWEgbmVhciBtZTICbmWSAQRjYWZl&phdesc=ukpzSAcLP_Y&vet=12ahUKEwjW3rPllo6MAxX4UGcHHZbxE4QQ8UF6BAgEEFw..i&lei=JIvWZ9a8O_ihnesPluPPoAg&cs=1&um=1&ie=UTF-8&fb=1&gl=np&sa=X&geocode=Kb0koU4AF-s5MWR92ielfnxr&daddr=M84X%2BR7M,+Mahalaxmi",
     contact: "+977-9849136505",
-    hours: "6:00 AM - 9:00 PM",
+    hours: "9:00 AM - 6:00 PM",
     imgUrl:
       "https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/irani-hero-imgs/branches/qe9yowl7t79nxhakyfqn",
     hasGoogleMaps: true,
@@ -151,7 +150,7 @@ const branchLocations: BranchLocation[] = [
     address: "Kotdevi Marga, Koteshwor",
     mapUrl: "",
     contact: "+977-9841107048",
-    hours: "6:00 AM - 9:00 PM",
+    hours: "9:00 AM - 6:00 PM",
     imgUrl:
       "https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/irani-hero-imgs/branches/qpbllaiek7jwlfld13ex",
     hasGoogleMaps: false,
@@ -162,7 +161,7 @@ const branchLocations: BranchLocation[] = [
     mapUrl:
       "https://www.google.com/maps?s=web&sca_esv=a7d38202f4f38a7c&lqi=ChNpcmFuaSBjaGl5YSBuZWFyIG1lIgOQAQFImb_thfm8gIAIWiUQABABGAAYARgCGAMiE2lyYW5pIGNoaXlhIG5lYXIgbWUyAm5lkgELY29mZmVlX3Nob3A&phdesc=juo5zUjiiMk&vet=12ahUKEwjw96nfwquTAxUjd2wGHe0uJygQ1YkKegQIKxAB..i&cs=1&um=1&ie=UTF-8&fb=1&gl=np&sa=X&geocode=KfWX-BgAGes5McCL2hUizCHL&daddr=M8R8%2BGG4+Bhanchha+Sekuwa+Corner,+Near,+Tripura+Marg,+Kathmandu+44600",
     contact: "+977-9865296322",
-    hours: "6:00 AM - 9:00 PM",
+    hours: "9:00 AM - 6:00 PM",
     imgUrl:
       "https://res.cloudinary.com/dmq5tx0bd/image/upload/v1773909424/Whisk_2a47c13801ce871a8e545d48c3645ed4eg_eq5ma4.png",
     hasGoogleMaps: true,
@@ -173,7 +172,7 @@ const branchLocations: BranchLocation[] = [
     mapUrl:
       "https://www.google.com/maps?s=web&sca_esv=a7d38202f4f38a7c&lqi=ChNpcmFuaSBjaGl5YSBuZWFyIG1lIgOQAQFIv7fqhMW9gIAIWiUQABABGAAYARgCGAMiE2lyYW5pIGNoaXlhIG5lYXIgbWUyAm5lkgELY29mZmVlX3Nob3A&phdesc=7_q67Dw9Prc&vet=12ahUKEwjw96nfwquTAxUjd2wGHe0uJygQ1YkKegQILxAB..i&cs=1&um=1&ie=UTF-8&fb=1&gl=np&sa=X&geocode=KctmU0AAGes5MdbjB7UuvUZK&daddr=M8MM%2BG29,+Kathmandu+44600",
     contact: "+977-9843524899",
-    hours: "6:00 AM - 9:00 PM",
+    hours: "9:00 AM - 6:00 PM",
     imgUrl:
       "https://res.cloudinary.com/dmq5tx0bd/image/upload/v1773909424/Whisk_2a47c13801ce871a8e545d48c3645ed4eg_eq5ma4.png",
     hasGoogleMaps: true,
@@ -184,7 +183,7 @@ const branchLocations: BranchLocation[] = [
     mapUrl:
       "https://www.google.com/maps?s=web&sca_esv=a7d38202f4f38a7c&lqi=ChNpcmFuaSBjaGl5YSBuZWFyIG1lIgOQAQFIuqjSscuzgIAIWiUQABABGAAYARgCGAMiE2lyYW5pIGNoaXlhIG5lYXIgbWUyAm5lkgELY29mZmVlX3Nob3A&phdesc=1XFsaLieG2I&vet=12ahUKEwjw96nfwquTAxUjd2wGHe0uJygQ1YkKegQIKhAB..i&cs=1&um=1&ie=UTF-8&fb=1&gl=np&sa=X&geocode=KVkSrBcAGes5MWPKD8tbC98s&daddr=M8WH%2B25V,+%E0%A4%9F%E0%A4%82%E0%A4%95+%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%B8%E0%A4%BE%E0%A4%A6+%E0%A4%98%E0%A5%81%E0%A4%AE%E0%A5%8D%E0%A4%A4%E0%A5%80+%E0%A4%B8%E0%A4%A1%E0%A4%95,+Kathmandu+44600",
     contact: "+977-9828889925",
-    hours: "6:00 AM - 9:00 PM",
+    hours: "9:00 AM - 6:00 PM",
     imgUrl:
       "https://res.cloudinary.com/dmq5tx0bd/image/upload/v1773909424/Whisk_2a47c13801ce871a8e545d48c3645ed4eg_eq5ma4.png",
     hasGoogleMaps: true,
@@ -195,7 +194,7 @@ const branchLocations: BranchLocation[] = [
     mapUrl:
       "https://www.google.com/maps?s=web&sca_esv=a7d38202f4f38a7c&lqi=ChNpcmFuaSBjaGl5YSBuZWFyIG1lIgOQAQFI-YrF5Li9gIAIWiUQABABGAAYARgCGAMiE2lyYW5pIGNoaXlhIG5lYXIgbWUyAm5lkgEJdGVhX2hvdXNl&phdesc=M5opcSHSHZQ&vet=12ahUKEwjw96nfwquTAxUjd2wGHe0uJygQ1YkKegQILhAB..i&cs=1&um=1&ie=UTF-8&fb=1&gl=np&sa=X&geocode=KWvHsyYAGes5MWBwq9R5XlJX&daddr=Kathmandu+44600",
     contact: "+977-9860190522",
-    hours: "6:00 AM - 9:00 PM",
+    hours: "9:00 AM - 6:00 PM",
     imgUrl:
       "https://res.cloudinary.com/dmq5tx0bd/image/upload/v1773909424/Whisk_2a47c13801ce871a8e545d48c3645ed4eg_eq5ma4.png",
     hasGoogleMaps: true,
@@ -205,7 +204,7 @@ const branchLocations: BranchLocation[] = [
     address: "Bhaisepati",
     mapUrl: "",
     contact: "+977-9851137532",
-    hours: "6:00 AM - 9:00 PM",
+    hours: "9:00 AM - 6:00 PM",
     imgUrl:
       "https://res.cloudinary.com/dmq5tx0bd/image/upload/v1773909424/Whisk_2a47c13801ce871a8e545d48c3645ed4eg_eq5ma4.png",
     hasGoogleMaps: false,
@@ -215,7 +214,7 @@ const branchLocations: BranchLocation[] = [
     address: "Kharibot, Balkumari",
     mapUrl: "",
     contact: "+977-9849300842",
-    hours: "6:00 AM - 9:00 PM",
+    hours: "9:00 AM - 6:00 PM",
     imgUrl:
       "https://res.cloudinary.com/dmq5tx0bd/image/upload/v1773909424/Whisk_2a47c13801ce871a8e545d48c3645ed4eg_eq5ma4.png",
     hasGoogleMaps: false,
@@ -225,7 +224,7 @@ const branchLocations: BranchLocation[] = [
     address: "Radhe Radhe",
     mapUrl: "",
     contact: "+977-9808921454",
-    hours: "6:00 AM - 9:00 PM",
+    hours: "9:00 AM - 6:00 PM",
     imgUrl:
       "https://res.cloudinary.com/dmq5tx0bd/image/upload/v1773909424/Whisk_2a47c13801ce871a8e545d48c3645ed4eg_eq5ma4.png",
     hasGoogleMaps: false,
@@ -235,7 +234,7 @@ const branchLocations: BranchLocation[] = [
     address: "KIST Hospital, Imadol Road",
     mapUrl: "",
     contact: "+977-9849136505",
-    hours: "6:00 AM - 9:00 PM",
+    hours: "9:00 AM - 6:00 PM",
     imgUrl:
       "https://res.cloudinary.com/dmq5tx0bd/image/upload/v1773909424/Whisk_2a47c13801ce871a8e545d48c3645ed4eg_eq5ma4.png",
     hasGoogleMaps: false,

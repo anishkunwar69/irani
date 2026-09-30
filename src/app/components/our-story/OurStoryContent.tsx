@@ -17,7 +17,7 @@ function OurStoryContent() {
     { iconName: "FaUsers", number: "5000+", text: "Daily Customers" },
     { iconName: "FaMugHot", number: "21", text: "Premium Locations" },
     { iconName: "FaLeaf", number: "12+", text: "Signature Blends" },
-    { iconName: "FaCoffee", number: "50000", text: "Monthly Servings" },
+    { iconName: "FaCoffee", number: "200000", text: "Monthly Servings" },
   ];
 
   return (

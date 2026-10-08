@@ -102,15 +102,11 @@ function Footer() {
                   <h4 className="text-white font-quicksand font-semibold text-sm sm:text-base">
                     Information
                   </h4>
-                  {["Menu", "Branches", "Careers", "Joint Venture"].map(
+                  {["Menu", "Branches", "Careers"].map(
                     (item) => (
                       <Link
                         key={item}
-                        href={
-                          item === "Joint Venture"
-                            ? "/joint-venture"
-                            : `#${item.toLowerCase().replace(/\s+/g, "-")}`
-                        }
+                        href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
                         className="block text-sm sm:text-base text-white/80 hover:text-white font-quicksand transition-colors hover:translate-x-1 duration-300"
                       >
                         {item}
@@ -151,7 +147,7 @@ function Footer() {
                   },
                   {
                     icon: FaClock,
-                    text: "6:00 AM - 9:00 PM",
+                    text: "9:00 AM - 6:00 PM",
                     label: "Business Hours",
                   },
                 ].map((item, index) => (
@@ -259,7 +255,7 @@ function Footer() {
                 <p className="text-white/80 font-quicksand text-xs sm:text-sm">
                   Created by:{" "}
                   <a
-                    href="https://anishkunwar.com/"
+                    href="http://akstudio.agency/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-white hover:text-[#1B4D2E] transition-colors font-semibold"

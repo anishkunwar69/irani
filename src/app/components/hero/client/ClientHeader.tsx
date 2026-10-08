@@ -184,13 +184,7 @@ const ClientHeader = () => {
               </Link>
             ))}
 
-            <Link
-              href="/joint-venture"
-              className="font-quicksand text-sm uppercase tracking-[0.2em] text-[#C7962D] hover:text-[#DFB668] transition-all relative group"
-            >
-              Badda's Chiya
-              <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-[#DFB668] to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-            </Link>
+
           </motion.div>
 
           <div className="xl:hidden">
@@ -226,13 +220,7 @@ const ClientHeader = () => {
                 {item}
               </Link>
             ))}
-            <Link
-              href="/joint-venture"
-              className="font-quicksand text-sm sm:text-base py-2 uppercase tracking-wider text-[#C7962D] hover:text-[#DFB668] transition-all block"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Badda's Chiya
-            </Link>
+
           </div>
         </motion.div>
       )}

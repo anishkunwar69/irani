@@ -8,16 +8,18 @@ interface ClientFindUsMapProps {
   branches: BranchType[];
   center: LatLngExpression;
   onMarkerClick: (branch: BranchType) => void;
+  selectedBranch?: BranchType;
 }
 
 // Optimize map loading with simpler loading state
 const ClientOnlyMap = dynamic(() => import('../../ClientOnlyMap').then(mod => {
   const WrappedMap = (props: any) => {
-    const { branches, center, onMarkerClick, ...rest } = props;
+    const { branches, center, onMarkerClick, selectedBranch, ...rest } = props;
     return <mod.default 
       branches={branches} 
       center={center} 
       onMarkerClick={onMarkerClick} 
+      selectedBranch={selectedBranch}
       {...rest} 
     />;
   };
@@ -31,13 +33,14 @@ const ClientOnlyMap = dynamic(() => import('../../ClientOnlyMap').then(mod => {
   ) 
 });
 
-function ClientFindUsMap({ branches, center, onMarkerClick }: ClientFindUsMapProps) {
+function ClientFindUsMap({ branches, center, onMarkerClick, selectedBranch }: ClientFindUsMapProps) {
   return (
     <div className="h-full w-full">
       <ClientOnlyMap 
         branches={branches} 
         center={center} 
         onMarkerClick={onMarkerClick} 
+        selectedBranch={selectedBranch}
       />
     </div>
   );

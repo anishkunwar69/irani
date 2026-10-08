@@ -15,6 +15,7 @@ interface ClientOnlyMapProps {
   branches: Branch[];
   center: [number, number];
   onMarkerClick: (branch: Branch) => void;
+  selectedBranch?: Branch;
 }
 
 function fixLeafletIconUrls() {
@@ -55,9 +56,10 @@ function MarkerComponent({ branch, icon, onMarkerClick }: {
   );
 }
 
-function ClientOnlyMap({ branches, center, onMarkerClick }: ClientOnlyMapProps) {
+function ClientOnlyMap({ branches, center, onMarkerClick, selectedBranch }: ClientOnlyMapProps) {
   const [isMounted, setIsMounted] = useState(false);
   const [icon, setIcon] = useState<L.Icon | null>(null);
+  const [selectedIcon, setSelectedIcon] = useState<L.Icon | null>(null);
   
   useEffect(() => {
     setIsMounted(true);
@@ -67,11 +69,22 @@ function ClientOnlyMap({ branches, center, onMarkerClick }: ClientOnlyMapProps) 
       iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
       shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
       iconSize: [18, 30],
+      iconAnchor: [9, 30],
       popupAnchor: [0, -30],
       shadowSize: [30, 30]
     });
+
+    const highlightedIcon = new L.Icon({
+      iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-gold.png',
+      shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34],
+      shadowSize: [41, 41]
+    });
     
     setIcon(customIcon);
+    setSelectedIcon(highlightedIcon);
   }, []);
 
   if (!isMounted) {
@@ -96,14 +109,18 @@ function ClientOnlyMap({ branches, center, onMarkerClick }: ClientOnlyMapProps) 
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
-        {branches.map((branch, index) => (
-          <MarkerComponent
-            key={index}
-            branch={branch}
-            icon={icon || new L.Icon.Default()}
-            onMarkerClick={onMarkerClick}
-          />
-        ))}
+        {branches.map((branch, index) => {
+          const isSelected = selectedBranch?.name === branch.name;
+          const currentIcon = isSelected && selectedIcon ? selectedIcon : icon;
+          return (
+            <MarkerComponent
+              key={index}
+              branch={branch}
+              icon={currentIcon || new L.Icon.Default()}
+              onMarkerClick={onMarkerClick}
+            />
+          );
+        })}
       </MapContainer>
     </div>
   );

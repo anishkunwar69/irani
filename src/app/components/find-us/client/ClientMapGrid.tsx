@@ -35,6 +35,7 @@ function ClientMapGrid({ branches, initialBranch }: ClientMapGridProps) {
           branches={branches} 
           center={center} 
           onMarkerClick={onMarkerClick} 
+          selectedBranch={selectedBranch}
         />
       </div>
 

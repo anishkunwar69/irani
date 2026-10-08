@@ -24,7 +24,7 @@ type BranchLocation = {
 
 const branchLocations: BranchLocation[] = [
   {
-    name: "Irani Chiya - Main Branch",
+    name: "Irani Chiya - Head Office",
     address: "Kathmandu",
     mapUrl:
       "https://www.google.com/maps?vet=10CAAQoqAOahcKEwjYtLjh3JWXAxUAAAAAHQAAAAAQBQ..i&udm&fvr=1&pvq=Cg0vZy8xMXpmOXY2NmY4Ih0KF2lyYW5pIGNoaXlhIGhlYWQgb2ZmaWNlEAIYA4kBe11nIw9uUjk&lqi=ChdpcmFuaSBjaGl5YSBoZWFkIG9mZmljZVolIhdpcmFuaSBjaGl5YSBoZWFkIG9mZmljZSoKCAIQABABEAIQA5IBBGNhZmU&cs=1&um=1&ie=UTF-8&fb=1&gl=np&sa=X&geocode=KTNYwTfQGes5MXtdZyMPblI5&daddr=27.696490,+85.336545,+Kathmandu+44600",

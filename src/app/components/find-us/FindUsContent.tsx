@@ -7,7 +7,7 @@ import { memo } from "react";
 // Pre-define branches data to avoid computation during render
 const branches: BranchType[] = [
   {
-    name: "Irani Chiya - Main Branch",
+    name: "Irani Chiya - Head Office",
     address: "Kathmandu",
     phone: "01-4533520",
     hours: "9:00 AM - 6:00 PM",
